@@ -2,8 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    concurrentFeatures: true,
-    serverComponents: true,
+    swcMinify: true,
+    // concurrentFeatures: true,
+    // serverComponents: true,
   },
 }
 

@@ -1,10 +1,10 @@
 import type { GetStaticPropsContext } from 'next'
 
-const Presenter: React.FC<PresenterProps<typeof useContainer>> = ({}) => (
+const Presenter: React.FC<PresenterProps<typeof Container>> = ({}) => (
   <div></div>
 )
 
-const useContainer = (props: ContainerProps<typeof getStaticProps>) => {
+const Container = (props: PageContainerProps<typeof getStaticProps>) => {
   /** Logic here */
 
   const presenterProps = {}
@@ -18,6 +18,8 @@ export const getStaticProps = async ({}: GetStaticPropsContext) => {
   }
 }
 
-export default function Template(props: ContainerProps<typeof getStaticProps>) {
-  return <Presenter {...useContainer(props)} />
+export default function Template(
+  props: PageContainerProps<typeof getStaticProps>,
+) {
+  return <Presenter {...Container(props)} />
 }

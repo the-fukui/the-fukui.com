@@ -1,10 +1,10 @@
 ---
-name: 'components'
+name: 'component'
 root: '.'
 output: '.'
 ignore: []
 questions:
-  name: 'Please enter components name.'
+  name: 'Please enter component name.'
 ---
 
 # `components/{{ inputs.name | pascal }}/index.tsx`

@@ -13,6 +13,7 @@
   "scripts": {
     "preinstall": "sh env.sh",
     "env": "sh env.sh",
+    "generate:env-type": "gen-env-types -o packages/shared/@types/env.d.ts .env",
     "web": "yarn workspace web dev",
     "web:build": "yarn workspace web build",
     "web:start": "yarn workspace web start",
@@ -45,6 +46,7 @@
     "stylelint": "^14.8.2",
     "stylelint-config-standard": "^25.0.0",
     "stylelint-order": "^5.0.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "gen-env-types": "^1.3.4"
   }
 }

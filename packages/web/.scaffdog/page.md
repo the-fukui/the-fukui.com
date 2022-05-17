@@ -1,4 +1,21 @@
+---
+name: 'page'
+root: '.'
+output: '.'
+ignore: []
+questions:
+  name: 'Please enter pages name.'
+  path:
+    message: 'Please enter page path.'
+    initial: '/'
+    required: false
+---
+
+# `pages{{ inputs.path }}/{{ inputs.name }}.tsx`
+
+```tsx
 import type { GetStaticPropsContext } from 'next'
+import React from 'react'
 
 const Presenter: React.FC<PresenterProps<typeof Container>> = ({}) => (
   <div></div>
@@ -18,8 +35,9 @@ export const getStaticProps = async ({}: GetStaticPropsContext) => {
   }
 }
 
-export default function Template(
+export default function {{ inputs.name | pascal }}(
   props: PageContainerProps<typeof getStaticProps>,
 ) {
   return <Presenter {...Container(props)} />
 }
+```

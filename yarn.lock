@@ -1748,17 +1748,17 @@ fuse.js@^6.4.6:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.6.2.tgz#fe463fed4b98c0226ac3da2856a415576dc9a111"
   integrity sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==
 
-gensync@^1.0.0-beta.2:
-  version "1.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
-  integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
-
 gen-env-types@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/gen-env-types/-/gen-env-types-1.3.4.tgz#04684f42243ce0f3b12fd061f73d57bd3009be95"
   integrity sha512-pG3SEiF2WwK9INywDHLouAVOZPTc+XeDEhr/FW+y2P2i5zEbs4uTU+xhfekCayuaSMfV/hUFXczFsTSC7lVOEA==
   dependencies:
     chalk "^4.0.0"
+
+gensync@^1.0.0-beta.2:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
+  integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
 get-caller-file@^2.0.5:
   version "2.0.5"
@@ -3174,6 +3174,22 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+
+prettier-plugin-scaffdog@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-scaffdog/-/prettier-plugin-scaffdog-1.2.0.tgz#6d7badd55fed7dabe6ff0438c06cbe658755aa26"
+  integrity sha512-z8jMM6gbmq3d/u3slAAHhwocy9I0RQP3UL/a9Lf543oe8xR+FI6yH5RDFF1VCOESENmfPN9TZf4isBL18q3oLQ==
+  dependencies:
+    "@scaffdog/config" "1.2.0"
+    "@scaffdog/engine" "1.2.0"
+    "@scaffdog/types" "1.2.0"
+    minimatch "^3.0.4"
+    prettier "2.5.1"
+
+prettier@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
+  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
 prettier@^2.6.2:
   version "2.6.2"

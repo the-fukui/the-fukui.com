@@ -28,7 +28,7 @@ const Container = (props: ContainerProps) => {
   return { ...props, ...presenterProps }
 }
 
-export default function {{inputs.name}}(props: ContainerProps) {
+export default function {{ inputs.name }}(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }
 ```

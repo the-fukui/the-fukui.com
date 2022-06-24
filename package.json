@@ -21,14 +21,14 @@
     "web:lint:fix": "eslint ./packages/web/ --ext .js,jsx,.ts,.tsx --fix",
     "web:lint:style": "stylelint './packages/web/{styles,components}/**/*.{css,scss,sass}'",
     "web:lint:style:fix": "stylelint --fix './packages/web/{styles,components}/**/*.{css,scss,sass}'",
-    "web:format": "prettier --write --ignore-path ./packages/web/.gitignore './packages/web/**/*.{js,jsx,ts,tsx,json}'",
+    "web:format": "prettier --write --cache --ignore-path ./packages/web/.gitignore './packages/web/**/*.{js,jsx,ts,tsx,json}'",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "prettier --ignore-path .prettierignore --write"
+      "prettier --ignore-path .prettierignore --write --cache"
     ],
     "*.{css,less,sass,scss}": [
       "stylelint --fix"

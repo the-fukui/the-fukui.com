@@ -12,16 +12,16 @@
   },
   "dependencies": {
     "next": "^12.1.6",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "17.0.33",
-    "@types/react": "18.0.9",
-    "eslint": "8.15.0",
+    "@types/node": "18.0.0",
+    "@types/react": "18.0.14",
+    "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
-    "prettier-plugin-scaffdog": "^1.2.0",
-    "scaffdog": "^1.2.0",
-    "typescript": "4.6.4"
+    "prettier-plugin-scaffdog": "^1.4.0",
+    "scaffdog": "^1.4.0",
+    "typescript": "4.7.4"
   }
 }

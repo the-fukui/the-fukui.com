@@ -389,6 +389,14 @@
     "@scaffdog/types" "1.4.0"
     zod "^3.11.6"
 
+"@scaffdog/config@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@scaffdog/config/-/config-1.5.0.tgz#339cc01bb2923840c1813fb1f804e16c67cc19f3"
+  integrity sha512-85sI4EpTUAIC3owvIh/sHwwffg5GsngbtiLXpymcqf7mptCPgDG7pjUS6X71Pu+Fsng/Ef/pY8CYIoIjz79JpQ==
+  dependencies:
+    "@scaffdog/types" "1.5.0"
+    zod "^3.11.6"
+
 "@scaffdog/core@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@scaffdog/core/-/core-1.4.0.tgz#92991e4963215d8ba7ea80d75722b364abbbea6f"
@@ -414,6 +422,19 @@
     is-plain-object "^5.0.0"
     safe-eval "^0.4.1"
 
+"@scaffdog/engine@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@scaffdog/engine/-/engine-1.5.0.tgz#a8c6c4007bb730c651c43e5853c64db92e0e03e5"
+  integrity sha512-4lokPOm0jW1JVY9a55MGS8mMjFVFbQuw9LDKFM6oQ3NmoTx2xbs0+Pzi635gg/L67H2BXgSHZw7JpIGY8Q4dnA==
+  dependencies:
+    "@scaffdog/error" "1.5.0"
+    "@scaffdog/types" "1.5.0"
+    change-case "^4.1.2"
+    dayjs "^1.10.4"
+    esprima "^4.0.1"
+    is-plain-object "^5.0.0"
+    safe-eval "^0.4.1"
+
 "@scaffdog/error@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@scaffdog/error/-/error-1.4.0.tgz#bb039118c69386e60c8a86d9ef61930f42feeac0"
@@ -422,10 +443,23 @@
     "@scaffdog/types" "1.4.0"
     chalk "^4.1.0"
 
+"@scaffdog/error@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@scaffdog/error/-/error-1.5.0.tgz#f10d8827de5a850dff042ed95e3eb4110e50ef5a"
+  integrity sha512-sahs6iR21C/BC9YlZRqUAbippQ/0sy/Ow1uYz0hkHgztxjffoCEzovygmR106RRlScjJE4R+wTez3W5A2bWNrw==
+  dependencies:
+    "@scaffdog/types" "1.5.0"
+    chalk "^4.1.0"
+
 "@scaffdog/types@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@scaffdog/types/-/types-1.4.0.tgz#af29eea5e0271bc25cb9f4f2d312d2327335e3b4"
   integrity sha512-qeI833JK1iYeT2eeq2bU3+bnIC4v0f6sBvm35ZKh49DScHghUGMe2getokt9n4G3D9kQr6TI0Qaqf4uUhoqp1Q==
+
+"@scaffdog/types@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@scaffdog/types/-/types-1.5.0.tgz#ad1a4f69c3c4ff2b1460ce970b9a5057e87e6a64"
+  integrity sha512-H4lwA7Rl4r2FPKhZ7uNGrgE+rcnvDYH21/xKFGA949GxGgTkc6kRkb9tshXn5Dk1NBSy++WwMM8xCVtduGq10Q==
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
@@ -2777,14 +2811,7 @@ min-indent@^1.0.0:
   resolved "https://registry.yarnpkg.com/min-indent/-/min-indent-1.0.1.tgz#a63f681673b30571fbe8bc25686ae746eefa9869"
   integrity sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==
 
-minimatch@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
-  dependencies:
-    brace-expansion "^1.1.7"
-
-minimatch@^3.1.1, minimatch@^3.1.2:
+minimatch@^3.0.4, minimatch@^3.1.1, minimatch@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
   integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
@@ -3259,14 +3286,14 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier-plugin-scaffdog@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-scaffdog/-/prettier-plugin-scaffdog-1.4.0.tgz#c4f4c982600b79bc53089d7a1796ec6859ccebde"
-  integrity sha512-StFYjuY+g/my3NDTeLBWuebDr3IvYdJw/jhWCb/ni6q0t+J0EAc+kClFBsU5ayNS6io+0HZqHXvJLCq4s5umGQ==
+prettier-plugin-scaffdog@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-scaffdog/-/prettier-plugin-scaffdog-1.5.0.tgz#61bd7bb120cdbf46f7c7ce50299ebb33ecd24c66"
+  integrity sha512-1joqyaF8RQg0I9LF1hTclvthpAz51F3oo90jFS9M0BDbw7mbqjk5YH91dQ7tva9/M0GhwZwaLysHmyXPmsSGEQ==
   dependencies:
-    "@scaffdog/config" "1.4.0"
-    "@scaffdog/engine" "1.4.0"
-    "@scaffdog/types" "1.4.0"
+    "@scaffdog/config" "1.5.0"
+    "@scaffdog/engine" "1.5.0"
+    "@scaffdog/types" "1.5.0"
     minimatch "^3.0.4"
     prettier "2.7.1"
 

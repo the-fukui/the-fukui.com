@@ -20,7 +20,7 @@
     "@types/react": "18.0.14",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
-    "prettier-plugin-scaffdog": "^1.4.0",
+    "prettier-plugin-scaffdog": "^1.5.0",
     "scaffdog": "^1.4.0",
     "typescript": "4.7.4"
   }

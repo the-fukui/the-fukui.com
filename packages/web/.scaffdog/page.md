@@ -33,6 +33,10 @@ export const getStaticProps = async ({}: GetStaticPropsContext) => {
     props: {},
     revalidate: 60,
   }
+
+  // return {
+  //   notFound:true
+  // } as const
 }
 
 export default function {{ inputs.name | pascal }}(

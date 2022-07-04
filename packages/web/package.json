@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/node": "18.0.1",
     "@types/react": "18.0.14",
-    "eslint": "8.18.0",
+    "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "prettier-plugin-scaffdog": "^1.5.0",
     "scaffdog": "^1.5.0",

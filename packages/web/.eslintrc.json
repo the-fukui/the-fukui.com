@@ -4,5 +4,8 @@
     "next": {
       "rootDir": "./packages/web/"
     }
+  },
+  "parserOptions": {
+    "project": "../../tsconfig.base.json"
   }
 }

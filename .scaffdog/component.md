@@ -1,5 +1,5 @@
 ---
-name: 'component'
+name: '[@web] component'
 root: '.'
 output: '.'
 ignore: []
@@ -7,7 +7,7 @@ questions:
   name: 'Please enter component name.'
 ---
 
-# `components/{{ inputs.name | pascal }}/index.tsx`
+# `packages/web/components/{{ inputs.name | pascal }}/index.tsx`
 
 ```tsx
 import React from 'react'
@@ -33,7 +33,7 @@ export default function {{ inputs.name | pascal }}(props: ContainerProps) {
 }
 ```
 
-# `components/{{ inputs.name | pascal }}/index.scss`
+# `packages/web/components/{{ inputs.name | pascal }}/index.scss`
 
 ```scss
 

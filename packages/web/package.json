@@ -7,8 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "scaffold": "scaffdog generate"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^12.2.1",
@@ -18,10 +17,6 @@
   "devDependencies": {
     "@types/node": "18.0.3",
     "@types/react": "18.0.15",
-    "eslint": "8.19.0",
-    "eslint-config-next": "12.2.1",
-    "prettier-plugin-scaffdog": "^1.5.0",
-    "scaffdog": "^1.5.0",
-    "typescript": "4.7.4"
+    "eslint-config-next": "12.2.1"
   }
 }

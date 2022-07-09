@@ -1,5 +1,5 @@
 ---
-name: 'page'
+name: '[@web] page'
 root: '.'
 output: '.'
 ignore: []
@@ -11,7 +11,7 @@ questions:
     required: false
 ---
 
-# `pages{{ inputs.path }}/{{ inputs.name }}.tsx`
+# `packages/web/pages{{ inputs.path }}/{{ inputs.name }}.tsx`
 
 ```tsx
 import type { GetStaticPropsContext } from 'next'

@@ -17,6 +17,6 @@
   "devDependencies": {
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
-    "eslint-config-next": "12.2.2"
+    "eslint-config-next": "12.2.3"
   }
 }

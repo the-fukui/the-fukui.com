@@ -16,4 +16,5 @@ module.exports = {
             },
         },
     ],
+    ignorePatterns: ["astro.config.mjs"]
 }

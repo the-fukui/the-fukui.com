@@ -99,15 +99,16 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
-_:-ms-fullscreen,
-:root {
-  .list__link {
-    padding-top: 5px;
-  }
-  .list__external {
-    padding-bottom: 5px;
-  }
-}
+// _:fullscreen,
+// :root {
+//   .list__link {
+//     padding-top: 5px;
+//   }
+
+//   .list__external {
+//     padding-bottom: 5px;
+//   }
+// }
 
 .list {
   display: flex;
@@ -120,7 +121,7 @@ _:-ms-fullscreen,
   }
 
   &__item {
-    @keyframes slideIn {
+    @keyframes slide-in {
       0% {
         transform: translateY(-15px);
         opacity: 0;
@@ -137,15 +138,13 @@ _:-ms-fullscreen,
       }
     }
 
-    animation: slideIn 0.2s steps(5, start) 1 normal both;
-
+    animation: slide-in 0.2s steps(5, start) 1 normal both;
     font-size: 2rem;
     font-family: $ff-bl;
     font-weight: bold;
     background: $black;
     transition: background-color 0.2s;
     color: white;
-
     margin: 5px;
 
     // &:last-child {
@@ -167,7 +166,6 @@ _:-ms-fullscreen,
     height: 100%;
     display: flex;
     align-items: center;
-
     padding: 0 5px;
 
     @include mq-down(sm) {

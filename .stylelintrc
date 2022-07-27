@@ -3,8 +3,9 @@
         "stylelint-order"
     ],
     "extends": [
-        "stylelint-config-html",
-        "stylelint-config-standard"
+        "stylelint-config-standard",
+        "stylelint-config-standard-scss",
+        "stylelint-config-html"
     ],
     "rules": {
         "selector-pseudo-class-no-unknown": [
@@ -22,10 +23,14 @@
                 "ignoreAtRules": [
                     "mixin",
                     "include",
-                    "extend"
+                    "extend",
+                    "function",
+                    "return"
                 ]
             }
         ],
-        "no-empty-source": null
+        "no-empty-source": null,
+        "scss/at-function-pattern": null,
+        "scss/at-mixin-pattern": null
     }
 }

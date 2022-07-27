@@ -3,20 +3,15 @@ import TheNavigation from './TheNavigation.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  components: {
+    TheNavigation,
+  },
   props: {
     currentPath: {
       type: String,
       required: true,
       default: '/',
     },
-  },
-  components: {
-    TheNavigation,
-  },
-  setup(props) {
-    return {
-      currentPath: props.currentPath,
-    }
   },
 })
 </script>
@@ -56,10 +51,10 @@ export default defineComponent({
       </h1>
     </div>
     <div class="description">
-      <div class="description__mask"></div>
+      <div class="description__mask" />
       <h2 class="description__text">WEB ENGINEER</h2>
     </div>
-    <TheNavigation class="the-navigation" :currentPath="currentPath" />
+    <TheNavigation class="the-navigation" :current-path="currentPath" />
   </header>
 </template>
 
@@ -79,7 +74,7 @@ export default defineComponent({
   position: relative;
 
   @include mq-down(md) {
-    &:after {
+    &::after {
       content: '';
       width: 100%;
       height: 100%;
@@ -102,8 +97,9 @@ export default defineComponent({
   }
 
   &__1 {
-    //２番めも移動しているので、２番めの移動量も足す必要がある（60% + 60%）
+    // ２番めも移動しているので、２番めの移動量も足す必要がある（60% + 60%）
     transform: translateY(120%) scale(0.4);
+
     // @include mq-down(md) {
     //   transform: translateY(160%) scale(0.3);
     // }
@@ -111,6 +107,7 @@ export default defineComponent({
 
   &__2 {
     transform: translateY(60%) scale(0.6);
+
     // @include mq-down(md) {
     //   transform: translateY(100%) scale(0.4);
     // }
@@ -118,6 +115,7 @@ export default defineComponent({
 
   &__3 {
     transform: translateY(20%) scale(0.8);
+
     // @include mq-down(md) {
     //   transform: translateY(50%) scale(0.6);
     // }
@@ -145,11 +143,12 @@ export default defineComponent({
   }
 
   &__text {
-    @include ff-gill-inline();
-    font-size: 3rem;
-    padding: 0px 15px;
+    @include ff-gill-inline;
 
-    @include lhCrop();
+    font-size: 3rem;
+    padding: 0 15px;
+
+    @include lhCrop;
 
     @include mq-down(md) {
       font-size: 2.5rem;

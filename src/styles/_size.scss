@@ -1,0 +1,58 @@
+$pc-width: 960px;
+$line-height: 1.875;
+
+// min-width
+$breakpoint-up: (
+  "sm": "screen and (min-width: 576px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 992px)",
+  "xl": "screen and (min-width: 1200px)",
+  "max": "screen and (min-width: 960px)",
+) !default;
+
+// max-width
+$breakpoint-down: (
+  "sm": "screen and (max-width: 575px)",
+  "md": "screen and (max-width: 767px)",
+  "lg": "screen and (max-width: 991px)",
+  "xl": "screen and (max-width: 1199px)",
+  "max": "screen and (max-width: 959px)",
+) !default;
+
+// responsive system
+@mixin mq-up($breakpoint: md) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: md) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin lhCrop($line-height: 1.875) {
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+  }
+}
+
+@mixin lhCropUnder($line-height: 1.7) {
+  &::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    margin-bottom: calc((1 - #{$line-height}) * 0.3em);
+  }
+}
+
+@function get_vw($size, $viewport: 375) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}

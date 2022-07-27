@@ -1,4 +1,6 @@
 ---
+import TheVignette from '@components/TheVignette.vue'
+
 export interface Props {
   title: string
 }
@@ -16,6 +18,7 @@ const { title } = Astro.props as Props
   </head>
   <body>
     <slot />
+    <TheVignette />
     <style>
       :global(h1) {
         font-size: var(--font-size-xl);

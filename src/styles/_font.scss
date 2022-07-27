@@ -1,0 +1,27 @@
+@mixin ff-gill-inline() {
+  font-family: gill-sans-nova-inline, Avenir-Black, Arial, '游ゴシック体', YuGothic,
+    '游ゴシック', 'Yu Gothic', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin ff-gill-nova() {
+  font-family: 'gill-sans-nova', Avenir-Black, Arial, '游ゴシック体', YuGothic,
+    '游ゴシック', 'Yu Gothic', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+@mixin ff-code(){
+  font-family: Courier, Consolas, Monaco, monospace;
+  font-weight: normal;
+  font-style: normal;
+  line-height:2;
+
+  @include mq-down(sm){
+    line-height:1.75;
+  }
+}
+
+$ff-bl:Avenir-Black, Arial, '游ゴシック体', YuGothic,'游ゴシック', 'Yu Gothic', sans-serif;

@@ -1,0 +1,31 @@
+{
+    "plugins": [
+        "stylelint-order"
+    ],
+    "extends": [
+        "stylelint-config-html",
+        "stylelint-config-standard"
+    ],
+    "rules": {
+        "selector-pseudo-class-no-unknown": [
+            true,
+            {
+                "ignorePseudoClasses": [
+                    "global"
+                ]
+            }
+        ],
+        "no-invalid-position-at-import-rule": null,
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "mixin",
+                    "include",
+                    "extend"
+                ]
+            }
+        ],
+        "no-empty-source": null
+    }
+}

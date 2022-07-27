@@ -53,7 +53,7 @@ import Card from '../components/Card.astro'
   .text-gradient {
     font-weight: 900;
     background-image: var(--astro-gradient);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 100% 200%;
     background-position-y: 100%;
@@ -66,6 +66,7 @@ import Card from '../components/Card.astro'
     100% {
       background-position-y: 0%;
     }
+
     50% {
       background-position-y: 80%;
     }
@@ -86,6 +87,7 @@ import Card from '../components/Card.astro'
     border-radius: 4px;
     padding: 0.15em 0.25em;
   }
+
   .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));

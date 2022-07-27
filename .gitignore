@@ -22,3 +22,6 @@ pnpm-debug.log*
 # yarn3 zero-dependency packages
 .yarn/
 !.yarn/release/*
+
+# eslint cache
+.eslintcache

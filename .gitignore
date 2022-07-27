@@ -18,3 +18,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# yarn3 zero-dependency packages
+.yarn/
+!.yarn/release/*

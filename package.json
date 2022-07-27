@@ -7,8 +7,8 @@
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-    "lint": "eslint ./**/*.{js,ts,tsx,astro} --fix --cache --no-error-on-unmatched-pattern",
-    "format": "prettier --write ./**/*.{js,ts,tsx,astro,json,yml,yaml,md} --cache --no-error-on-unmatched-pattern",
+    "lint": "eslint ./**/*.{js,ts,tsx,astro,vue} --fix --cache --no-error-on-unmatched-pattern",
+    "format": "prettier --write ./**/*.{js,ts,tsx,astro,vue,json,yml,yaml,md} --cache --no-error-on-unmatched-pattern",
     "lint-staged": "lint-staged",
     "postinstall": "husky install"
   },
@@ -22,16 +22,20 @@
     ]
   },
   "devDependencies": {
+    "@astrojs/vue": "^0.5.0",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
     "astro": "^1.0.0-rc.1",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-astro": "^0.15.0",
+    "eslint-plugin-vue": "^9.3.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.1.2"
+    "prettier-plugin-astro": "^0.1.2",
+    "vue": "^3.2.30"
   },
   "volta": {
     "node": "18.7.0"

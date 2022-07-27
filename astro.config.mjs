@@ -1,10 +1,16 @@
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
 
+import tsconfigPaths from 'vite-tsconfig-paths'
+
 // https://astro.build/config
 export default defineConfig({
     integrations: [vue()],
     vite: {
+        plugins: [tsconfigPaths()],
+        ssr: {
+            noExternal: ['destyle.css'],
+        },
         css: {
             preprocessorOptions: {
                 scss: {

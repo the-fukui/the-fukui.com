@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && tsc --noEmit && astro build",
+    "build": "yarn typecheck && astro build",
     "preview": "astro preview",
     "lint": "eslint ./**/*.{js,ts,tsx,astro,vue} --fix --cache --no-error-on-unmatched-pattern",
     "lint:style": "stylelint --fix ./**/*.{css,scss,sass,astro,vue} --cache",
+    "typecheck": "astro check && tsc --noEmit && vue-tsc --noEmit --skipLibCheck --allowJs ./src/**/*.vue ",
     "format": "prettier --write ./**/*.{js,ts,tsx,astro,vue,json,yml,yaml,md} --cache --no-error-on-unmatched-pattern",
     "lint-staged": "lint-staged",
     "postinstall": "husky install"
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@astrojs/vue": "^0.5.0",
+    "@types/node": "^18.6.1",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "@vue/eslint-config-typescript": "^11.0.0",
@@ -42,9 +44,14 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^26.0.0",
     "stylelint-order": "^5.0.0",
-    "vue": "^3.2.30"
+    "vite-tsconfig-paths": "^3.5.0",
+    "vue": "^3.2.30",
+    "vue-tsc": "^0.39.0"
   },
   "volta": {
     "node": "18.7.0"
+  },
+  "dependencies": {
+    "destyle.css": "^3.0.2"
   }
 }

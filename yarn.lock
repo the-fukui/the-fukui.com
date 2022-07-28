@@ -1770,10 +1770,10 @@ eslint-config-prettier@^8.5.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.5.0.tgz#5a81680ec934beca02c7b1a61cf8ca34b66feab1"
   integrity sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==
 
-eslint-plugin-astro@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.15.0.tgz#dd19c4e3e9ad007000cef302f928d4c8c0132fa5"
-  integrity sha512-2IZC583BN14XWKigVpytwdkXoSQYzJswe6Ni696M84yGa0cpqMHSUmkRkFEOTLDTbaHHsKM9fxjcCSEWFksivg==
+eslint-plugin-astro@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.16.0.tgz#dc271028d5916d133188976f7002536bf8f0623f"
+  integrity sha512-jhuXHxnAGMlmg88z2HbfizyaaEyWOnrPHMGjTZAr1qLzrcPvutDgS+yYOgtr/NJiVMdpNVocb7mFEbCBBHL8YQ==
   dependencies:
     "@typescript-eslint/types" "^5.25.0"
     astro-eslint-parser "^0.4.0"

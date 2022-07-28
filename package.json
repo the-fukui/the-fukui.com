@@ -50,7 +50,7 @@
     "stylelint-order": "^5.0.0",
     "vite-tsconfig-paths": "^3.5.0",
     "vue": "^3.2.30",
-    "vue-tsc": "^0.39.0"
+    "vue-tsc": "^0.39.2"
   },
   "volta": {
     "node": "18.7.0"

@@ -9,6 +9,7 @@
     "customSyntax": "postcss-html",
     "rules": {
         "string-quotes": "single",
+        "selector-class-pattern": null,
         "selector-pseudo-class-no-unknown": [
             true,
             {

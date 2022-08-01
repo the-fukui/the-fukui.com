@@ -1,10 +1,15 @@
 ---
 import TopHero from '@components/TopHero.astro'
+import TopWorks from '@components/TopWorks.astro'
 import Layout from '@layouts/Layout.astro'
+import { getPortfolioList } from '@libs/microcms'
+
+const [portfolio] = await Promise.all([getPortfolioList()])
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <TopHero class="top-hero" />
+    <TopWorks class="top-portfolio" portfolio={portfolio} />
   </main>
 </Layout>

@@ -25,10 +25,34 @@ const { title } = Astro.props as Props
   </head>
   <body>
     <TheHeader class="the-header" />
-    <slot />
+    <div class="main">
+      <slot />
+    </div>
     <TheFooter class="the-footer" />
     <TheVignette />
     <style lang="scss">
+      .main {
+        padding-bottom: 60px;
+        margin-top: -5vw;
+
+        // @include mq-down(md) {
+        //   margin-bottom: 100px;
+        // }
+
+        @include mq-down(sm) {
+          margin-top: calc(220px - 45vw);
+        }
+
+        &--not-found {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          min-height: 100vh;
+          padding: 0;
+          margin: 0 !important;
+        }
+      }
+
       .the-header {
         position: relative;
         width: 1200px;

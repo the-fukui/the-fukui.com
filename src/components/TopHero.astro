@@ -1,0 +1,134 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+const { class: className } = Astro.props as Props
+---
+
+<div class={`hero section ${className}`}>
+  <div class="hero__text"></div>
+  <div class="hero__image">
+    <img
+      src="/img/pc.svg"
+      class="hero__pc"
+      alt=""
+      width="399.39956"
+      height="431.76592"
+    />
+    <img src="/img/stripe.svg" class="hero__stripe" alt="" />
+  </div>
+</div>
+
+<style lang="scss">
+  // TODO: opt-out
+  @import 'typed.css/typed';
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+
+    @include mq-down(md) {
+      display: block;
+      padding-bottom: 45px;
+    }
+
+    &__text {
+      padding-left: 60px;
+      font-style: italic;
+      @include typed(
+        'Webエンジニアのふくいと申します。知っておいて損はしない。多分しないと思う。しないんじゃないかな。ま、ちょっと覚悟はしておけ。',
+        1
+      );
+
+      @include mq-down(md) {
+        padding: 0 30px 15px;
+      }
+
+      @include mq-down(sm) {
+        padding-bottom: 15px;
+      }
+    }
+
+    &__image {
+      position: relative;
+      margin-top: -10vw;
+
+      @include mq-down(md) {
+        display: block;
+        margin-top: 0;
+      }
+
+      // z-index: -2;
+    }
+
+    &__pc {
+      @keyframes fuwafuwa {
+        0% {
+          transform: translate(0, 0) rotateZ(-13deg);
+        }
+
+        50% {
+          transform: translate(0, -10px) rotateZ(-15deg);
+        }
+
+        100% {
+          transform: translate(0, 0) rotateZ(-16deg);
+        }
+      }
+
+      display: block;
+      width: calc(((100vw - #{$pc-width}) / 2 + #{$pc-width}) / 2.5);
+
+      @media all and (-ms-high-contrast: none) {
+        height: 100%; // IEでSVGがつぶれる
+      }
+
+      max-width: 400px;
+      margin-left: calc(((100vw - #{$pc-width}) / 2 + #{$pc-width}) / 2.5 / 8);
+      transform-origin: center center;
+
+      // transform: rotateZ(-15deg);
+      animation: fuwafuwa 4s infinite steps(96, start) alternate;
+
+      @include mq-down(md) {
+        width: calc(((100vw - #{$pc-width}) / 2 + #{$pc-width}) / 3);
+        margin-top: 7vw;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    &__stripe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: auto;
+      height: 3500px;
+      opacity: 0.03;
+      transform: translateY(-50%) translateX(-50%);
+      transform-origin: center center;
+      animation: expand 2.5s ease 0s;
+    }
+
+    @keyframes expand {
+      0% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-50%) rotateZ(-15deg);
+      }
+
+      100% {
+        opacity: 0.03;
+        transform: translateY(-50%) translateX(-50%) rotateZ(0deg);
+      }
+    }
+
+    // @keyframes spin {
+    //   0% {
+    //     transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    //   }
+
+    //   100% {
+    //     transform: translateY(-50%) translateX(-50%) rotate(360deg);
+    //   }
+    // }
+  }
+</style>

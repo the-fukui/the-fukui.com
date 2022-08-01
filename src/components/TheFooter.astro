@@ -1,0 +1,42 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+const { class: className } = Astro.props as Props
+---
+
+<footer class={`footer ${className}`}>
+  <a href="/">
+    <img
+      src="/img/logo.svg"
+      class="footer__logo"
+      alt="ふくいのふ"
+      loading="lazy"
+    />
+  </a>
+  <small class="footer__copyright">&copy; 2019 ふくい</small>
+</footer>
+
+<style lang="scss">
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    color: white;
+    background: $black;
+    border-bottom: 5px solid $red;
+
+    &__logo {
+      width: 200px;
+      height: auto;
+
+      @include mq-down(sm) {
+        width: get_vw(150);
+      }
+    }
+
+    &__copyright {
+      margin-top: 5px;
+      white-space: nowrap;
+    }
+  }
+</style>

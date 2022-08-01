@@ -1,8 +1,10 @@
 ---
-import TheVignette from '@/components/TheVignette.astro'
-import TheHeader from '@/components/TheHeader.astro'
+import TheFooter from '@components/TheFooter.astro'
+import TheHeader from '@components/TheHeader.astro'
+import TheVignette from '@components/TheVignette.astro'
+import '@styles/typekit.css'
+
 import 'destyle.css'
-import '@/styles/typekit.css'
 
 export interface Props {
   title: string
@@ -12,21 +14,23 @@ const { title } = Astro.props as Props
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
+    <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title}</title>
   </head>
   <body>
     <TheHeader class="the-header" />
     <slot />
+    <TheFooter class="the-footer" />
     <TheVignette />
     <style lang="scss">
       .the-header {
         position: relative;
-        z-index: 10;
         width: 1200px;
         margin-right: calc((100vw - 1200px) / 2);
         margin-bottom: calc(-200px + 10vw);
@@ -53,6 +57,78 @@ const { title } = Astro.props as Props
             }
           }
         }
+      }
+    </style>
+    <style lang="scss" is:global>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @include ff-gill-nova;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        overflow-x: hidden;
+        font-family: Avenir-Roman, Arial, '游ゴシック体', YuGothic,
+          '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
+          sans-serif;
+        font-size: 1.6rem;
+        font-weight: bold;
+        font-feature-settings: 'palt' 1;
+        line-height: $line-height;
+        letter-spacing: 0.5px;
+        overflow-wrap: break-word;
+        text-size-adjust: 100%;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+
+        @include mq-down(sm) {
+          font-size: get_vw(15);
+        }
+
+        background: {
+          image: url('/img/bg.jpg');
+          color: #cbbea4;
+          repeat: repeat;
+        }
+
+        // overflow-x: hidden;
+      }
+
+      // main {
+      //   // border: 1px solid #fff;
+      //   padding-bottom: 60px;
+      // }
+
+      .nuxt-progress {
+        z-index: 1010;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+
+      .section {
+        width: 100%;
+        max-width: $pc-width;
+        padding: 0 15px;
+        margin: 0 auto;
+      }
+
+      .lazyload,
+      .lazyloading {
+        filter: blur(10px);
+      }
+
+      .lazyloaded {
+        filter: blur(0);
+        transition: filter 0.2s;
       }
     </style>
   </body>

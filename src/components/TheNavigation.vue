@@ -123,29 +123,29 @@ export default defineComponent({
   &__item {
     @keyframes slide-in {
       0% {
-        transform: translateY(-15px);
         opacity: 0;
+        transform: translateY(-15px);
       }
 
       80% {
-        transform: translateY(4px);
         opacity: 1;
+        transform: translateY(4px);
       }
 
       100% {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    animation: slide-in 0.2s steps(5, start) 1 normal both;
-    font-size: 2rem;
+    margin: 5px;
     font-family: $ff-bl;
+    font-size: 2rem;
     font-weight: bold;
+    color: white;
     background: $black;
     transition: background-color 0.2s;
-    color: white;
-    margin: 5px;
+    animation: slide-in 0.2s steps(5, start) 1 normal both;
 
     // &:last-child {
     //   margin-right: 0;
@@ -156,16 +156,16 @@ export default defineComponent({
     }
 
     @include mq-down(sm) {
-      font-size: get_vw(24);
       margin: get_vw(10);
+      font-size: get_vw(24);
     }
   }
 
   &__link {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 100%;
     padding: 0 5px;
 
     @include mq-down(sm) {

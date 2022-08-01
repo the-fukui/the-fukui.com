@@ -1,6 +1,6 @@
 ---
 import TheVignette from '@/components/TheVignette.vue'
-import TheHeader from '@/components/TheHeader.vue'
+import TheHeader from '@/components/TheHeader.astro'
 import 'destyle.css'
 import '@/styles/typekit.css'
 
@@ -26,17 +26,17 @@ const currentPath = Astro.url.pathname
     <TheVignette />
     <style lang="scss">
       .the-header {
-        width: 1200px;
-        margin-right: calc((100vw - 1200px) / 2);
-        margin-left: auto;
-        margin-bottom: calc(-200px + 10vw);
         position: relative;
         z-index: 10;
+        width: 1200px;
+        margin-right: calc((100vw - 1200px) / 2);
+        margin-bottom: calc(-200px + 10vw);
+        margin-left: auto;
 
         @media screen and (max-width: 1199px) {
+          width: 100%;
           margin-right: 0;
           margin-bottom: calc(-400px + 25vw);
-          width: 100%;
         }
 
         @include mq-down(md) {

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Card from '../components/Card.astro'
+import Card from '@components/Card.astro'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -12,6 +12,7 @@ import Card from '../components/Card.astro'
     </p>
     <ul role="list" class="link-card-grid">
       <Card
+        client:visible
         href="https://docs.astro.build/"
         title="Documentation"
         body="Learn how Astro works and explore the official API docs."
@@ -45,20 +46,20 @@ import Card from '../components/Card.astro'
   }
 
   main {
-    margin: auto;
-    padding: 1em;
     max-width: 60ch;
+    padding: 1em;
+    margin: auto;
   }
 
   .text-gradient {
     font-weight: 900;
     background-image: var(--astro-gradient);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 100% 200%;
     background-position-y: 100%;
+    background-clip: text;
+    background-size: 100% 200%;
     border-radius: 0.4rem;
     animation: pulse 4s ease-in-out infinite;
+    -webkit-text-fill-color: transparent;
   }
 
   @keyframes pulse {
@@ -73,19 +74,19 @@ import Card from '../components/Card.astro'
   }
 
   .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    background: #4f39fa;
     padding: 1rem;
-    border-radius: 0.4rem;
+    margin: 1rem 0;
+    line-height: 1.6;
     color: var(--color-bg);
+    background: #4f39fa;
+    border-radius: 0.4rem;
   }
 
   .instructions code {
+    padding: 0.15em 0.25em;
     font-size: 0.875em;
     border: 0.1em solid var(--color-border);
     border-radius: 4px;
-    padding: 0.15em 0.25em;
   }
 
   .link-card-grid {

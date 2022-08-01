@@ -1,12 +1,11 @@
 {
-    "plugins": [
-        "stylelint-order"
-    ],
     "extends": [
+        "stylelint-config-html",
         "stylelint-config-standard",
         "stylelint-config-standard-scss",
-        "stylelint-config-html"
+        "stylelint-config-recess-order"
     ],
+    "customSyntax": "postcss-html",
     "rules": {
         "selector-pseudo-class-no-unknown": [
             true,

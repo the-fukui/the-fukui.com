@@ -1,5 +1,5 @@
 ---
-import TheVignette from '@/components/TheVignette.vue'
+import TheVignette from '@/components/TheVignette.astro'
 import TheHeader from '@/components/TheHeader.astro'
 import 'destyle.css'
 import '@/styles/typekit.css'
@@ -9,7 +9,6 @@ export interface Props {
 }
 
 const { title } = Astro.props as Props
-const currentPath = Astro.url.pathname
 ---
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@ const currentPath = Astro.url.pathname
     <title>{title}</title>
   </head>
   <body>
-    <TheHeader class="the-header" currentPath={currentPath} />
+    <TheHeader class="the-header" />
     <slot />
     <TheVignette />
     <style lang="scss">

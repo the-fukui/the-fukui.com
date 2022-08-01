@@ -3,10 +3,12 @@
         "stylelint-config-html",
         "stylelint-config-standard",
         "stylelint-config-standard-scss",
-        "stylelint-config-recess-order"
+        "stylelint-config-recess-order",
+        "stylelint-config-prettier"
     ],
     "customSyntax": "postcss-html",
     "rules": {
+        "string-quotes": "single",
         "selector-pseudo-class-no-unknown": [
             true,
             {

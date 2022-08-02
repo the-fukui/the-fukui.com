@@ -12,6 +12,7 @@ const handler: ProxyHandler<typeof _client> = {
   get: function (target, action: keyof typeof _client) {
     return (args: any) => {
       try {
+        console.log('GET', args)
         return target[action](args)
       } catch (e) {
         console.log({ e })
@@ -26,12 +27,15 @@ const client = new Proxy(_client, handler)
 /**
  * PortfolioList
  */
-export const getPortfolioList = () =>
-  client
-    .getList<MicroCMSContent.Blog>({
-      endpoint: 'portfolio',
-      queries: {
-        limit: 999,
-      },
-    })
-    .then((res) => res.contents)
+export const getPortfolioList = client
+  .getList<MicroCMSContent.Blog>({
+    endpoint: 'portfolio',
+    queries: {
+      limit: 999,
+    },
+  })
+  .then((res) => res.contents)
+
+export const getProfile = client.getObject<MicroCMSContent.Profile>({
+  endpoint: 'profile',
+})

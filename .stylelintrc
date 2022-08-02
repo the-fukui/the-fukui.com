@@ -33,6 +33,7 @@
         ],
         "no-empty-source": null,
         "scss/at-function-pattern": null,
-        "scss/at-mixin-pattern": null
+        "scss/at-mixin-pattern": null,
+        "scss/at-extend-no-missing-placeholder": null
     }
 }

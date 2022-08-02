@@ -1,15 +1,18 @@
 ---
 import TopHero from '@components/TopHero.astro'
+import TopProfile from '@components/TopProfile.astro'
 import TopWorks from '@components/TopWorks.astro'
 import Layout from '@layouts/Layout.astro'
-import { getPortfolioList } from '@libs/microcms'
+import { getPortfolioList, getProfile } from '@libs/microcms'
 
-const [portfolio] = await Promise.all([getPortfolioList()])
+const [portfolio, profie] = await Promise.all([getPortfolioList, getProfile])
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <TopHero class="top-hero" />
     <TopWorks class="top-portfolio" portfolio={portfolio} />
+    <TopProfile class="top-profile" text={profie.content} avatar={profie.avatar}
+    />
   </main>
 </Layout>

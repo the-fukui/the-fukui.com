@@ -24,12 +24,11 @@ const { class: className, portfolio } = Astro.props as Props
           {item.thumbnail && (
             <Picture
               src={item.thumbnail.url}
-              widths={[200, 400, 800]}
-              sizes="(max-width: 800px) 100vw, 800px"
+              widths={[200, 250, 300, 600]}
+              sizes="(max-width: 575px) 50vw, 300px"
               aspectRatio="1:1"
               alt={item.title || ''}
               class="portfolio__thumbnail"
-              format="avif"
             />
           )}
         </a>

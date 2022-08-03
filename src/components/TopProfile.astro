@@ -36,7 +36,12 @@ const LINKS = [
 <section id="profile" class={`profile section ${className}`}>
   <div class="profile__container">
     <div class="profile__content">
-      <h2 class="profile__title">PROFILE</h2>
+      <h2
+        class="profile__title"
+        data-watch-is-scrolled={JSON.stringify({ rootMargin: '-100px' })}
+      >
+        PROFILE
+      </h2>
       <div class="profile__text" set:html={text}></div>
       <ul class="links">
         {LINKS.map((item) => (

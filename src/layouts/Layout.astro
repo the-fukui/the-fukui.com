@@ -13,147 +13,149 @@ export interface Props {
 const { title } = Astro.props as Props
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <title>{title}</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
-    <link rel="preconnect" href="https://p.typekit.net" crossorigin />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  </head>
-  <body>
-    <TheHeader class="the-header" />
-    <div class="main">
-      <slot />
-    </div>
-    <TheFooter class="the-footer" />
-    <TheVignette />
-    <style lang="scss">
-      .main {
-        padding-bottom: 60px;
-        margin-top: -5vw;
+<script>
+  import { watchIsScrolled } from '@scripts/watchIsScrolled'
 
-        // @include mq-down(md) {
-        //   margin-bottom: 100px;
-        // }
+  watchIsScrolled()
+</script>
 
-        @include mq-down(sm) {
-          margin-top: calc(220px - 45vw);
-        }
+<title>{title}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="preconnect" href="https://use.typekit.net" crossorigin />
+<link rel="preconnect" href="https://p.typekit.net" crossorigin />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-        &--not-found {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          min-height: 100vh;
-          padding: 0;
-          margin: 0 !important;
-        }
+<body>
+  <TheHeader class="the-header" />
+  <div class="main">
+    <slot />
+  </div>
+  <TheFooter class="the-footer" />
+  <TheVignette />
+  <style lang="scss">
+    .main {
+      padding-bottom: 60px;
+      margin-top: -5vw;
+
+      // @include mq-down(md) {
+      //   margin-bottom: 100px;
+      // }
+
+      @include mq-down(sm) {
+        margin-top: calc(220px - 45vw);
       }
 
-      .the-header {
-        position: relative;
-        width: 1200px;
-        margin-right: calc((100vw - 1200px) / 2);
-        margin-bottom: calc(-200px + 10vw);
-        margin-left: auto;
+      &--not-found {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0 !important;
+      }
+    }
 
-        @media screen and (max-width: 1199px) {
-          width: 100%;
-          margin-right: 0;
-          margin-bottom: calc(-400px + 25vw);
-        }
+    .the-header {
+      position: relative;
+      width: 1200px;
+      margin-right: calc((100vw - 1200px) / 2);
+      margin-bottom: calc(-200px + 10vw);
+      margin-left: auto;
 
-        @include mq-down(md) {
-          margin-bottom: calc(-80px);
-        }
+      @media screen and (max-width: 1199px) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: calc(-400px + 25vw);
+      }
 
-        @include mq-down(sm) {
-          margin-bottom: calc(-50px);
-        }
+      @include mq-down(md) {
+        margin-bottom: calc(-80px);
+      }
 
-        &.passedby {
-          & + .navigation-wrapper {
-            @include mq-up(sm) {
-              transform: translateY(0);
-            }
+      @include mq-down(sm) {
+        margin-bottom: calc(-50px);
+      }
+
+      &.passedby {
+        & + .navigation-wrapper {
+          @include mq-up(sm) {
+            transform: translateY(0);
           }
         }
       }
-    </style>
-    <style lang="scss" is:global>
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        @include ff-gill-nova;
+    }
+  </style>
+  <style lang="scss" is:global>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include ff-gill-nova;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      overflow-x: hidden;
+      font-family: Avenir-Roman, Arial, '游ゴシック体', YuGothic,
+        '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
+        sans-serif;
+      font-size: 1.6rem;
+      font-weight: bold;
+      font-feature-settings: 'palt' 1;
+      line-height: $line-height;
+      letter-spacing: 0.5px;
+      overflow-wrap: break-word;
+      text-size-adjust: 100%;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+
+      @include mq-down(sm) {
+        font-size: get_vw(15);
       }
 
-      html {
-        font-size: 62.5%;
+      background: {
+        image: url('/img/bg.jpg');
+        color: #cbbea4;
+        repeat: repeat;
       }
 
-      body {
-        overflow-x: hidden;
-        font-family: Avenir-Roman, Arial, '游ゴシック体', YuGothic,
-          '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
-          sans-serif;
-        font-size: 1.6rem;
-        font-weight: bold;
-        font-feature-settings: 'palt' 1;
-        line-height: $line-height;
-        letter-spacing: 0.5px;
-        overflow-wrap: break-word;
-        text-size-adjust: 100%;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
+      // overflow-x: hidden;
+    }
 
-        @include mq-down(sm) {
-          font-size: get_vw(15);
-        }
+    // main {
+    //   // border: 1px solid #fff;
+    //   padding-bottom: 60px;
+    // }
 
-        background: {
-          image: url('/img/bg.jpg');
-          color: #cbbea4;
-          repeat: repeat;
-        }
+    .nuxt-progress {
+      z-index: 1010;
+    }
 
-        // overflow-x: hidden;
-      }
+    .clearfix {
+      clear: both;
+    }
 
-      // main {
-      //   // border: 1px solid #fff;
-      //   padding-bottom: 60px;
-      // }
+    .section {
+      width: 100%;
+      max-width: $pc-width;
+      padding: 0 15px;
+      margin: 0 auto;
+    }
 
-      .nuxt-progress {
-        z-index: 1010;
-      }
+    .lazyload,
+    .lazyloading {
+      filter: blur(10px);
+    }
 
-      .clearfix {
-        clear: both;
-      }
-
-      .section {
-        width: 100%;
-        max-width: $pc-width;
-        padding: 0 15px;
-        margin: 0 auto;
-      }
-
-      .lazyload,
-      .lazyloading {
-        filter: blur(10px);
-      }
-
-      .lazyloaded {
-        filter: blur(0);
-        transition: filter 0.2s;
-      }
-    </style>
-  </body>
-</html>
+    .lazyloaded {
+      filter: blur(0);
+      transition: filter 0.2s;
+    }
+  </style>
+</body>

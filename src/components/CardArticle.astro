@@ -114,7 +114,12 @@ const formatDate = (date: string) => {
       </div>
     </div>
   } -->
-<div class={`${odd && 'post--odd'} ${mini && 'post--mini'} post ${className}`}>
+<div
+  class={`${odd && 'post--odd'} ${mini && 'post--mini'} post ${className}`}
+  data-watch-is-scrolled={JSON.stringify({
+    rootMargin: mini ? '-100px' : '-150px',
+  })}
+>
   <a href={`/blog/${post.id}/`} style="display: block" class="post__img">
     {post.thumbnail && (
       <Picture
@@ -138,25 +143,7 @@ const formatDate = (date: string) => {
   </div>
 </div>
 
-<style lang="scss" scoped>
-  .intersected {
-    .post {
-      &__text {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      &--odd {
-        .post {
-          &__text {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      }
-    }
-  }
-
+<style lang="scss">
   .post {
     display: flex;
     align-items: flex-end;
@@ -329,6 +316,24 @@ const formatDate = (date: string) => {
         height: calc(100% + 10px);
         content: '';
         background: $black;
+      }
+    }
+  }
+
+  .intersected {
+    .post {
+      &__text {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      &--odd {
+        .post {
+          &__text {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
       }
     }
   }

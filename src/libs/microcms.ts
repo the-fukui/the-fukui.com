@@ -62,3 +62,18 @@ export const getBlogList = client
       postType: 'normal' as const,
     }))
   })
+
+export const getAllBlogList = client
+  .getList<MicroCMSContent.Blog>({
+    endpoint: 'blog',
+    queries: {
+      limit: 999,
+      fields: 'id,title,date,thumbnail',
+    },
+  })
+  .then((res) => {
+    return res.contents.map((post) => ({
+      ...post,
+      postType: 'normal' as const,
+    }))
+  })

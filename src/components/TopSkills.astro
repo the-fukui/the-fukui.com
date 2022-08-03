@@ -5,6 +5,7 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
     skill?: string
   }[]
 }
+
 const { class: className, skills } = Astro.props as Props
 
 const mergedSkill = (() => {

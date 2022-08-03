@@ -123,7 +123,7 @@ const formatDate = (date: string) => {
   <a href={`/blog/${post.id}/`} style="display: block" class="post__img">
     {post.thumbnail && (
       <Picture
-        src={post.thumbnail.url + '?w=800&fm=webp'}
+        src={post.thumbnail.url + (import.meta.env.DEV ? '?w=800&fm=webp' : '')}
         widths={[200, 400, 800]}
         sizes={mini ? '200px' : '800px'}
         aspectRatio="1:1"

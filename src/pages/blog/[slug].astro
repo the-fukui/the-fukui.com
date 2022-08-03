@@ -1,0 +1,15 @@
+---
+import { getAllBlogList } from '@libs/microcms'
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+const { class: className } = Astro.props as Props
+
+export const getStaticPaths = async () => {
+  const posts = await getAllBlogList
+  return posts.map((post) => ({
+    params: { slug: post.id },
+  }))
+}
+---
+
+<div class={`${className}`}>a</div>

@@ -23,7 +23,7 @@ const { class: className, portfolio } = Astro.props as Props
         <a href={`/portfolio/${item.id}/`} class="portfolio__link">
           {item.thumbnail && (
             <Picture
-              src={item.thumbnail.url}
+              src={item.thumbnail.url + '?w=600&fm=webp'}
               widths={[200, 250, 300, 600]}
               sizes="(max-width: 575px) 50vw, 300px"
               aspectRatio="1:1"

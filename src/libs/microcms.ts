@@ -28,7 +28,7 @@ const client = new Proxy(_client, handler)
  * PortfolioList
  */
 export const getPortfolioList = client
-  .getList<MicroCMSContent.Blog>({
+  .getList<MicroCMSContent.Portfolio>({
     endpoint: 'portfolio',
     queries: {
       limit: 999,
@@ -39,3 +39,26 @@ export const getPortfolioList = client
 export const getProfile = client.getObject<MicroCMSContent.Profile>({
   endpoint: 'profile',
 })
+
+export const getSkillList = client
+  .getList<MicroCMSContent.Skill>({
+    endpoint: 'skills',
+    queries: {
+      limit: 999,
+    },
+  })
+  .then((res) => res.contents)
+
+export const getBlogList = client
+  .getList<MicroCMSContent.Blog>({
+    endpoint: 'blog',
+    queries: {
+      limit: 5,
+    },
+  })
+  .then((res) => {
+    return res.contents.map((post) => ({
+      ...post,
+      postType: 'normal' as const,
+    }))
+  })

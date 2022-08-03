@@ -1,0 +1,293 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  skills: {
+    type?: string
+    skill?: string
+  }[]
+}
+const { class: className, skills } = Astro.props as Props
+
+const mergedSkill = (() => {
+  // スキルを一覧で返す
+  let allSkill: string[] = []
+  skills.forEach((type) => {
+    if (type.type !== 'GCP' && type.skill) {
+      // GCPは別途表示
+      allSkill = allSkill.concat(type.skill.split(','))
+    }
+  })
+  return allSkill
+})()
+
+const GCPSkill = (() => {
+  const GCP = skills.find((type) => {
+    return type.type === 'GCP'
+  })
+
+  return GCP?.skill?.split(',') || []
+})()
+---
+
+<section class={`skill ${className}`}>
+  <div class="section skill__inner">
+    <div class="skill__right">
+      <h3 class="skill__title skill__title--main">SKILL</h3>
+      {[...Array(5)].map((_, i) => (
+        <div
+          style={`opacity:${1 / (i + 1)}; transform:translateY(${
+            (i + 1) * -1
+          }em) rotate(-15deg);`}
+          class="skill__title skill__title--gradient"
+        >
+          SKILL
+        </div>
+      ))}
+    </div>
+    <ul class="skill-list">
+      {mergedSkill.map((skill) => <li class="skill-list__item">{skill}</li>)}
+
+      <li class="skill-list__item skill-list__item--GCP GCP">
+        <h4 class="GCP__title">GCP</h4>
+        <ul class="GCP__list">
+          {GCPSkill.map((skill) => <li class="GCP__item">{skill}</li>)}
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="ex-skill section">
+    <span class="ex-skill__text"
+      >...and playing <span class="ex-skill__item">guitar</span> and
+      <span class="ex-skill__item">violin</span>! 😎
+    </span>
+    <div class="ex-skill__img-wrapper">
+      <img
+        src="/img/guitar.svg"
+        class="ex-skill__img ex-skill__img--guitar"
+        alt="guitar"
+      />
+    </div>
+    <div class="ex-skill__img-wrapper">
+      <img
+        src="/img/violin.svg"
+        class="ex-skill__img ex-skill__img--violin"
+        alt="violin"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" scoped>
+  .skill {
+    position: relative;
+    padding-top: 180px;
+    background: #064152;
+
+    @include mq-down(sm) {
+      padding-top: get_vw(100);
+    }
+
+    &__inner {
+      display: flex;
+      flex-flow: row-reverse;
+
+      &.intersected {
+        .skill__title {
+          transform: translateY(0) rotate(-15deg) !important;
+        }
+
+        .skill-list {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &__right {
+      margin-left: 15px;
+    }
+
+    &__title {
+      font-size: 3.5rem;
+      line-height: 1;
+      color: white;
+      transition: transform 0.3s ease-out;
+      @include ff-gill-nova;
+
+      @include mq-down(md) {
+        font-size: 2rem;
+      }
+
+      @include mq-down(sm) {
+        font-size: get_vw(20);
+      }
+
+      &--main {
+        transform: rotate(-15deg);
+      }
+    }
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    font-size: 5rem;
+    line-height: 1;
+    color: white;
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transform: translateY(-30px);
+    @include ff-gill-nova;
+
+    @include mq-down(md) {
+      padding-right: 5px;
+      font-size: 3rem;
+    }
+
+    @include mq-down(sm) {
+      font-size: get_vw(30);
+    }
+
+    &__item {
+      margin: 0 15px;
+
+      // white-space: nowrap;
+    }
+  }
+
+  .GCP {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 5px;
+
+    @include mq-down(md) {
+      display: block;
+      padding-top: 15px;
+    }
+
+    &__title {
+      @include ff-gill-inline;
+
+      font-size: 6.8rem;
+
+      @include mq-down(md) {
+        font-size: 4.5rem;
+      }
+
+      @include mq-down(sm) {
+        font-size: get_vw(45);
+      }
+    }
+
+    &__list {
+      @extend .skill-list;
+
+      padding-top: 5px;
+      margin-left: 15px;
+
+      @include mq-down(md) {
+        padding-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    &__item {
+      font-size: 3rem;
+
+      @include mq-down(md) {
+        font-size: 2.5rem;
+      }
+
+      @include mq-down(sm) {
+        font-size: get_vw(25);
+      }
+
+      &::after {
+        padding-right: 7px;
+        content: '/';
+      }
+
+      &:last-child::after {
+        content: none;
+      }
+    }
+  }
+
+  .ex-skill {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-top: 40px;
+    overflow: hidden;
+    color: white;
+
+    @include mq-down(sm) {
+      padding-top: get_vw(60);
+    }
+
+    &.intersected {
+      .ex-skill__text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .ex-skill__img {
+        &--guitar {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        &--violin {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &__text {
+      flex: 1 1 0%;
+      margin-right: 15px;
+      font-size: 1.6rem;
+      text-align: right;
+      opacity: 0;
+      transition: transform 0.2s cubic-bezier(0.42, 0.29, 0.77, 2.01) 0s;
+      transform: translateY(100%);
+      @include ff-gill-nova;
+    }
+
+    &__item {
+      @include ff-gill-nova;
+
+      font-size: 2.2rem;
+    }
+
+    &__img-wrapper {
+      width: auto;
+      height: 160px;
+      overflow: hidden;
+    }
+
+    &__img {
+      height: auto;
+      padding-top: 40px;
+
+      &--guitar {
+        width: 45px;
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.42, 0.29, 0.81, 1.37) 0.1s;
+        transform: translateY(100%);
+      }
+
+      &--violin {
+        width: 45px;
+        margin-top: 20px;
+        margin-left: 15px;
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.42, 0.29, 0.81, 1.37) 0.2s;
+        transform: translateY(100%);
+      }
+    }
+  }
+</style>

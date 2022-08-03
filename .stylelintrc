@@ -27,13 +27,15 @@
                     "include",
                     "extend",
                     "function",
-                    "return"
+                    "return",
+                    "use"
                 ]
             }
         ],
         "no-empty-source": null,
         "scss/at-function-pattern": null,
         "scss/at-mixin-pattern": null,
-        "scss/at-extend-no-missing-placeholder": null
+        "scss/at-extend-no-missing-placeholder": null,
+        "no-descending-specificity": null
     }
 }

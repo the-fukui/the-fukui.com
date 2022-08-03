@@ -1,5 +1,6 @@
 ---
 import TopBlog from '@components/TopBlog.astro'
+import TopContact from '@components/TopContact.vue'
 import TopHero from '@components/TopHero.astro'
 import TopProfile from '@components/TopProfile.astro'
 import TopSkills from '@components/TopSkills.astro'
@@ -28,5 +29,6 @@ const [portfolios, profie, skills, blogPosts] = await Promise.all([
     />
     <TopSkills class="top-skills" skills={skills} />
     <TopBlog class="top-blog" posts={blogPosts} />
+    <TopContact class="top-contact" client:visible />
   </main>
 </Layout>

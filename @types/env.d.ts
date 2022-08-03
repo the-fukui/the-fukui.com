@@ -2,6 +2,7 @@ interface ImportMetaEnv {
   readonly NODE_ENV: 'development' | 'production'
   readonly MICROCMS_SERVICE_DOMAIN: string
   readonly MICROCMS_API_KEY: string
+  readonly STATIC_FORMS_TOKEN: string
 }
 
 interface ImportMeta {

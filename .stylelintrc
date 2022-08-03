@@ -14,7 +14,8 @@
             true,
             {
                 "ignorePseudoClasses": [
-                    "global"
+                    "global",
+                    "deep"
                 ]
             }
         ],

@@ -20,14 +20,13 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.19.0.tgz#ea25fea3ba59ce7734c2bcc65a5fd1e372329943"
   integrity sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==
 
-"@astrojs/image@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.3.0.tgz#2bb85d9b442c49a5bbc6e6a801f3b19d80f03d13"
-  integrity sha512-aSz2kC24Zdi2id5mFh02CPCNUsgNsCG+ftHPPdl3TBI1vIHsoKLwU6fF7RY84V3Frp3Ww+jjUIcJeNWS9L6SaQ==
+"@astrojs/image@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.3.1.tgz#eeb9784b9a67bb6b67421649d4fae2663c3af912"
+  integrity sha512-TMLNFJq3VKduO4KJDYYZ7Q4vKRkbuFvvBGsKBx/PYgVFe5G23TXaRFKH3xO0Di63thEOX35JsgRng2ovr48ItQ==
   dependencies:
     etag "^1.8.1"
     image-size "^1.0.1"
-    image-type "^4.1.0"
     mrmime "^1.0.0"
     sharp "^0.30.6"
     slash "^4.0.0"
@@ -2102,11 +2101,6 @@ file-entry-cache@^6.0.1:
   dependencies:
     flat-cache "^3.0.4"
 
-file-type@^10.10.0:
-  version "10.11.0"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-10.11.0.tgz#2961d09e4675b9fb9a3ee6b69e9cd23f43fd1890"
-  integrity sha512-uzk64HRpUZyTGZtVuvrjP0FYxzQrBf4rojot6J65YMEbwBLB0CWm0CLojVpwpmFmxcE/lkvYICgfcGozbBq6rw==
-
 fill-range@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-7.0.1.tgz#1919a6a7c75fe38b2c7c77e5198535da9acdda40"
@@ -2523,13 +2517,6 @@ image-size@^1.0.1:
   integrity sha512-xfOoWjceHntRb3qFCrh5ZFORYH8XCdYpASltMhZ/Q0KZiOwjdE/Yl2QCiWdwD+lygV5bMCvauzgu5PxBX/Yerg==
   dependencies:
     queue "6.0.2"
-
-image-type@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/image-type/-/image-type-4.1.0.tgz#72a88d64ff5021371ed67b9a466442100be57cd1"
-  integrity sha512-CFJMJ8QK8lJvRlTCEgarL4ro6hfDQKif2HjSvYCdQZESaIPV4v9imrf7BQHK+sQeTeNeMpWciR9hyC/g8ybXEg==
-  dependencies:
-    file-type "^10.10.0"
 
 immutable@^4.0.0:
   version "4.1.0"

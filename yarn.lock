@@ -1055,10 +1055,10 @@ astro-eslint-parser@^0.4.0:
     synckit "^0.7.1"
     yaml "^2.1.1"
 
-astro@^1.0.0-rc.4:
-  version "1.0.0-rc.4"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-rc.4.tgz#a61cd064a1ce24fdd002427fed7bcc451dda7b8b"
-  integrity sha512-FAgmoAzC0odZ/eGx+SfpIhDahpfMsVZ+TgE0mlJuv13R68bDlhN9hzIvv8vCk9JwQMg91Adw77TaqJmS2UcQ7g==
+astro@^1.0.0-rc.6:
+  version "1.0.0-rc.6"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-rc.6.tgz#93a5e52533a4d94383b6816a154aca7fbc251be4"
+  integrity sha512-mJfgUPlbuODLsEkt+R/4ReYet2WKETKvs4whJJS6CDQnAMZKNNcjM33GvYUoU5MAWUwVaobVr8fuUeKHU6RopA==
   dependencies:
     "@astrojs/compiler" "^0.22.1"
     "@astrojs/language-server" "^0.20.0"

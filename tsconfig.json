@@ -10,11 +10,13 @@
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
     // Add type definitions for our Astro runtime.
     "types": ["astro/client", "node"],
     "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"]
+      "@*": ["src/*"],
+      "@types/*": ["@types/*"]
     }
   },
   "exclude": ["node_modules"]

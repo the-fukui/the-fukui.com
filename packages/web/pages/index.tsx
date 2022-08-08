@@ -1,8 +1,13 @@
 import type { NextPage } from 'next'
+import lazyHydrate from 'next-lazy-hydrate'
 import Head from 'next/head'
 import Image from 'next/image'
 
 import styles from '../styles/Home.module.css'
+
+const Test = lazyHydrate(
+  () => import(/* webpackChunkName: "Test" */ '@web/components/Test'),
+)
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +19,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Test />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

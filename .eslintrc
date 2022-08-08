@@ -11,5 +11,7 @@
   "parser": "@typescript-eslint/parser",
   "root": true,
   "globals": {},
-  "rules": {}
+  "rules": {
+    "no-unused-vars": "off"
+  }
 }

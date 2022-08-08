@@ -13,7 +13,7 @@
   "scripts": {
     "preinstall": "sh env.sh",
     "env": "sh env.sh",
-    "generate:env-type": "gen-env-types -o packages/shared/@types/env.d.ts .env",
+    "generate:env-type": "gen-env-types -o packages/shared/@types/env.d.ts .env && gen-env-types -o packages/shared/@types/env.local.d.ts .env.local && gen-env-types -o packages/shared/@types/env.development.d.ts .env.development",
     "scaffold": "scaffdog generate",
     "web": "yarn workspace web dev",
     "web:build": "yarn workspace web build",

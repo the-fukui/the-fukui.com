@@ -2,10 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    swcMinify: true,
     // concurrentFeatures: true,
     // serverComponents: true,
   },
+  images: {
+    loader: 'imgix',
+    path: 'https://example.com/myaccount/',
+  },
+  swcMinify: true,
 }
 
 module.exports = nextConfig

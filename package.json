@@ -1,0 +1,58 @@
+{
+  "name": "next-yarn-workspace-template",
+  "version": "1.0.0",
+  "author": "the-fukui <account@the-fukui.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "packageManager": "yarn@3.0.2",
+  "scripts": {
+    "preinstall": "sh env.sh",
+    "env": "sh env.sh",
+    "generate:env-type": "gen-env-types -o packages/shared/@types/env.d.ts .env",
+    "scaffold": "scaffdog generate",
+    "web": "yarn workspace web dev",
+    "web:build": "yarn workspace web build",
+    "web:start": "yarn workspace web start",
+    "web:lint": "yarn workspace web lint",
+    "web:lint:fix": "eslint ./packages/web/ --ext .js,jsx,.ts,.tsx --fix",
+    "web:lint:style": "stylelint './packages/web/{styles,components}/**/*.{css,scss,sass}'",
+    "web:lint:style:fix": "stylelint --fix './packages/web/{styles,components}/**/*.{css,scss,sass}'",
+    "web:format": "prettier --write --cache --ignore-path ./packages/web/.gitignore './packages/web/**/*.{js,jsx,ts,tsx,json}'",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --ignore-path .prettierignore --write --cache"
+    ],
+    "*.{css,less,sass,scss}": [
+      "stylelint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "gen-env-types": "^1.3.4",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-scaffdog": "^1.5.0",
+    "scaffdog": "^1.5.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-order": "^5.0.0",
+    "typescript": "^4.7.4"
+  },
+  "resolutions": {
+    "got": "^11.8.5"
+  }
+}

@@ -44,7 +44,7 @@
     "microcms-js-sdk": "^2.1.0",
     "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.2.0",
+    "prettier-plugin-astro": "^0.4.0",
     "sass": "^1.54.3",
     "stylelint": "^14.9.1",
     "stylelint-config-astro": "^1.0.4",

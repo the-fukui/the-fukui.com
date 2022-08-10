@@ -4,20 +4,18 @@ import TopHero from '@components/TopHero.astro'
 import TopProfile from '@components/TopProfile.astro'
 import TopSkills from '@components/TopSkills.astro'
 import TopWorks from '@components/TopWorks.astro'
+import type { PostList } from '@data/getPostList'
+import postList from '@data/posts.json'
 import Layout from '@layouts/Layout.astro'
-import {
-  getBlogList,
-  getPortfolioList,
-  getProfile,
-  getSkillList,
-} from '@libs/microcms'
+import { getPortfolioList, getProfile, getSkillList } from '@libs/microcms'
 
-const [portfolios, profie, skills, blogPosts] = await Promise.all([
+const [portfolios, profie, skills] = await Promise.all([
   getPortfolioList,
   getProfile,
   getSkillList,
-  getBlogList,
 ])
+
+const latestPosts = (postList as PostList).slice(0, 5)
 ---
 
 <Layout title="Welcome to Astro.">
@@ -27,6 +25,6 @@ const [portfolios, profie, skills, blogPosts] = await Promise.all([
     <TopProfile class="top-profile" text={profie.content} avatar={profie.avatar}
     />
     <TopSkills class="top-skills" skills={skills} />
-    <TopBlog class="top-blog" posts={blogPosts} />
+    <TopBlog class="top-blog" posts={latestPosts} />
   </main>
 </Layout>

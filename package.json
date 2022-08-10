@@ -39,8 +39,6 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "astro": "^1.0.0-rc.3",
     "dayjs": "^1.11.4",
-    "esbuild": "^0.14.53",
-    "esbuild-register": "^3.3.3",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-astro": "^0.16.0",

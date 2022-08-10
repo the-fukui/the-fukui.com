@@ -11,6 +11,7 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
     thumbnail?: {
       url: string
     }
+    likes_count?: number
   }
   odd?: boolean
   mini?: boolean
@@ -32,86 +33,6 @@ const formatDate = (date: string) => {
 }
 ---
 
-<!-- {post.isQiita && <div
-      class={`${odd && 'post--odd' } ${ mini && 'post--mini'} post`}
-    >
-      <a
-        href={post.url}
-        // :class="{ 'post__img--hover': hover }"
-        class="post__img"
-        target="_blank"
-        rel="noopener"
-        // @mouseover="hover = true"
-        // @mouseleave="hover = false"
-      >
-        <picture v-if="mini">
-          <source
-            :srcset="`/qiita/${post.id}@lqip.jpg`"
-            :data-srcset="`/qiita/${post.id}@200.webp 1x, /qiita/${post.id}@400.webp 2x`"
-            type="image/webp"
-          />
-          <source
-            :srcset="`/qiita/${post.id}@lqip.jpg`"
-            :data-srcset="`/qiita/${post.id}@200.jpg 1x, /qiita/${post.id}@400.jpg 2x`"
-            type="image/jpeg"
-          />
-          <img
-            :data-src="`/qiita/${post.id}@200.jpg`"
-            :src="`/qiita/${post.id}@lqip.jpg`"
-            :alt="post.title"
-            class="img lazyload"
-          />
-        </picture>
-        <picture v-else>
-          <source
-            :data-srcset="`/qiita/${post.id}@400.webp 1x, /qiita/${post.id}@800.webp 2x`"
-            :src="`/qiita/${post.id}@lqip.jpg`"
-            type="image/webp"
-          />
-          <source
-            :data-srcset="`/qiita/${post.id}@400.jpg 1x, /qiita/${post.id}@800.jpg 2x`"
-            :src="`/qiita/${post.id}@lqip.jpg`"
-            type="image/jpeg"
-          />
-          <img
-            :data-src="`/qiita/${post.id}@400.jpg`"
-            :src="`/qiita/${post.id}@lqip.jpg`"
-            :alt="post.title"
-            class="img lazyload"
-          />
-        </picture>
-        <img
-          :data-src="require('~/assets/img/qiita.svg')"
-          class="post__from lazyload"
-          alt="qiita"
-        />
-        <div v-if="parseInt(post.likes_count) > 0" class="post__lgtms">
-          <img
-            :data-src="require('~/assets/img/lgtm.svg')"
-            class="post__lgtm lazyload"
-            alt="LGTM"
-          />{{ post.likes_count }}
-        </div>
-      </a>
-      <div class="post__text">
-        <div class="post__meta">
-          <time :datetime="post.created_at" class="post__date">{{
-            published(post.created_at)
-          }}</time>
-        </div>
-        <a
-          :href="post.url"
-          style="display: block"
-          target="_blank"
-          rel="noopener"
-          @mouseover="hover = true"
-          @mouseleave="hover = false"
-        >
-          <div class="post__title">{{ post.title }}</div>
-        </a>
-      </div>
-    </div>
-  } -->
 <div
   class={`${odd && 'post--odd'} ${mini && 'post--mini'} post ${className}`}
   data-watch-is-scrolled={JSON.stringify({
@@ -132,6 +53,17 @@ const formatDate = (date: string) => {
         aspectRatio="50:31"
         alt=""
       />
+    )}
+    {post.postType === 'Qiita' && (
+      <>
+        <img src="/img/qiita.svg" class="post__from" alt="Qiita" />
+        {post.likes_count && post.likes_count > 0 && (
+          <div class="post__lgtms">
+            <img src="/img/lgtm.svg" class="post__lgtm" alt="LGTM" />
+            {post.likes_count}
+          </div>
+        )}
+      </>
     )}
   </a>
   <div class="post__text">
@@ -204,10 +136,10 @@ const formatDate = (date: string) => {
         }
 
         &__lgtms {
-          top: calc(15px + 1.5em + 7.5px);
+          bottom: calc(15px + 1.5em + 7.5px);
 
           @include mq-down(sm) {
-            top: calc(15px + 2em + 7.5px);
+            bottom: calc(15px + 2em + 7.5px);
           }
         }
       }
@@ -237,7 +169,7 @@ const formatDate = (date: string) => {
         content: '';
       }
 
-      :global(img) {
+      :global(picture > img) {
         position: absolute;
         top: 0;
         left: 0;
@@ -257,16 +189,16 @@ const formatDate = (date: string) => {
 
     &__from {
       position: absolute;
-      top: 15px;
-      left: 0;
+      right: 0;
+      bottom: 15px;
       width: auto;
       height: 2em;
     }
 
     &__lgtms {
       position: absolute;
-      top: calc(15px + 2em + 15px);
-      left: 0;
+      right: 0;
+      bottom: calc(15px + 2em + 15px);
       display: flex;
       align-items: center;
       width: auto;
@@ -276,7 +208,7 @@ const formatDate = (date: string) => {
       color: #55c500;
       background: white;
       border: 2px solid #55c500;
-      border-left: none;
+      border-right: none;
     }
 
     &__lgtm {

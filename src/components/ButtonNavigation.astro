@@ -1,0 +1,106 @@
+---
+import { Picture } from '@astrojs/image/components'
+import Finger from '@public/img/finger.png'
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  direction: 'prev' | 'next'
+}
+const { direction } = Astro.props as Props
+---
+
+<div
+  class:list={[
+    {
+      'button--prev': direction === 'prev',
+      'button--next': direction === 'next',
+    },
+    'button',
+  ]}
+>
+  <Picture
+    src={Finger}
+    widths={[100, 200]}
+    sizes={'100px'}
+    aspectRatio="2:1"
+    alt={direction === 'next' ? '次の記事' : '前の記事'}
+    class:list={[
+      {
+        'button__finger--prev': direction === 'prev',
+        'button__finger--next': direction === 'next',
+      },
+      'button__finger',
+    ]}
+  />
+  <span class="button__title"><slot /></span>
+</div>
+
+<style lang="scss">
+  @use 'sass:color';
+
+  .button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 15px;
+    color: white;
+    background: $red;
+    transition: background 0.2s;
+
+    &--next {
+      flex-direction: row-reverse;
+    }
+
+    &:hover {
+      background: color.adjust($red, $lightness: 4%);
+
+      .button__finger--next {
+        transform: translateX(30px);
+      }
+
+      .button__finger--prev {
+        transform: translateX(-30px) rotateY(180deg);
+      }
+    }
+
+    @include mq-down(sm) {
+      padding: get_vw(15);
+      margin-bottom: get_vw(15);
+    }
+
+    &__title {
+      flex: 1 1 0%;
+      text-align: center;
+    }
+
+    &__finger {
+      width: 100px;
+      transition: transform 0.2s;
+
+      :global(img) {
+        width: 100%;
+        height: auto;
+      }
+
+      @include mq-down(sm) {
+        width: get_vw(60);
+      }
+
+      &--prev {
+        margin-right: 15px;
+        transform: rotateY(180deg);
+
+        @include mq-down(sm) {
+          margin-right: get_vw(10);
+        }
+      }
+
+      &--next {
+        margin-left: 15px;
+
+        @include mq-down(sm) {
+          margin-left: get_vw(10);
+        }
+      }
+    }
+  }
+</style>

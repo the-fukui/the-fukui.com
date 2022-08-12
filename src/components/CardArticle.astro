@@ -1,6 +1,8 @@
 ---
 import { Picture } from '@astrojs/image/components'
 
+import dayjs from 'dayjs'
+
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   post: {
     postType: 'Qiita' | 'normal'
@@ -23,14 +25,7 @@ const {
   mini = false,
 } = Astro.props as Props
 
-const formatDate = (date: string) => {
-  const dateObj = new Date(date)
-  return dateObj.toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
-}
+const published = dayjs(post.date).format('MMM D, YYYY')
 ---
 
 <div
@@ -40,34 +35,38 @@ const formatDate = (date: string) => {
   })}
 >
   <a href={`/blog/${post.id}/`} style="display: block" class="post__img">
-    {post.thumbnail && (
-      <Picture
-        src={
-          post.thumbnail.url +
-          (import.meta.env.DEV && post.postType === 'normal'
-            ? '?w=800&fm=webp'
-            : '')
-        }
-        widths={[200, 400, 800]}
-        sizes={mini ? '200px' : '800px'}
-        aspectRatio="50:31"
-        alt=""
-      />
-    )}
-    {post.postType === 'Qiita' && (
-      <>
-        <img src="/img/qiita.svg" class="post__from" alt="Qiita" />
-        {post.likes_count && post.likes_count > 0 && (
-          <div class="post__lgtms">
-            <img src="/img/lgtm.svg" class="post__lgtm" alt="LGTM" />
-            {post.likes_count}
-          </div>
-        )}
-      </>
-    )}
+    {
+      post.thumbnail && (
+        <Picture
+          src={
+            post.thumbnail.url +
+            (import.meta.env.DEV && post.postType === 'normal'
+              ? '?w=800&fm=webp'
+              : '')
+          }
+          widths={[200, 400, 800]}
+          sizes={mini ? '200px' : '800px'}
+          aspectRatio="50:31"
+          alt=""
+        />
+      )
+    }
+    {
+      post.postType === 'Qiita' && (
+        <>
+          <img src="/img/qiita.svg" class="post__from" alt="Qiita" />
+          {post.likes_count && post.likes_count > 0 && (
+            <div class="post__lgtms">
+              <img src="/img/lgtm.svg" class="post__lgtm" alt="LGTM" />
+              {post.likes_count}
+            </div>
+          )}
+        </>
+      )
+    }
   </a>
   <div class="post__text">
-    <time datetime={post.date} class="post__date">{formatDate(post.date)}</time>
+    <time datetime={post.date} class="post__date">{published}</time>
     <a
       href={`/blog/${post.id}/`}
       class="{ 'post__img--hover': hover }"

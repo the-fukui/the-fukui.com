@@ -17,8 +17,8 @@ export default defineConfig({
         scss: {
           additionalData: `
                     @use 'src/styles/color' as *;
-                    @use 'src/styles/font' as *;
-                    @use 'src/styles/size' as *;`
+                    @use 'src/styles/size' as *;
+                    @use 'src/styles/font' as *;`
         }
       }
     }

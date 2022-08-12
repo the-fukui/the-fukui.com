@@ -1,0 +1,55 @@
+---
+import { Picture } from '@astrojs/image/components'
+import Finger from '@images/finger.png'
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+---
+
+<div class="more">
+  <span class="more__text">MORE</span>
+  <Picture
+    src={Finger}
+    widths={[150]}
+    sizes="150px"
+    aspectRatio="2:1"
+    alt="さらに記事を表示する"
+    class="more__finger"
+  />
+</div>
+
+<style lang="scss" scoped>
+  .more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      .more__finger {
+        transform: rotateZ(-6deg);
+      }
+    }
+
+    &__text {
+      margin-right: 10px;
+      font-size: 6rem;
+      color: white;
+      @include ff-gill-inline;
+
+      @include mq-down(sm) {
+        font-size: get_vw(40);
+      }
+    }
+
+    &__finger {
+      transition: transform 0.1s ease-in;
+
+      :global(img) {
+        @include mq-down(sm) {
+          width: get_vw(80);
+          height: auto;
+        }
+      }
+    }
+  }
+</style>

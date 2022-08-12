@@ -1,5 +1,6 @@
 ---
 import TopBlog from '@components/TopBlog.astro'
+import TopContact from '@components/TopContact.vue'
 import TopHero from '@components/TopHero.astro'
 import TopProfile from '@components/TopProfile.astro'
 import TopSkills from '@components/TopSkills.astro'
@@ -26,5 +27,6 @@ const latestPosts = (postList as PostList).slice(0, 5)
     />
     <TopSkills class="top-skills" skills={skills} />
     <TopBlog class="top-blog" posts={latestPosts} />
+    <TopContact class="top-contact" client:visible />
   </main>
 </Layout>

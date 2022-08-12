@@ -1,7 +1,7 @@
 ---
 import { Picture } from '@astrojs/image/components'
 import ButtonNavigation from '@components/ButtonNavigation.astro'
-import { PostList } from '@data/getPostList'
+import type { PostList } from '@data/getPostList'
 import postList from '@data/posts.json'
 import Layout from '@layouts/Layout.astro'
 import { getBlog } from '@libs/microcms'
@@ -9,7 +9,9 @@ import { getBlog } from '@libs/microcms'
 import dayjs from 'dayjs'
 
 export const getStaticPaths = async () => {
-  const posts = postList as PostList
+  const posts = postList.filter(
+    (post) => post.postType === 'normal'
+  ) as PostList
   return posts.map((post) => ({
     params: { slug: post.id },
   }))

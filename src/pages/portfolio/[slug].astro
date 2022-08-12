@@ -104,13 +104,20 @@ const portfolio = await getPortfolio(portfolioID)
                       class="tech__link"
                     >
                       {tech.icon && (
-                        <Picture
+                        // <Picture
+                        //   src={tech.icon.url}
+                        //   widths={[100, 200]}
+                        //   sizes={'100px'}
+                        //   aspectRatio={tech.icon.width / tech.icon.height}
+                        //   alt={tech.name}
+                        //   class="tech__icon"
+                        // />
+                        <img
                           src={tech.icon.url}
-                          widths={[100, 200]}
-                          sizes={'100px'}
-                          aspectRatio={tech.icon.width / tech.icon.height}
-                          alt={tech.name}
                           class="tech__icon"
+                          width={tech.icon.width}
+                          height={tech.icon.height}
+                          alt={tech.name}
                         />
                       )}
 
@@ -142,13 +149,20 @@ const portfolio = await getPortfolio(portfolioID)
                 portfolio.part.map((part) => (
                   <li class="part__item">
                     {part.icon && (
-                      <Picture
+                      // <Picture
+                      //   src={part.icon.url}
+                      //   widths={[32, 64]}
+                      //   sizes={'32px'}
+                      //   aspectRatio="1:1"
+                      //   alt={part.name}
+                      //   class="part__icon"
+                      // />
+                      <img
                         src={part.icon.url}
-                        widths={[32, 64]}
-                        sizes={'32px'}
-                        aspectRatio="1:1"
-                        alt={part.name}
                         class="part__icon"
+                        width="32"
+                        height="32"
+                        alt={part.name}
                       />
                     )}
                     <span class="part__name">{part.name}</span>
@@ -614,14 +628,14 @@ export default {
     }
 
     &__icon {
+      // :global(img) {
+      max-width: 100px;
+      max-height: 50px;
       transition: transform 0.2s;
       transform: scale(0);
+      object-fit: contain;
 
-      :global(img) {
-        max-width: 100px;
-        max-height: 50px;
-        object-fit: contain;
-      }
+      // }
     }
 
     &__name {
@@ -699,11 +713,11 @@ export default {
       height: 32px;
       margin-right: 10px;
 
-      :global(img) {
-        width: 100%;
-        height: 100%;
-        vertical-align: top;
-      }
+      // :glonal(img) {
+      //   width: 100%;
+      //   height: 100%;
+      //   vertical-align: top;
+      // }
 
       @include mq-down(sm) {
         width: get_vw(20);

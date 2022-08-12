@@ -34,6 +34,12 @@ const published = dayjs(post.date).format('MMM D, YYYY')
     rootMargin: mini ? '-100px' : '-150px',
   })}
 >
+  <div class="post__text">
+    <time datetime={post.date} class="post__date">{published}</time>
+    <a href={`/blog/${post.id}/`} class="post__link">
+      <div class="post__title">{post.title}</div>
+    </a>
+  </div>
   <a href={`/blog/${post.id}/`} style="display: block" class="post__img">
     {
       post.thumbnail && (
@@ -65,21 +71,12 @@ const published = dayjs(post.date).format('MMM D, YYYY')
       )
     }
   </a>
-  <div class="post__text">
-    <time datetime={post.date} class="post__date">{published}</time>
-    <a
-      href={`/blog/${post.id}/`}
-      class="{ 'post__img--hover': hover }"
-      style="display: block"
-    >
-      <div class="post__title">{post.title}</div>
-    </a>
-  </div>
 </div>
 
 <style lang="scss">
   .post {
     display: flex;
+    flex-direction: row-reverse;
     align-items: flex-end;
     padding-bottom: 15px;
 
@@ -88,7 +85,7 @@ const published = dayjs(post.date).format('MMM D, YYYY')
     }
 
     &--odd {
-      flex-direction: row-reverse;
+      flex-direction: row;
 
       .post {
         &__img {
@@ -179,8 +176,8 @@ const published = dayjs(post.date).format('MMM D, YYYY')
         transform-origin: center center;
       }
 
-      &--hover {
-        img {
+      &:hover {
+        :global(picture > img) {
           transform: scale(1.2);
         }
       }
@@ -221,6 +218,12 @@ const published = dayjs(post.date).format('MMM D, YYYY')
       opacity: 0;
       transition: transform 0.2s, opacity 0.2s;
       transform: translateX(50px);
+
+      &:hover + .post__img {
+        :global(picture > img) {
+          transform: scale(1.2);
+        }
+      }
     }
 
     &__meta {
@@ -233,6 +236,10 @@ const published = dayjs(post.date).format('MMM D, YYYY')
       @include ff-gill-nova;
 
       font-size: 1.9rem;
+    }
+
+    &__link {
+      display: block;
     }
 
     &__title {

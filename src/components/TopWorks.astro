@@ -21,25 +21,27 @@ const { class: className, portfolio } = Astro.props as Props
     class="portfolio"
     data-watch-is-scrolled={JSON.stringify({ rootMargin: '-100px' })}
   >
-    {portfolio.map((item) => (
-      <li class="portfolio__item">
-        <a href={`/portfolio/${item.id}/`} class="portfolio__link">
-          {item.thumbnail && (
-            <Picture
-              src={
-                item.thumbnail.url +
-                (import.meta.env.DEV ? '?w=600&fm=webp' : '')
-              }
-              widths={[200, 250, 300, 600]}
-              sizes="(max-width: 575px) 50vw, 300px"
-              aspectRatio="1:1"
-              alt={item.title || ''}
-              class="portfolio__thumbnail"
-            />
-          )}
-        </a>
-      </li>
-    ))}
+    {
+      portfolio.map((item) => (
+        <li class="portfolio__item">
+          <a href={`/portfolio/${item.id}/`} class="portfolio__link">
+            {item.thumbnail && (
+              <Picture
+                src={
+                  item.thumbnail.url +
+                  (import.meta.env.DEV ? '?w=600&fm=webp' : '')
+                }
+                widths={[200, 300]}
+                sizes="(max-width: 575px) 50vw, 300px"
+                aspectRatio="1:1"
+                alt={item.title || ''}
+                class="portfolio__thumbnail"
+              />
+            )}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </section>
 

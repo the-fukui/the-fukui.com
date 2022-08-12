@@ -44,35 +44,39 @@ const LINKS = [
       </h2>
       <div class="profile__text" set:html={text}></div>
       <ul class="links">
-        {LINKS.map((item) => (
-          <li class="links__item">
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noopener"
-              class="links__link"
-            >
-              <img
-                src={item.icon}
-                class={`links__${item.name}`}
-                alt={item.name}
-              />
-            </a>
-          </li>
-        ))}
+        {
+          LINKS.map((item) => (
+            <li class="links__item">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener"
+                class="links__link"
+              >
+                <img
+                  src={item.icon}
+                  class={`links__${item.name}`}
+                  alt={item.name}
+                />
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
     <div class="profile__avatar">
-      {avatar && (
-        <Picture
-          src={avatar.url + (import.meta.env.DEV ? '?w=500&fm=webp' : '')}
-          widths={[250, 500]}
-          sizes="250px"
-          aspectRatio="1:1"
-          alt=""
-          class="portfolio__thumbnail"
-        />
-      )}
+      {
+        avatar && (
+          <Picture
+            src={avatar.url + (import.meta.env.DEV ? '?w=500&fm=webp' : '')}
+            widths={[250]}
+            sizes="250px"
+            aspectRatio="1:1"
+            alt=""
+            class="portfolio__thumbnail"
+          />
+        )
+      }
       <div class="profile__bg2"></div>
       <div class="profile__bg2--back"></div>
     </div>

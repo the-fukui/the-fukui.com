@@ -1,9 +1,9 @@
 import { getAllBlogList } from '@libs/microcms'
 import { getAllQiitaPostList } from '@libs/qiita'
 
+import { load } from 'cheerio'
 import dayjs from 'dayjs'
 import fs from 'fs'
-import ogs from 'open-graph-scraper'
 
 /**
  * microCMSとQiitaから記事を取得してマージしてjson書き出し（日付順）
@@ -14,19 +14,39 @@ const [microCMSPostList, _qiitaPostList] = await Promise.all([
   getAllQiitaPostList,
 ])
 
-//Qiitaの記事のOGP画像をサムネイルとして取得する
+//Qiitaの記事の最初の画像サムネイルとして取得する
 const qiitaThumbnails = await Promise.all(
   _qiitaPostList.map((post) => {
-    return ogs({ url: post.url }).then(({ result }) => {
-      if (!result.success || !result.ogImage) {
-        console.log('failed to get open graph data')
-        return undefined
-      }
+    // HTMLパースして、画像タグのdata-canonical-srcを取得
+    const $ = load(post.rendered_body)
+    const firstImageURL = $('img:not(.emoji)').attr('data-canonical-src')
 
-      return {
-        url: (result.ogImage as typeof result.ogImage & { url: string }).url,
-      }
-    })
+    return {
+      url: firstImageURL,
+    }
+    // return ogs({ url: post.url })
+    //   .then(({ result }) => {
+    //     if (!result.success || !result.ogImage) {
+    //       console.log('failed to get open graph data')
+    //       return undefined
+    //     }
+
+    //     return {
+    //       url: (result.ogImage as typeof result.ogImage & { url: string }).url,
+    //     }
+    //   })
+    //   .then((result) => {
+    //     //Astro/imageでエンコード済み"/"が入ったURLはパースできないため、bitlyで短縮化する
+    //     return result ? bitly.shorten(result.url) : undefined
+    //   })
+    //   .then((shortenURL) => {
+    //     return {
+    //       url: shortenURL?.link,
+    //     }
+    //   })
+    //   .catch((e) => {
+    //     console.log(e)
+    //   })
   })
 )
 

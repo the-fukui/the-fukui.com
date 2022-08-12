@@ -1,5 +1,6 @@
 ---
 import { Picture } from '@astrojs/image/components'
+import noimage from '@images/noimage.jpg'
 
 import dayjs from 'dayjs'
 
@@ -36,27 +37,31 @@ const published = dayjs(post.date).format('MMM D, YYYY')
 >
   <div class="post__text">
     <time datetime={post.date} class="post__date">{published}</time>
-    <a href={`/blog/${post.id}/`} class="post__link">
+    <a
+      href={post.postType === 'normal' ? `/blog/${post.id}/` : post.url}
+      class="post__link"
+    >
       <div class="post__title">{post.title}</div>
     </a>
   </div>
-  <a href={`/blog/${post.id}/`} style="display: block" class="post__img">
-    {
-      post.thumbnail && (
-        <Picture
-          src={
-            post.thumbnail.url +
-            (import.meta.env.DEV && post.postType === 'normal'
-              ? '?w=800&fm=webp'
-              : '')
-          }
-          widths={[200, 400, 800]}
-          sizes={mini ? '200px' : '800px'}
-          aspectRatio="50:31"
-          alt=""
-        />
-      )
-    }
+  <a
+    href={post.postType === 'normal' ? `/blog/${post.id}/` : post.url}
+    style="display: block"
+    class="post__img"
+  >
+    <Picture
+      src={post.thumbnail && post.thumbnail.url
+        ? post.thumbnail.url +
+          (import.meta.env.DEV && post.postType === 'normal'
+            ? '?w=800&fm=webp'
+            : '')
+        : noimage}
+      widths={[200, 400]}
+      sizes={mini ? '200px' : '400px'}
+      aspectRatio="50:31"
+      alt=""
+    />
+
     {
       post.postType === 'Qiita' && (
         <>

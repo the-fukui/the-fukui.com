@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly QIITA_API_ENDPOINT: string
   readonly QIITA_API_KEY: string
   readonly STATIC_FORMS_TOKEN: string
+  readonly BITLY_API_KEY: string
 }
 
 interface ImportMeta {

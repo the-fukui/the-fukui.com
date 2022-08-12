@@ -398,7 +398,7 @@ export default {
       padding-top: 15px;
       padding-left: 20px;
       font-size: 4rem;
-      background: color.adjust($black, lightness: -10%);
+      background: color.adjust($black, $lightness: -10%);
       writing-mode: vertical-rl;
       @include ff-gill-inline;
 
@@ -409,7 +409,7 @@ export default {
         width: 100%;
         height: 6rem;
         content: '';
-        background: color.adjust($yellow, lightness: 3%);
+        background: color.adjust($yellow, $lightness: 3%);
 
         @include mq-down(md) {
           height: get_vw(40);
@@ -635,13 +635,13 @@ export default {
 
       &--tablet {
         font-size: 1.2rem;
-        color: color.adjust($black, lightness: 10%);
+        color: color.adjust($black, $lightness: 10%);
         opacity: 1;
       }
 
       @include mq-down(sm) {
         font-size: get_vw(12);
-        color: color.adjust($black, lightness: 10%);
+        color: color.adjust($black, $lightness: 10%);
         opacity: 1;
       }
     }

@@ -16,7 +16,14 @@
         <div class="form__description">
           ご連絡は下記フォームよりお気軽にどうぞ
         </div>
-        <!-- <f-img ref="stamp" src="mail.png" alt="Mail" class="form__mail-icon" /> -->
+        <img
+          src="/img/mail.png"
+          alt="Mail"
+          class="form__mail-icon"
+          :width="496 / 2"
+          :height="496 / 2"
+          data-watch-is-scrolled
+        />
         <div class="form__item form__item--date">
           <span class="form__item-title">DATE</span
           ><span class="form__item-val">{{ getDate }}</span>
@@ -72,12 +79,14 @@
           送信
         </button>
       </div>
-      <!-- <f-img
+      <img
         :class="{ 'form__sent--active': formOption.sent }"
-        src="sent.png"
+        src="/img/sent.png"
         alt="Message has been sent"
         class="form__sent"
-      /> -->
+        :width="835 / 2"
+        :height="544 / 2"
+      />
     </form>
   </section>
 </template>
@@ -89,7 +98,7 @@ export default {
         name: '',
         email: '',
         message: '',
-        accessKey: import.meta.env.STATIC_FORMS_TOKEN,
+        accessKey: import.meta.env.PUBLIC_STATIC_FORMS_TOKEN,
         replyTo: '@',
       },
       formOption: {
@@ -121,40 +130,37 @@ export default {
       }
     },
     submit() {
-      this.$nuxt.$loading.start()
       this.formOption.sending = true
       const form = this.$refs.form
       form.reportValidity()
 
       if (!form.checkValidity()) {
-        this.$nuxt.$loading.finish()
         this.formOption.sending = false
         return
       }
 
       // 確認ダイアログ
       if (window.confirm('メッセージを送信します。よろしいですか？')) {
-        this.$axios
-          .post(
-            'https://api.staticforms.xyz/submit',
-            JSON.stringify(this.form),
-            {
-              headers: { 'Content-Type': 'application/json' },
-            }
-          )
+        fetch('https://api.staticforms.xyz/submit', {
+          method: 'POST',
+          body: JSON.stringify(this.form),
+          headers: { 'Content-Type': 'application/json' },
+        })
           .then((res) => {
-            if (res.data.success) {
-              this.$nuxt.$loading.finish()
+            if (!res.ok) throw new Error('Network response was not ok.')
+            return res.json()
+          })
+          .then((data) => {
+            if (data.success) {
               this.formOption.sent = true
             }
           })
           .catch((e) => {
             alert('エラーが発生しました。もう一度お試し下さい。')
-            this.$nuxt.$loading.finish()
+
             this.formOption.sending = false
           })
       } else {
-        this.$nuxt.$loading.finish()
         this.formOption.sending = false
       }
     },
@@ -233,16 +239,14 @@ export default {
       transform: translateY(-50%) translateX(15%) rotate(15deg) scale(1);
     }
 
-    :deep(.img) {
-      @include mq-down(md) {
-        width: 180px;
-        height: auto;
-      }
+    @include mq-down(md) {
+      width: 180px;
+      height: auto;
+    }
 
-      @include mq-down(sm) {
-        width: get_vw(150);
-        height: auto;
-      }
+    @include mq-down(sm) {
+      width: get_vw(150);
+      height: auto;
     }
   }
 
@@ -408,16 +412,13 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
+    max-width: 80vw;
+    height: auto;
     margin: 0 auto;
     visibility: hidden;
     opacity: 0;
     transition: transform 0.4s cubic-bezier(0.17, 0.92, 0.14, 0.96);
     transform: translateX(-50%) translateY(-50%) rotateZ(20deg) scale(1.5);
-
-    &:deep(.img) {
-      max-width: 80vw;
-      height: auto;
-    }
 
     &--active {
       visibility: visible;

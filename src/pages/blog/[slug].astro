@@ -1,5 +1,6 @@
 ---
 import { Picture } from '@astrojs/image/components'
+import ButtonNavigation from '@components/ButtonNavigation.astro'
 import { PostList } from '@data/getPostList'
 import postList from '@data/posts.json'
 import Layout from '@layouts/Layout.astro'
@@ -14,10 +15,27 @@ export const getStaticPaths = async () => {
   }))
 }
 
+/**
+ * 記事取得
+ */
 const postID = String(Astro.params.slug)
 const post = await getBlog(postID)
 
+/**
+ * 公開日
+ */
 const published = dayjs(post.date).format('MMM D, YYYY')
+
+/**
+ * 前後記事情報取得
+ */
+const [prevPost, nextPost] = (() => {
+  const posts = postList as PostList
+  const postIndex = posts.findIndex(
+    (post) => post.postType === 'normal' && post.id === postID
+  )
+  return [posts[postIndex - 1], posts[postIndex + 1]]
+})()
 ---
 
 <Layout title="Welcome to Astro.">
@@ -67,31 +85,33 @@ const published = dayjs(post.date).format('MMM D, YYYY')
         </div>
       </div>
     </article>
-    <!-- <aside>
-    <div class="navigation section">
-      <nuxt-link
-        v-if="prevPost"
-        :to="`/blog/${prevPost.id}/`"
-        class="navigation__link"
-      >
-        <button-navigation direction="prev">{{
-          prevPost.title
-        }}</button-navigation>
-      </nuxt-link>
-      <span v-else></span>
-      <nuxt-link
-        v-if="nextPost"
-        :to="`/blog/${nextPost.id}/`"
-        class="navigation__link"
-      >
-        <button-navigation direction="next">{{
-          nextPost.title
-        }}</button-navigation>
-      </nuxt-link>
-      <span v-else></span>
-    </div>
-  </aside>
-  <button-share-line class="button-share-line" />
+    <aside>
+      <div class="navigation section">
+        {
+          prevPost ? (
+            <a href={`/blog/${prevPost.id}/`} class="navigation__link">
+              <ButtonNavigation direction="prev">
+                {prevPost.title}
+              </ButtonNavigation>
+            </a>
+          ) : (
+            <span v-else />
+          )
+        }
+        {
+          nextPost ? (
+            <a href={`/blog/${nextPost.id}/`} class="navigation__link">
+              <ButtonNavigation direction="next">
+                {nextPost.title}
+              </ButtonNavigation>
+            </a>
+          ) : (
+            <span v-else />
+          )
+        }
+      </div>
+    </aside>
+    <!-- <button-share-line class="button-share-line" />
   <button-share-fb :count="sns_count.facebook" class="button-share-fb" />
   <button-share-twitter
     :count="sns_count.twitter"

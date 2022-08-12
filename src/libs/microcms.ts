@@ -1,8 +1,16 @@
 import { createClient } from 'microcms-js-sdk'
+import { loadEnv } from 'vite'
+
+// Astro外からも使うので import.meta.env を使わない
+const { MICROCMS_SERVICE_DOMAIN, MICROCMS_API_KEY } = loadEnv(
+  'production',
+  process.cwd(),
+  ''
+)
 
 const _client = createClient({
-  serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: import.meta.env.MICROCMS_API_KEY,
+  serviceDomain: MICROCMS_SERVICE_DOMAIN,
+  apiKey: MICROCMS_API_KEY,
 })
 
 /**
@@ -12,7 +20,7 @@ const handler: ProxyHandler<typeof _client> = {
   get: function (target, action: keyof typeof _client) {
     return (args: any) => {
       try {
-        console.log('GET', args)
+        console.log('[microCMS] GET', args)
         return target[action](args)
       } catch (e) {
         console.log({ e })
@@ -54,6 +62,21 @@ export const getBlogList = client
     endpoint: 'blog',
     queries: {
       limit: 5,
+    },
+  })
+  .then((res) => {
+    return res.contents.map((post) => ({
+      ...post,
+      postType: 'normal' as const,
+    }))
+  })
+
+export const getAllBlogList = client
+  .getList<MicroCMSContent.Blog>({
+    endpoint: 'blog',
+    queries: {
+      limit: 999,
+      fields: 'id,title,date,thumbnail',
     },
   })
   .then((res) => {

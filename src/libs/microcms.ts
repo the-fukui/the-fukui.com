@@ -91,3 +91,9 @@ export const getBlog = (ID: string) =>
     endpoint: 'blog',
     contentId: ID,
   })
+
+export const getPortfolio = (ID: string) =>
+  client.getListDetail<MicroCMSContent.Portfolio>({
+    endpoint: 'portfolio',
+    contentId: ID,
+  })

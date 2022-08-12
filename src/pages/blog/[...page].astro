@@ -1,5 +1,6 @@
 ---
 import CardArticle from '@components/CardArticle.astro'
+import Pagination from '@components/Pagination.astro'
 import type { PostList } from '@data/getPostList'
 import postList from '@data/posts.json'
 import Layout from '@layouts/Layout.astro'
@@ -11,35 +12,49 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   return paginate(posts, { pageSize: 5 })
 }
 
-const { data: posts, currentPage } = Astro.props.page as Page<PostList[number]>
+const {
+  data: posts,
+  currentPage,
+  lastPage,
+} = Astro.props.page as Page<PostList[number]>
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <div class="title">
-      <h2 class="section title__tag">Articles {currentPage}</h2>
+      <h2 class="section title__tag">Articles</h2>
+      <span>page {currentPage}</span>
     </div>
-    {
-      posts.map((post, i) => (
-        <li class="list__item">
-          <CardArticle post={post} odd={i % 2 !== 0} />
-        </li>
-      ))
-    }
+    <ul class="section list">
+      {
+        posts.map((post, i) => (
+          <li class="list__item">
+            <CardArticle post={post} odd={i % 2 !== 0} />
+          </li>
+        ))
+      }
+    </ul>
+    <div class="section pagination">
+      <Pagination rootPath="/blog/" current={currentPage} totalCount={lastPage}
+      />
+    </div>
   </main>
 </Layout>
 
 <style lang="scss">
   .title {
     position: relative;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
     color: white;
     background: $green;
 
     &__tag {
+      width: auto;
       font-size: 8rem;
-      @include ff-gill-inline;
-
       color: white;
+      @include ff-gill-inline;
 
       @include mq-down(sm) {
         font-size: get_vw(40);
@@ -66,5 +81,9 @@ const { data: posts, currentPage } = Astro.props.page as Page<PostList[number]>
     }
 
     padding-bottom: 15px;
+  }
+
+  .pagination {
+    padding-top: 90px;
   }
 </style>

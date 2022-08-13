@@ -5462,10 +5462,6 @@ type@^2.5.0:
   resolved "https://registry.yarnpkg.com/type/-/type-2.7.0.tgz#aaff4ac90514e0dc1095b54af70505ef16cf00a2"
   integrity sha512-NybX0NBIssNEj1efLf1mqKAtO4Q/Np5mqpa57be81ud7/tNHIXn48FDVXiyGMBF90FfXc5o7RPsuRQrPzgMOMA==
 
-typed.css@brandonmcconnell/typed.css:
-  version "0.0.0"
-  resolved "https://codeload.github.com/brandonmcconnell/typed.css/tar.gz/2677c88c4b83deb96b658a16505977197e1d4135"
-
 typescript@^4.7.3:
   version "4.7.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"

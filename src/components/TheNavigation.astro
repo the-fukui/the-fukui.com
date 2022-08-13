@@ -1,48 +1,47 @@
 ---
+import { getNavigationList } from '@libs/microcms'
+
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   showTopButton?: boolean
 }
 
-const NAVIGATION = [
-  {
-    id: 'top',
-    href: '/',
-    name: 'トップ',
-  },
-  {
-    id: 'profile',
-    href: '/#profile',
-    name: 'プロフィール',
-  },
-  {
-    id: 'blog',
-    href: '/blog/',
-    name: 'ブログ',
-  },
-]
+const { contents: navigationList } = await getNavigationList
 
 const currentPath = Astro.url.pathname
 const { showTopButton = false, class: className } = Astro.props as Props
 const menuItems =
   currentPath === '/' && !showTopButton
-    ? NAVIGATION.filter((item) => {
+    ? navigationList.filter((item) => {
         return item.href !== '/'
       })
-    : NAVIGATION
+    : navigationList
+
+const isExternalURL = (url: string) => {
+  return url.startsWith('http://') || url.startsWith('https://')
+}
 ---
 
 <nav>
   <ul class={`list ${className}`}>
-    {menuItems.map((item, index) => {
-      return (
-        <li class="list__item" style={`animation-delay:${index * 0.1}s`}>
-          <a href={item.href} target="_blank" rel="noopener" class="list__link">
-            {item.name}
-            <img src="/img/external.svg" class="list__external" alt="" />
-          </a>
-        </li>
-      )
-    })}
+    {
+      menuItems.map((item, index) => {
+        return (
+          <li class="list__item" style={`animation-delay:${index * 0.1}s`}>
+            <a
+              href={item.href}
+              target={isExternalURL(item.href) ? '_blank' : undefined}
+              rel="noopener"
+              class="list__link"
+            >
+              {item.name}
+              {isExternalURL(item.href) && (
+                <img src="/img/external.svg" class="list__external" alt="" />
+              )}
+            </a>
+          </li>
+        )
+      })
+    }
   </ul>
 </nav>
 

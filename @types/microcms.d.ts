@@ -47,4 +47,9 @@ declare namespace MicroCMSContent {
     type?: string
     skill?: string
   }
+
+  export type NavigationItem = {
+    name: string
+    href: string
+  }
 }

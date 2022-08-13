@@ -97,3 +97,12 @@ export const getPortfolio = (ID: string) =>
     endpoint: 'portfolio',
     contentId: ID,
   })
+
+export const getNavigationList = client.getList<MicroCMSContent.NavigationItem>(
+  {
+    endpoint: 'navigation',
+    queries: {
+      limit: 999,
+    },
+  }
+)

@@ -3,7 +3,25 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {}
 const { class: className } = Astro.props as Props
 ---
 
-<div class={`hero section ${className}`}>
+<script>
+  const HERO_TEXT = `Webエンジニアのふくいと申します。\n知っておいて損はしない。\n多分しないと思う。\nしないんじゃないかな。\nま、ちょっと覚悟はしておけ。`
+  const heroTextElement = document.querySelector('#hero .hero__text')
+
+  //1文字ずつ表示
+  const showText = () => {
+    if (!heroTextElement) return
+    const text = heroTextElement.innerHTML
+
+    if (typeof text === 'string' && text.length < HERO_TEXT.length) {
+      heroTextElement.innerHTML = text + HERO_TEXT[text.length]
+      setTimeout(showText, HERO_TEXT[text.length] === '。' ? 300 : 80)
+    }
+  }
+
+  showText()
+</script>
+
+<div class={`hero section ${className}`} id="hero">
   <div class="hero__text"></div>
   <div class="hero__image">
     <img
@@ -18,9 +36,6 @@ const { class: className } = Astro.props as Props
 </div>
 
 <style lang="scss">
-  // TODO: opt-out
-  @import 'typed.css/typed';
-
   .hero {
     display: flex;
     justify-content: space-between;
@@ -33,10 +48,7 @@ const { class: className } = Astro.props as Props
     &__text {
       padding-left: 60px;
       font-style: italic;
-      @include typed(
-        'Webエンジニアのふくいと申します。知っておいて損はしない。多分しないと思う。しないんじゃないかな。ま、ちょっと覚悟はしておけ。',
-        1
-      );
+      white-space: pre-wrap;
 
       @include mq-down(md) {
         padding: 0 30px 15px;

@@ -1,0 +1,97 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  isOpen?: boolean
+}
+const { isOpen = false, class: className } = Astro.props as Props
+---
+
+<span class:list={`wrapper ${className}`}>
+  <span
+    class:list={['hamburger', { open: isOpen }]}
+    aria-label="Menu"
+    area-role="button"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</span>
+
+<style scoped lang="scss">
+  .wrapper {
+    display: block;
+    padding: 12px;
+    cursor: pointer;
+    background-color: white;
+
+    @include mq-down(sm) {
+      padding: get_vw(12);
+    }
+  }
+
+  .hamburger,
+  .hamburger span {
+    box-sizing: border-box;
+    display: block;
+    transition: transform 0.4s, opacity 0.4s;
+  }
+
+  .hamburger {
+    position: relative;
+    width: 44px;
+    height: 44px;
+
+    @include mq-down(sm) {
+      width: get_vw(44);
+      height: get_vw(44);
+    }
+  }
+
+  .hamburger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $black;
+
+    @include mq-down(sm) {
+      height: get_vw(4);
+    }
+  }
+
+  .hamburger span:nth-of-type(1) {
+    top: 0;
+  }
+
+  .hamburger span:nth-of-type(2) {
+    top: 20px;
+
+    @include mq-down(sm) {
+      top: get_vw(20);
+    }
+  }
+
+  .hamburger span:nth-of-type(3) {
+    bottom: 0;
+  }
+
+  .hamburger.open span:nth-of-type(1) {
+    transform: translateY(20px) rotate(45deg);
+
+    @include mq-down(sm) {
+      transform: translateY(get_vw(20)) rotate(45deg);
+    }
+  }
+
+  .hamburger.open span:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-of-type(3) {
+    transform: translateY(-20px) rotate(-45deg);
+
+    @include mq-down(sm) {
+      transform: translateY(get_vw(-20)) rotate(-45deg);
+    }
+  }
+</style>

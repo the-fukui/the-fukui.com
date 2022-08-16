@@ -1,6 +1,7 @@
 ---
 import TheFooter from '@components/TheFooter.astro'
 import TheHeader from '@components/TheHeader.astro'
+import TheNavigationMobile from '@components/TheNavigationMobile.astro'
 import TheVignette from '@components/TheVignette.astro'
 import '@styles/typekit.css'
 
@@ -11,6 +12,7 @@ export interface Props {
 }
 
 const { title } = Astro.props as Props
+const path = Astro.url.pathname
 ---
 
 <script>
@@ -28,6 +30,7 @@ const { title } = Astro.props as Props
 
 <body>
   <TheHeader class="the-header" />
+  {path !== '404' && <TheNavigationMobile class="the-navigation-mobile" />}
   <div class="main">
     <slot />
   </div>
@@ -82,6 +85,41 @@ const { title } = Astro.props as Props
           @include mq-up(sm) {
             transform: translateY(0);
           }
+        }
+      }
+    }
+
+    .the-navigation-mobile {
+      @include mq-up(sm) {
+        display: none;
+      }
+
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 998;
+    }
+
+    .button-to-top {
+      position: fixed;
+      right: 0;
+      z-index: 997;
+      transition: transform 0.4s cubic-bezier(0.17, 0.92, 0.14, 0.96);
+      transform: translateX(100%);
+
+      @include mq-down(sm) {
+        top: auto !important;
+        right: auto;
+        bottom: 10%;
+        left: 0;
+        transform: translateX(-100%) translateY(50%);
+      }
+
+      &--show {
+        transform: translateX(0);
+
+        @include mq-down(sm) {
+          transform: translateX(0%) translateY(50%);
         }
       }
     }

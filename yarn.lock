@@ -3769,19 +3769,10 @@ mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mlly@^0.5.3:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/mlly/-/mlly-0.5.7.tgz#3b058c36268314a1670f89767d40eead66099b93"
-  integrity sha512-rz+n2i9862ymLH+UDlHpsuTVyCIAs+9WejS2De2VUlAKdpq8OJ9x/C2M7nNUMLEW1H+D6n0uZlpz8+tMGxCmyQ==
-  dependencies:
-    acorn "^8.8.0"
-    pathe "^0.3.3"
-    pkg-types "^0.3.3"
-
-mlly@^0.5.7:
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/mlly/-/mlly-0.5.10.tgz#4d5bdce6f9531392846cfde6257e1a45bc196458"
-  integrity sha512-mY6i+bwcgn0XAdZTiiBt6kyoUjLsm3Cuv0T4CchQJcq/UCSUcGPapSxc4g7whtIsUfcsJ2kGqZAdmqCF/VNC/Q==
+mlly@^0.5.12, mlly@^0.5.3:
+  version "0.5.13"
+  resolved "https://registry.yarnpkg.com/mlly/-/mlly-0.5.13.tgz#2ee8fbaadda0fccad4d1096d024b1fb0aaeea11e"
+  integrity sha512-0SK2fqoan+PMjADs4I2egAtrtNtpjqRez6PDTCeAdGjUQNJCvO5o9v2NEq52WA1jFmMU97qBr/JgdvCquehDbA==
   dependencies:
     acorn "^8.8.0"
     pathe "^0.3.4"
@@ -4133,12 +4124,7 @@ pathe@^0.2.0:
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
   integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
 
-pathe@^0.3.0, pathe@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.3.tgz#8d6d70a25d4db6024ed4d59e59c1bf80fcf18753"
-  integrity sha512-x3nrPvG0HDSDzUiJ0WqtzhN4MD+h5B+dFJ3/qyxVuARlr4Y3aJv8gri2cZzp9Z8sGs2a+aG9gNbKngh3gme57A==
-
-pathe@^0.3.4:
+pathe@^0.3.0, pathe@^0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.4.tgz#35bfb1e92373f98d9711cc74e7d6475a0654deae"
   integrity sha512-YWgqEdxf36R6vcsyj0A+yT/rDRPe0wui4J9gRR7T4whjU5Lx/jZOr75ckEgTNaLVQABAwsrlzHRpIKcCdXAQ5A==
@@ -5557,13 +5543,13 @@ vfile@^5.0.0, vfile@^5.3.2:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite-node@^0.21.1:
-  version "0.21.1"
-  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.21.1.tgz#4e21489ab0f2ec0a4f14c3b7d3a96e13658fe3f6"
-  integrity sha512-JYEGMLovQOFoInIbSEXWApBp9ycEJEvlHFLheeR27ZXwpN7Oqy0jNJzh4gsmowTJt1VxtDwjkIU1p359Q/anAw==
+vite-node@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.22.1.tgz#a187e3d73094e29ab82310bb7f5a63da1038a882"
+  integrity sha512-odNMaOD4N62qESLvFSqoNf2t60ftIFHKgHNupa2cojbF2u2yB1ssluOfq5X0lZcTPx2HBzFbwa6h9m78ujEbUw==
   dependencies:
     debug "^4.3.4"
-    mlly "^0.5.7"
+    mlly "^0.5.12"
     pathe "^0.2.0"
     vite "^2.9.12 || ^3.0.0-0"
 

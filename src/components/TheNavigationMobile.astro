@@ -7,9 +7,13 @@ const { class: className } = Astro.props as Props
 ---
 
 <details class={`mobile-navigation ${className}`}>
-  <summary
-    ><ButtonHamburger class="button-hamburger" isOpen={false} />
-    <ButtonHamburger class="button-hamburger--isOpen" isOpen={true} />
+  <summary>
+    <ButtonHamburger
+      id="hamburger-closed"
+      class="button-hamburger button-hamburger--isOpen"
+      isOpen={true}
+    />
+    <ButtonHamburger id="hamburger" class="button-hamburger" isOpen={false} />
   </summary>
   <div class:list={['navigation-wrapper']}>
     <TheNavigation class="the-navigation" />

@@ -2,10 +2,10 @@
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   isOpen?: boolean
 }
-const { isOpen = false, class: className } = Astro.props as Props
+const { isOpen = false, class: className, ...attributes } = Astro.props as Props
 ---
 
-<span class:list={`wrapper ${className}`}>
+<span class:list={`wrapper ${className}`} {...attributes}>
   <span
     class:list={['hamburger', { open: isOpen }]}
     aria-label="Menu"

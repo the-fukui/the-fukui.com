@@ -20,6 +20,17 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
+
+      - name: 'Create env file'
+        run: |
+          touch .env.local
+          echo API_KEY=${{ secrets.MICROCMS_SERVICE_DOMAIN }} >> .env.local
+          echo API_KEY=${{ secrets.MICROCMS_API_KEY }} >> .env.local
+          echo API_KEY=${{ secrets.PUBLIC_STATIC_FORMS_TOKEN }} >> .env.local
+          echo API_KEY=${{ secrets.QIITA_API_ENDPOINT }} >> .env.local
+          echo API_KEY=${{ secrets.QIITA_API_KEY }} >> .env.local
+          echo API_KEY=${{ secrets.BITLY_API_TOKEN }} >> .env.local
+
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 

@@ -21,6 +21,9 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
 
+      - name: env debug
+        run: echo  "${{secrets.PUBLIC_STATIC_FORMS_TOKEN}}"
+
       - name: 'Create env file'
         run: |
           touch .env.local

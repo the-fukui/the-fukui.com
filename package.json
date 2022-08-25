@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "yarn typecheck && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "createQiitaAPIType": "curl https://qiita.com/api/v2/schema | json2ts > ./src/libs/qiita-types.ts",
     "getPostList": "vite-node ./src/data/getPostList.ts",

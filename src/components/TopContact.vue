@@ -17,7 +17,7 @@
           ご連絡は下記フォームよりお気軽にどうぞ
         </div>
         <img
-          src="/img/mail.png"
+          :src="mail"
           alt="Mail"
           class="form__mail-icon"
           :width="496 / 2"
@@ -81,7 +81,7 @@
       </div>
       <img
         :class="{ 'form__sent--active': formOption.sent }"
-        src="/img/sent.png"
+        :src="sent"
         alt="Message has been sent"
         class="form__sent"
         :width="835 / 2"
@@ -91,6 +91,9 @@
   </section>
 </template>
 <script>
+import mail from '@public/img/mail.png'
+import sent from '@public/img/sent.png'
+
 export default {
   data() {
     return {

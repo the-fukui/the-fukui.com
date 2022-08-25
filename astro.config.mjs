@@ -7,6 +7,7 @@ import image from "@astrojs/image";
 // https://astro.build/config
 export default defineConfig({
   site: "https://the-fukui.github.io",
+  base: "the-fukui.com",
   integrations: [vue(), image()],
   vite: {
     plugins: [tsconfigPaths()],

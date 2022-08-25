@@ -8,11 +8,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# # Allow this job to clone the repo and create a page deployment
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
 jobs:
   build:
@@ -24,12 +24,12 @@ jobs:
       - name: 'Create env file'
         run: |
           touch .env.local
-          echo API_KEY=${{ secrets.MICROCMS_SERVICE_DOMAIN }} >> .env.local
-          echo API_KEY=${{ secrets.MICROCMS_API_KEY }} >> .env.local
-          echo API_KEY=${{ secrets.PUBLIC_STATIC_FORMS_TOKEN }} >> .env.local
-          echo API_KEY=${{ secrets.QIITA_API_ENDPOINT }} >> .env.local
-          echo API_KEY=${{ secrets.QIITA_API_KEY }} >> .env.local
-          echo API_KEY=${{ secrets.BITLY_API_TOKEN }} >> .env.local
+          echo MICROCMS_SERVICE_DOMAIN=${{ secrets.MICROCMS_SERVICE_DOMAIN }} >> .env.local
+          echo MICROCMS_API_KEY=${{ secrets.MICROCMS_API_KEY }} >> .env.local
+          echo PUBLIC_STATIC_FORMS_TOKEN=${{ secrets.PUBLIC_STATIC_FORMS_TOKEN }} >> .env.local
+          echo QIITA_API_ENDPOINT=${{ secrets.QIITA_API_ENDPOINT }} >> .env.local
+          echo QIITA_API_KEY=${{ secrets.QIITA_API_KEY }} >> .env.local
+          echo BITLY_API_TOKEN=${{ secrets.BITLY_API_TOKEN }} >> .env.local
 
       - name: Install, build, and upload your site
         uses: withastro/action@v0

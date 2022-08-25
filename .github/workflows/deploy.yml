@@ -8,11 +8,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# # Allow this job to clone the repo and create a page deployment
-# permissions:
-#   contents: read
-#   pages: write
-#   id-token: write
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -21,9 +21,6 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v2
-
-      - name: env debug
-        run: echo  "${{secrets.PUBLIC_STATIC_FORMS_TOKEN}}"
 
       - name: 'Create env file'
         run: |

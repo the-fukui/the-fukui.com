@@ -62,7 +62,7 @@
     "stylelint-config-standard-scss": "^5.0.0",
     "vite-node": "^0.22.1",
     "vite-tsconfig-paths": "^3.5.0",
-    "vue": "^3.2.37",
+    "vue": "^3.2.38",
     "vue-tsc": "^0.40.4"
   },
   "volta": {

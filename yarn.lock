@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.23.4.tgz#e22d1436876d0477e62be38063263d2851c57403"
   integrity sha512-vNZIa5Tf5nOqBEGJvM6xyYBnGcz4MAp+bBPnyVI0UYRjsIWlP7RgMdCpRV0OOh5kgh00BoAypGv27kcoJCMVfA==
 
-"@astrojs/image@^0.3.6":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.3.6.tgz#a77a2c83217d79c49a12ccfb46285362d51cc51a"
-  integrity sha512-uqFns1fKEmxZSu8IboBckZaLbDiqu6+xMT/Kpr7qgvoN2I6jKQLy39ku0aLC+DhaeV44NxHh+tGAk1qNSfgErw==
+"@astrojs/image@^0.3.7":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.3.7.tgz#fe4c19f1c919ed41781f0859746fc83f0243b430"
+  integrity sha512-A6029ed1ZfhcaZJLnII0XCl29VzeFJp07VqelOGi3yyi7VAXREHZa3bT23V5YQt/goPwKac8gZn2/pgnYPea6Q==
   dependencies:
     etag "^1.8.1"
     image-size "^1.0.1"

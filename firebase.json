@@ -2,6 +2,104 @@
   "hosting": {
     "target": "renew",
     "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**/*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=300, s-maxage=31536000"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|webp|svg|avif|js|json|ico)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, s-maxage=31536000"
+          }
+        ]
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/feed/",
+        "destination": "/feed.xml",
+        "type": 301
+      },
+      {
+        "source": "/sitemap/",
+        "destination": "/sitemap.xml",
+        "type": 301
+      },
+      {
+        "source": "/new-employee-manner/",
+        "destination": "/blog/new-employee-manner/",
+        "type": 301
+      },
+      {
+        "source": "/play-on-mac/",
+        "destination": "/blog/play-on-mac/",
+        "type": 301
+      },
+      {
+        "source": "/nginx-negi/",
+        "destination": "/blog/nginx-negi/",
+        "type": 301
+      },
+      {
+        "source": "/wordcamp-tokyo-2018/",
+        "destination": "/blog/wordcamp-tokyo-2018/",
+        "type": 301
+      },
+      {
+        "source": "/menu-for-wp-rest-api/",
+        "destination": "/blog/menu-for-wp-rest-api/",
+        "type": 301
+      },
+      {
+        "source": "/wordcamp-tokyo-2018-session-day/",
+        "destination": "/blog/wordcamp-tokyo-2018-session-day/",
+        "type": 301
+      },
+      {
+        "source": "/google-map-marker-fix/",
+        "destination": "/blog/google-map-marker-fix/",
+        "type": 301
+      },
+      {
+        "source": "/sessiongo_launch/",
+        "destination": "/blog/sessiongo_launch/",
+        "type": 301
+      },
+      {
+        "source": "/sessiongo_launch/",
+        "destination": "/blog/sessiongo_launch/",
+        "type": 301
+      },
+      {
+        "source": "/javascript-de-hodou-lol",
+        "destination": "/blog/javascript-de-hodou-lol/",
+        "type": 301
+      },
+      {
+        "source": "/css-selector-wildcard/",
+        "destination": "/blog/css-selector-wildcard/",
+        "type": 301
+      },
+      {
+        "source": "/domain-access-problem/",
+        "destination": "/blog/domain-access-problem/",
+        "type": 301
+      },
+      {
+        "source": "/wordpress-shifter-cooool/",
+        "destination": "/blog/wordpress-shifter-cooool/",
+        "type": 301
+      }
+    ],
+    "trailingSlash": true
   }
 }

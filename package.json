@@ -41,7 +41,7 @@
     "astro": "^1.1.2",
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.5",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-astro": "^0.17.1",
     "eslint-plugin-vue": "^9.4.0",

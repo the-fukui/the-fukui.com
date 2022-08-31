@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "target": "renew",
+    "public": "dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

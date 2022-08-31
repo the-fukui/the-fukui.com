@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "fukuinofu"
+  },
+  "targets": {
+    "fukuinofu": {
+      "hosting": {
+        "renew": [
+          "renew-fukuinofu"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

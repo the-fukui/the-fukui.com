@@ -35,7 +35,7 @@
     "@types/node": "^18.7.14",
     "@types/open-graph-scraper": "^4.8.1",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
-    "@typescript-eslint/parser": "^5.35.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.0",
     "astro": "^1.1.2",

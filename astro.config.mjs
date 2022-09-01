@@ -1,5 +1,6 @@
 import image from '@astrojs/image'
 import prefetch from '@astrojs/prefetch'
+import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 
 import compress from 'astro-compress'
@@ -18,6 +19,7 @@ export default defineConfig({
     prefetch({
       selector: "a[href^='/']",
     }),
+    sitemap(),
   ],
   vite: {
     plugins: [tsconfigPaths()],

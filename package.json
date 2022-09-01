@@ -9,15 +9,15 @@
     "preview": "astro preview",
     "createQiitaAPIType": "curl https://qiita.com/api/v2/schema | json2ts > ./src/libs/qiita-types.ts",
     "getPostList": "vite-node ./src/data/getPostList.ts",
-    "lint": "eslint ./**/*.{js,ts,tsx,astro,vue} --fix --cache --no-error-on-unmatched-pattern",
+    "lint": "eslint ./**/*.{js,ts,tsx,astro,vue,mjs} --fix --cache --no-error-on-unmatched-pattern",
     "lint:style": "stylelint --fix ./**/*.{css,scss,sass,astro,vue} --cache",
     "typecheck": "astro check && tsc --noEmit && vue-tsc --noEmit --skipLibCheck --allowJs ./src/**/*.vue ",
-    "format": "prettier --write ./**/*.{js,ts,tsx,astro,vue,json,yml,yaml,md} --cache --no-error-on-unmatched-pattern",
+    "format": "prettier --write ./**/*.{js,ts,tsx,astro,vue,json,yml,yaml,md,mjs} --cache --no-error-on-unmatched-pattern",
     "lint-staged": "lint-staged",
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,astro,vue}": [
+    "*.{js,ts,tsx,astro,vue,mjs}": [
       "eslint --fix --cache",
       "prettier --write --cache"
     ],

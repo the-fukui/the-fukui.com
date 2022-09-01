@@ -11,6 +11,7 @@
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     // Add type definitions for our Astro runtime.
     "types": ["astro/client", "node"],
     "baseUrl": ".",

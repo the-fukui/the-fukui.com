@@ -8,7 +8,7 @@ import compress from "astro-compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://renew.the-fukui.com",
-  integrations: [vue(), image(), compress()],
+  integrations: [vue(), image(), compress({ img: false })],
   vite: {
     plugins: [tsconfigPaths()],
     ssr: {
@@ -18,9 +18,9 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
-                    @use 'src/styles/color' as *;
-                    @use 'src/styles/size' as *;
-                    @use 'src/styles/font' as *;`
+          @use 'src/styles/color' as *;
+          @use 'src/styles/size' as *;
+          @use 'src/styles/font' as *;`
         }
       }
     }

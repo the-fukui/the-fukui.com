@@ -35,7 +35,13 @@ const isExternalURL = (url: string) => {
             >
               {item.name}
               {isExternalURL(item.href) && (
-                <img src="/img/external.svg" class="list__external" alt="" />
+                <img
+                  src="/img/external.svg"
+                  class="list__external"
+                  alt=""
+                  width="512"
+                  height="512"
+                />
               )}
             </a>
           </li>

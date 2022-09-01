@@ -95,43 +95,43 @@ const portfolio = await getPortfolio(portfolioID)
             <ul class="tech__list">
               {
                 portfolio.tech &&
-                portfolio.tech.map((tech) => (
-                  <li class="tech__item">
-                    <a
-                      href={tech.url}
-                      rel="noopener"
-                      target="_blank"
-                      class="tech__link"
-                    >
-                      {tech.icon && (
-                        // <Picture
-                        //   src={tech.icon.url}
-                        //   widths={[100, 200]}
-                        //   sizes={'100px'}
-                        //   aspectRatio={tech.icon.width / tech.icon.height}
-                        //   alt={tech.name}
-                        //   class="tech__icon"
-                        // />
-                        <img
-                          src={tech.icon.url}
-                          class="tech__icon"
-                          width={tech.icon.width}
-                          height={tech.icon.height}
-                          alt={tech.name}
-                        />
-                      )}
-
-                      <div
-                        class:list={[
-                          'tech__name',
-                          { 'tech__name--tablet': true },
-                        ]}
+                  portfolio.tech.map((tech) => (
+                    <li class="tech__item">
+                      <a
+                        href={tech.url}
+                        rel="noopener"
+                        target="_blank"
+                        class="tech__link"
                       >
-                        {tech.name}
-                      </div>
-                    </a>
-                  </li>
-                ))
+                        {tech.icon && (
+                          // <Picture
+                          //   src={tech.icon.url}
+                          //   widths={[100, 200]}
+                          //   sizes={'100px'}
+                          //   aspectRatio={tech.icon.width / tech.icon.height}
+                          //   alt={tech.name}
+                          //   class="tech__icon"
+                          // />
+                          <img
+                            src={tech.icon.url}
+                            class="tech__icon"
+                            width={tech.icon.width}
+                            height={tech.icon.height}
+                            alt={tech.name}
+                          />
+                        )}
+
+                        <div
+                          class:list={[
+                            'tech__name',
+                            { 'tech__name--tablet': true },
+                          ]}
+                        >
+                          {tech.name}
+                        </div>
+                      </a>
+                    </li>
+                  ))
               }
             </ul>
           </div>
@@ -146,28 +146,28 @@ const portfolio = await getPortfolio(portfolioID)
             <ul class="part__list">
               {
                 portfolio.part &&
-                portfolio.part.map((part) => (
-                  <li class="part__item">
-                    {part.icon && (
-                      // <Picture
-                      //   src={part.icon.url}
-                      //   widths={[32, 64]}
-                      //   sizes={'32px'}
-                      //   aspectRatio="1:1"
-                      //   alt={part.name}
-                      //   class="part__icon"
-                      // />
-                      <img
-                        src={part.icon.url}
-                        class="part__icon"
-                        width="32"
-                        height="32"
-                        alt={part.name}
-                      />
-                    )}
-                    <span class="part__name">{part.name}</span>
-                  </li>
-                ))
+                  portfolio.part.map((part) => (
+                    <li class="part__item">
+                      {part.icon && (
+                        // <Picture
+                        //   src={part.icon.url}
+                        //   widths={[32, 64]}
+                        //   sizes={'32px'}
+                        //   aspectRatio="1:1"
+                        //   alt={part.name}
+                        //   class="part__icon"
+                        // />
+                        <img
+                          src={part.icon.url}
+                          class="part__icon"
+                          width="32"
+                          height="32"
+                          alt={part.name}
+                        />
+                      )}
+                      <span class="part__name">{part.name}</span>
+                    </li>
+                  ))
               }
             </ul>
           </div>

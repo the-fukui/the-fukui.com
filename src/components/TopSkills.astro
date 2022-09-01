@@ -33,16 +33,18 @@ const GCPSkill = (() => {
   <div class="section skill__inner" data-watch-is-scrolled>
     <div class="skill__right">
       <h3 class="skill__title skill__title--main">SKILL</h3>
-      {[...Array(5)].map((_, i) => (
-        <div
-          style={`opacity:${1 / (i + 1)}; transform:translateY(${
-            (i + 1) * -1
-          }em) rotate(-15deg);`}
-          class="skill__title skill__title--gradient"
-        >
-          SKILL
-        </div>
-      ))}
+      {
+        [...Array(5)].map((_, i) => (
+          <div
+            style={`opacity:${1 / (i + 1)}; transform:translateY(${
+              (i + 1) * -1
+            }em) rotate(-15deg);`}
+            class="skill__title skill__title--gradient"
+          >
+            SKILL
+          </div>
+        ))
+      }
     </div>
     <ul class="skill-list">
       {mergedSkill.map((skill) => <li class="skill-list__item">{skill}</li>)}
@@ -65,6 +67,8 @@ const GCPSkill = (() => {
         src="/img/guitar.svg"
         class="ex-skill__img ex-skill__img--guitar"
         alt="guitar"
+        width="459"
+        height="1390"
       />
     </div>
     <div class="ex-skill__img-wrapper">
@@ -73,6 +77,8 @@ const GCPSkill = (() => {
         class="ex-skill__img ex-skill__img--violin"
         alt="violin"
         loading="lazy"
+        width="196"
+        height="532"
       />
     </div>
   </div>

@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.23.4.tgz#e22d1436876d0477e62be38063263d2851c57403"
   integrity sha512-vNZIa5Tf5nOqBEGJvM6xyYBnGcz4MAp+bBPnyVI0UYRjsIWlP7RgMdCpRV0OOh5kgh00BoAypGv27kcoJCMVfA==
 
-"@astrojs/image@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.4.0.tgz#4beaf6d03c3363a0677ec56946b9868892dc7440"
-  integrity sha512-DUXY9N91CvCskLJyKB9GQH4S8NoxVyQYHikmE8xx0haYbu8BgIX1fq/N5hN5+cNxkqLTKXKcHffY0lquwidSBg==
+"@astrojs/image@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.5.0.tgz#c1f76ff58fe629fb770232031a726c859990176f"
+  integrity sha512-sXY6jO0BtXSI8vyFmO6nw8QWropA1ur0rY/ZL0Tx3+u83vR3YYKJAEn05CJ4qXeu6yO0am0xbVA3vmf5fU+ImQ==
   dependencies:
     image-size "^1.0.2"
     magic-string "^0.25.9"

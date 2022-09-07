@@ -552,10 +552,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@preact/signals-core@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.0.0.tgz#ccdfb40e9ec97668c74aecbe91192c7422636836"
-  integrity sha512-Gx5zCzjJLnI7ZeS4Z5TKu48vBGe/fqNONxXNmoIToOw0lOz3dN32/Lmfcg408Mf52kwyqWmMRjPJo1paPYhLOg==
+"@preact/signals-core@^1.0.0", "@preact/signals-core@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.0.1.tgz#7b2c672f62a762576858b8aaa8c89ee8c8d722fd"
+  integrity sha512-1yBu72jd80QWdp8WvNFBg7K+0REv+NqJg1CGIwAl5kJ+qE7I06Lm2+K3z2qVZmABiDjQgjU2vKA9yEjniWv5uA==
 
 "@preact/signals@^1.0.1":
   version "1.0.1"

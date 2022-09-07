@@ -41,7 +41,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.1",
     "astro": "^1.1.6",
-    "astro-compress": "^1.0.6",
+    "astro-compress": "^1.0.7",
     "astro-critters": "^1.0.3",
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.5",

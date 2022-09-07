@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 
 import compress from 'astro-compress'
+import critters from 'astro-critters'
 import { defineConfig } from 'astro/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
@@ -20,6 +21,7 @@ export default defineConfig({
       selector: "a[href^='/']",
     }),
     sitemap(),
+    critters(),
   ],
   vite: {
     plugins: [tsconfigPaths()],

@@ -57,6 +57,9 @@
     "stylelint-config-standard-scss": "^5.0.0",
     "typescript-plugin-css-modules": "^3.4.0"
   },
+  "resolutions": {
+    "preact-render-to-string": "^5.2.3"
+  },
   "volta": {
     "node": "18.8.0",
     "yarn": "1.22.19"

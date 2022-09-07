@@ -14,14 +14,14 @@ export default defineConfig({
   integrations: [
     vue(),
     image(),
-    compress({
-      img: false,
-    }),
     prefetch({
       selector: "a[href^='/']",
     }),
-    sitemap(),
     critters(),
+    sitemap(),
+    compress({
+      img: false,
+    }),
   ],
   vite: {
     plugins: [tsconfigPaths()],

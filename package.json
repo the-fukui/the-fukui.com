@@ -32,7 +32,7 @@
     "@astrojs/image": "^0.4.0",
     "@astrojs/prefetch": "^0.0.7",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/vue": "^1.0.0",
+    "@astrojs/vue": "^1.0.1",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "@types/node": "^18.7.15",
     "@types/open-graph-scraper": "^4.8.1",

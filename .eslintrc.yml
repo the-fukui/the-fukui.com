@@ -38,5 +38,8 @@ overrides:
       - '*.mjs'
     extends:
       - 'plugin:react/recommended'
+    settings:
+      react:
+        version: '18'
     rules:
       react/react-in-jsx-scope: 'off'

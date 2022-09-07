@@ -10,7 +10,7 @@
     "astro": "astro",
     "format": "prettier --write './**/*.{mjs,js,jsx,ts,tsx,astro,json,yml,yaml,md,css,scss,sass}' --cache --ignore-path .gitignore",
     "lint": "eslint './**/*.{mjs,js,jsx,ts,tsx,astro,json}' --fix --cache --ignore-path .gitignore",
-    "lint:style": "stylelint --fix './**/*.{css,scss,sass,astro}' --ignore-path .gitignore",
+    "lint:style": "stylelint './**/*.{css,scss,sass,astro}' --fix --cache --ignore-path .gitignore",
     "lint-staged": "lint-staged",
     "postinstall": "husky install"
   },

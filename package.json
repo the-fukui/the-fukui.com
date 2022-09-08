@@ -29,7 +29,7 @@
     ]
   },
   "devDependencies": {
-    "@astrojs/image": "^0.4.0",
+    "@astrojs/image": "^0.6.0",
     "@astrojs/prefetch": "^0.0.7",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/vue": "^1.0.1",

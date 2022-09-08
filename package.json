@@ -59,7 +59,8 @@
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^28.0.0",
     "stylelint-config-standard-scss": "^5.0.0",
-    "typescript-plugin-css-modules": "^3.4.0"
+    "typescript-plugin-css-modules": "^3.4.0",
+    "vite-tsconfig-paths": "^3.5.0"
   },
   "resolutions": {
     "preact-render-to-string": "^5.2.3"

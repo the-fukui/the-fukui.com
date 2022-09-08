@@ -5,6 +5,7 @@ import prefetch from '@astrojs/prefetch'
 import compress from 'astro-compress'
 import critters from 'astro-critters'
 import { defineConfig } from 'astro/config'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,4 +20,7 @@ export default defineConfig({
       img: false,
     }),
   ],
+  vite: {
+    plugins: [tsconfigPaths()],
+  },
 })

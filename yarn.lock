@@ -552,10 +552,10 @@
   resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.0.1.tgz#7b2c672f62a762576858b8aaa8c89ee8c8d722fd"
   integrity sha512-1yBu72jd80QWdp8WvNFBg7K+0REv+NqJg1CGIwAl5kJ+qE7I06Lm2+K3z2qVZmABiDjQgjU2vKA9yEjniWv5uA==
 
-"@preact/signals@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-1.0.2.tgz#3d0fa90a337850507633a6cd09047f28e3624440"
-  integrity sha512-KTPx4MKVRtY4sAnWg9RDo+3kF8FuMo18qciF5ZbKlFP/uVu+MTBuJ3bRqgwdbJKmxI1bDgGtPrIsksGZXw9PUA==
+"@preact/signals@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-1.0.3.tgz#4bd7fc17e8d14c2f2803dc02f680806a57383a0d"
+  integrity sha512-aBUYPBzdw+UD99t3n2v+OKecjaA2SnvImLDKH7jZtgwPE6E4Jr+B+H3P1tYty+bRsIKnHuFcvYUIZJAP1armFw==
   dependencies:
     "@preact/signals-core" "^1.0.1"
 

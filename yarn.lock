@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@altano/tiny-async-pool@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@altano/tiny-async-pool/-/tiny-async-pool-1.0.2.tgz#67d04251e77af001e2067311355ee3beb3e4fadf"
+  integrity sha512-qQzaI0TBUPdpjZ3qo5b2ziQY9MSNpbziH2ZrE5lvtUZL+kn9GwVuVJwoOubaoNkeDB+rqEefnpu1k+oMpOCYiw==
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
@@ -15,11 +20,12 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.23.5.tgz#ea57a2b994b2930e3b3d2d524f10866698fef4f1"
   integrity sha512-vBMPy9ok4iLapSyCCT1qsZ9dK7LkVFl9mObtLEmWiec9myGHS9h2kQY2xzPeFNJiWXUf9O6tSyQpQTy5As/p3g==
 
-"@astrojs/image@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.4.0.tgz#4beaf6d03c3363a0677ec56946b9868892dc7440"
-  integrity sha512-DUXY9N91CvCskLJyKB9GQH4S8NoxVyQYHikmE8xx0haYbu8BgIX1fq/N5hN5+cNxkqLTKXKcHffY0lquwidSBg==
+"@astrojs/image@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.6.1.tgz#4e112f3ba92eb9cd9d59c075faa98fc6a8dd0853"
+  integrity sha512-vD4l8MW1flAFMl3qmdAC1AtDR1MNBsiiEznkAwrqzAsQh5gXQJ1jPBN/gCDMzO0/lfc1Vos/NoyYanmlKO50Xg==
   dependencies:
+    "@altano/tiny-async-pool" "^1.0.2"
     image-size "^1.0.2"
     magic-string "^0.25.9"
     mime "^3.0.0"

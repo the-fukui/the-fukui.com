@@ -4,9 +4,10 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "exactOptionalPropertyTypes": false, //for react classname/css modules
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "public/*": ["./public/*"]
+      "@/*": ["src/*"],
+      "@/public/*": ["./public/*"]
     }
   }
 }

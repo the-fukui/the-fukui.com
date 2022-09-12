@@ -35,7 +35,7 @@
     "preact": "^10.6.5"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.6.0",
+    "@astrojs/image": "^0.7.0",
     "@astrojs/prefetch": "^0.0.7",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "@typescript-eslint/eslint-plugin": "^5.36.2",

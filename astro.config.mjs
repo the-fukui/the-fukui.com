@@ -6,15 +6,20 @@ import critters from 'astro-critters'
 import { defineConfig } from 'astro/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
+import getPostList from './src/integrations/getPostList'
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     preact(),
     image(),
+    getPostList(),
     prefetch({
       selector: "a[href^='/']",
     }),
-    critters(),
+    critters({
+      pruneSource: true,
+    }),
     compress({
       img: false,
     }),

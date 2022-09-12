@@ -2,12 +2,12 @@ import { loadEnv } from 'vite'
 
 import type { QiitaAPIV2JSONSchema } from './qiita-types'
 
-// Astro外からも使うので import.meta.env を使わない
+// Vite外からも使うので import.meta.env を使わない
 const { QIITA_API_KEY, QIITA_API_ENDPOINT } = loadEnv(
   'production',
   process.cwd(),
-  ''
-)
+  '',
+) as ImportMetaEnv
 
 const headers = new Headers()
 headers.append('Authorization', `Bearer ${QIITA_API_KEY}`)
@@ -49,10 +49,10 @@ const client = {
       })
       return fetch(
         `${QIITA_API_ENDPOINT}/${path}?${queryParams.toString()}`,
-        options
+        options,
       ).then(
         (data) =>
-          data.json() as Promise<QiitaAPIV2JSONSchemaWithAuthenticatedItem[T]>
+          data.json() as Promise<QiitaAPIV2JSONSchemaWithAuthenticatedItem[T]>,
       )
     } catch (e) {
       console.log(e)

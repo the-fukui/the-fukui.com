@@ -19,6 +19,7 @@ export interface QiitaAPIV2JSONSchema {
   like: Like
   project: Project
   reaction: EmojiReaction
+  reacted_item: ActionOnItem
   team_membership_detail: TeamMember
   remove_team_member: RemoveTeamMember
   tag: Tag
@@ -677,6 +678,109 @@ export interface User3 {
    * Website URL
    */
   website_url: null | string
+  [k: string]: unknown
+}
+/**
+ * It represents actions (number of views/comments/emoji reactions) to an article on Qiita Team, and is valid only on Qiita Team.
+ */
+export interface ActionOnItem {
+  comments: Comment1[]
+  /**
+   * Date-time when this data was created
+   */
+  created_at: string
+  /**
+   * An unique item ID
+   */
+  id: string
+  /**
+   * The number of views.
+   */
+  page_views_count: number
+  reactions: EmojiReaction2[]
+  /**
+   * The title of this item
+   */
+  title: string
+  /**
+   * The URL of this item
+   */
+  url: string
+  /**
+   * Date-time when this data was updated
+   */
+  updated_at: string
+  /**
+   * Posted user id
+   */
+  user_id: string
+  [k: string]: unknown
+}
+/**
+ * Represents a comment on an article on Qiita Team, valid only on Qiita Team.
+ */
+export interface Comment1 {
+  /**
+   * Date-time when this data was created
+   */
+  created_at: string
+  /**
+   * An unique comment ID
+   */
+  id: string
+  reactions: EmojiReaction1[]
+  /**
+   * Date-time when this data was updated
+   */
+  updated_at: string
+  /**
+   * Commented user id
+   */
+  user_id: string
+  [k: string]: unknown
+}
+/**
+ * Indicates an emoji reaction on Qiita Team, valid only on Qiita Team.
+ */
+export interface EmojiReaction1 {
+  /**
+   * Date-time when this data was created
+   */
+  created_at: string
+  /**
+   * An emoji image URL
+   */
+  image_url: string
+  /**
+   * A unique emoji name
+   */
+  name: string
+  /**
+   * Reacted user id
+   */
+  user_id: string
+  [k: string]: unknown
+}
+/**
+ * Indicates an emoji reaction on Qiita Team, valid only on Qiita Team.
+ */
+export interface EmojiReaction2 {
+  /**
+   * Date-time when this data was created
+   */
+  created_at: string
+  /**
+   * An emoji image URL
+   */
+  image_url: string
+  /**
+   * A unique emoji name
+   */
+  name: string
+  /**
+   * Reacted user id
+   */
+  user_id: string
   [k: string]: unknown
 }
 /**

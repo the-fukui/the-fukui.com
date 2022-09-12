@@ -1,12 +1,12 @@
 import { createClient } from 'microcms-js-sdk'
 import { loadEnv } from 'vite'
 
-// Astro外からも使うので import.meta.env を使わない
+// Vite外からも使うので import.meta.env を使わない
 const { MICROCMS_SERVICE_DOMAIN, MICROCMS_API_KEY } = loadEnv(
   'production',
   process.cwd(),
-  ''
-)
+  '',
+) as ImportMetaEnv
 
 const _client = createClient({
   serviceDomain: MICROCMS_SERVICE_DOMAIN,
@@ -104,5 +104,5 @@ export const getNavigationList = client.getList<MicroCMSContent.NavigationItem>(
     queries: {
       limit: 999,
     },
-  }
+  },
 )

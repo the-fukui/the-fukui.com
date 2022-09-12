@@ -1,25 +1,14 @@
 {
+  "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "strict": true,
-    // Enable top-level await, and other modern ESM features.
-    "target": "ESNext",
-    "module": "ESNext",
-    // Enable node-style module resolution, for things like npm package imports.
-    "moduleResolution": "node",
-    // Enable JSON imports.
-    "resolveJsonModule": true,
-    // Enable stricter transpilation for better output.
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    // Add type definitions for our Astro runtime.
-    "types": ["astro/client", "node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "exactOptionalPropertyTypes": false, //for react classname/css modules
     "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"],
-      "@types/*": ["@types/*"],
-      "@public/*": ["public/*"]
+      "@/*": ["src/*"],
+      "@/public/*": ["./public/*"],
+      "@/types/*": ["./@types/*"]
     }
-  },
-  "exclude": ["node_modules"]
+  }
 }

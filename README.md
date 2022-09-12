@@ -1,42 +1,62 @@
-# Welcome to [Astro](https://astro.build)
+# Astro + Preact Template
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+## Development 🧑‍💻
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Environment
 
-## 🚀 Project Structure
+[Volta](https://volta.sh/) is recommended.
 
-Inside of your Astro project, you'll see the following folders and files:
+- yarn 1.22.10
+- node 18.8.0
 
-```
-/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+### Getting Started
+
+Install dependencies...
+
+```bash
+yarn install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+develop locally...
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components or layouts.
+```bash
+yarn dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+build for production...
 
-## 🧞 Commands
+```bash
+yarn build
+```
 
-All commands are run from the root of the project, from a terminal:
+preview the production build locally...
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+```bash
+yarn preview
+```
 
-## 👀 Want to learn more?
+## Features 🚀
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- TypeScript
+- Preact signals
+- Sass
+- ESLint
+  - a11y
+- Prettier
+  - import order
+- Stylelint
+  - standard
+  - recess-order
+- husky
+- lint-staged
+- GitHub Actions
+  - CodeQL
+  - Dependabot Auto merge(daily / only patch version)
+
+## Astro integrations
+
+- @astrojs/preact
+- astro-critters (inline critical CSS)
+- astro-compress
+- @astrojs/image
+- @astrojs/prefetch

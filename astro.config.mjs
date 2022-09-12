@@ -1,7 +1,7 @@
 import image from '@astrojs/image'
+import preact from '@astrojs/preact'
 import prefetch from '@astrojs/prefetch'
 import sitemap from '@astrojs/sitemap'
-import vue from '@astrojs/vue'
 
 import compress from 'astro-compress'
 import critters from 'astro-critters'
@@ -12,7 +12,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   site: 'https://renew.the-fukui.com',
   integrations: [
-    vue(),
+    preact(),
     image(),
     prefetch({
       selector: "a[href^='/']",

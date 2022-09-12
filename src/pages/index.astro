@@ -1,32 +1,10 @@
 ---
-import TopBlog from '@components/TopBlog.astro'
-import TopContact from '@components/TopContact.vue'
-import TopHero from '@components/TopHero.astro'
-import TopProfile from '@components/TopProfile.astro'
-import TopSkills from '@components/TopSkills.astro'
-import TopWorks from '@components/TopWorks.astro'
-import type { PostList } from '@data/getPostList'
-import postList from '@data/posts.json'
-import Layout from '@layouts/Layout.astro'
-import { getPortfolioList, getProfile, getSkillList } from '@libs/microcms'
-
-const [portfolios, profie, skills] = await Promise.all([
-  getPortfolioList,
-  getProfile,
-  getSkillList,
-])
-
-const latestPosts = (postList as PostList).slice(0, 5)
+import Counter from '@/components/Counter'
+import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <TopHero class="top-hero" />
-    <TopWorks class="top-portfolio" portfolio={portfolios} />
-    <TopProfile class="top-profile" text={profie.content} avatar={profie.avatar}
-    />
-    <TopSkills class="top-skills" skills={skills} />
-    <TopBlog class="top-blog" posts={latestPosts} />
-    <TopContact class="top-contact" client:visible />
+    <Counter client:idle />
   </main>
 </Layout>

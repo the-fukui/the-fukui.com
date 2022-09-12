@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "the-fukui.com",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,56 +7,57 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "createQiitaAPIType": "curl https://qiita.com/api/v2/schema | json2ts > ./src/libs/qiita-types.ts",
-    "getPostList": "vite-node ./src/data/getPostList.ts",
-    "lint": "eslint ./**/*.{js,ts,tsx,astro,vue,mjs} --fix --cache --no-error-on-unmatched-pattern",
-    "lint:style": "stylelint --fix ./**/*.{css,scss,sass,astro,vue} --cache",
-    "typecheck": "astro check && tsc --noEmit && vue-tsc --noEmit --skipLibCheck --allowJs ./src/**/*.vue ",
-    "format": "prettier --write ./**/*.{js,ts,tsx,astro,vue,json,yml,yaml,md,mjs} --cache --no-error-on-unmatched-pattern",
+    "astro": "astro",
+    "scaffold": "scaffdog generate",
+    "format": "prettier --write './**/*.{mjs,js,jsx,ts,tsx,astro,json,yml,yaml,md,css,scss,sass}' --cache --ignore-path .gitignore",
+    "lint": "eslint './**/*.{mjs,js,jsx,ts,tsx,astro,json}' --fix --cache --ignore-path .gitignore",
+    "lint:style": "stylelint './**/*.{css,scss,sass,astro}' --fix --cache --ignore-path .gitignore",
     "lint-staged": "lint-staged",
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,astro,vue,mjs}": [
+    "*.{mjs,js,jsx,ts,tsx,astro}": [
       "eslint --fix --cache",
       "prettier --write --cache"
     ],
-    "*.{json,yml,yaml,md}": [
+    "*.{json,yml,yaml,md,css,scss,sass}": [
       "prettier --write --cache"
     ],
-    "*.{css,scss,sass,astro,vue}": [
+    "*.{css,scss,sass,astro}": [
       "stylelint --fix --cache"
     ]
   },
-  "devDependencies": {
-    "@astrojs/image": "^0.4.0",
-    "@astrojs/prefetch": "^0.0.7",
+  "dependencies": {
+    "@astrojs/preact": "^1.1.0",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/vue": "^1.0.1",
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
-    "@types/node": "^18.7.16",
-    "@types/open-graph-scraper": "^4.8.1",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/eslint-config-typescript": "^11.0.1",
-    "astro": "^1.1.7",
-    "astro-compress": "^1.0.7",
-    "astro-critters": "^1.0.3",
+    "@preact/signals": "^1.0.3",
+    "@preact/signals-core": "^1.0.1",
+    "astro": "^1.2.1",
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.5",
-    "eslint": "^8.23.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-astro": "^0.17.1",
-    "eslint-plugin-vue": "^9.4.0",
-    "husky": "^8.0.1",
-    "json-schema-to-typescript": "^11.0.2",
-    "lint-staged": "^13.0.3",
     "microcms-js-sdk": "^2.2.1",
+    "preact": "^10.6.5"
+  },
+  "devDependencies": {
+    "@astrojs/image": "^0.7.0",
+    "@astrojs/prefetch": "^0.0.7",
+    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "astro-compress": "^1.0.7",
+    "astro-critters": "^1.0.3",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-astro": "^0.19.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
     "sass": "^1.54.9",
+    "scaffdog": "^2.2.0",
     "stylelint": "^14.11.0",
     "stylelint-config-astro": "^1.0.4",
     "stylelint-config-html": "^1.1.0",
@@ -64,15 +65,14 @@
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^28.0.0",
     "stylelint-config-standard-scss": "^5.0.0",
-    "vite-node": "^0.22.1",
-    "vite-tsconfig-paths": "^3.5.0",
-    "vue": "^3.2.39",
-    "vue-tsc": "^0.40.13"
+    "typescript-plugin-css-modules": "^3.4.0",
+    "vite-tsconfig-paths": "^3.5.0"
+  },
+  "resolutions": {
+    "preact-render-to-string": "^5.2.3"
   },
   "volta": {
-    "node": "18.7.0"
-  },
-  "dependencies": {
-    "destyle.css": "^3.0.2"
+    "node": "18.8.0",
+    "yarn": "1.22.19"
   }
 }

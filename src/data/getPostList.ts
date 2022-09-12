@@ -1,5 +1,5 @@
-import { getAllBlogList } from '@libs/microcms'
-import { getAllQiitaPostList } from '@libs/qiita'
+import { getAllBlogList } from '@/libs/microcms'
+import { getAllQiitaPostList } from '@/libs/qiita'
 
 import { load } from 'cheerio'
 import dayjs from 'dayjs'

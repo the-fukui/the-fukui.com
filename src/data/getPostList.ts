@@ -1,5 +1,5 @@
-import { getAllBlogList } from '@libs/microcms'
-import { getAllQiitaPostList } from '@libs/qiita'
+import { getAllBlogList } from '@/libs/microcms'
+import { getAllQiitaPostList } from '@/libs/qiita'
 
 import { load } from 'cheerio'
 import dayjs from 'dayjs'
@@ -47,7 +47,7 @@ const qiitaThumbnails = await Promise.all(
     //   .catch((e) => {
     //     console.log(e)
     //   })
-  })
+  }),
 )
 
 // Qiita記事で必要なフィールド抽出と取得したサムネイルを設定

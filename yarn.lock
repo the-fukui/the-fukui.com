@@ -2040,6 +2040,11 @@ dequal@^2.0.0:
   resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
+destyle.css@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/destyle.css/-/destyle.css-3.0.2.tgz#80c331db91f02337040b62dc534ab4f3dc075546"
+  integrity sha512-OUzuAlridP01YP0seHxx+FgwhdXF07Ls9NxnJpR8EI7ADioswoR7VKkBd/s1hNw/G4ILasLSA0k2Kw1M57r1kA==
+
 detect-libc@^2.0.0, detect-libc@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.1.tgz#e1897aa88fa6ad197862937fbc0441ef352ee0cd"

@@ -1,7 +1,6 @@
 import image from '@astrojs/image'
 import preact from '@astrojs/preact'
 import prefetch from '@astrojs/prefetch'
-
 import compress from 'astro-compress'
 import critters from 'astro-critters'
 import { defineConfig } from 'astro/config'
@@ -22,5 +21,18 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tsconfigPaths()],
+    ssr: {
+      noExternal: ['destyle.css'],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+          @use 'src/styles/color' as *;
+          @use 'src/styles/size' as *;
+          @use 'src/styles/font' as *;`,
+        },
+      },
+    },
   },
 })

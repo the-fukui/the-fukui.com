@@ -4002,7 +4002,7 @@ mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mlly@^0.5.12, mlly@^0.5.13:
+mlly@^0.5.13, mlly@^0.5.14:
   version "0.5.14"
   resolved "https://registry.yarnpkg.com/mlly/-/mlly-0.5.14.tgz#1aead555f8ffafd29f192676f4697805e25112c3"
   integrity sha512-DgRgNUSX9NIxxCxygX4Xeg9C7GX7OUx1wuQ8cXx9o9LE0e9wrH+OZ9fcnrlEedsC/rtqry3ZhUddC759XD/L0w==
@@ -5887,13 +5887,13 @@ vfile@^5.0.0, vfile@^5.3.2:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite-node@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.22.1.tgz#a187e3d73094e29ab82310bb7f5a63da1038a882"
-  integrity sha512-odNMaOD4N62qESLvFSqoNf2t60ftIFHKgHNupa2cojbF2u2yB1ssluOfq5X0lZcTPx2HBzFbwa6h9m78ujEbUw==
+vite-node@^0.23.2:
+  version "0.23.2"
+  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.23.2.tgz#9bb79967dd48f4a9645e186c6d409f77c59d91c5"
+  integrity sha512-LRkcAu0oQYNp+2LX84Z8NkYXzISdeLi9NxL8cWgJPxxYcv8Lv9VpqU4kNzAqTIWzgIQFnVkf5mZarcoLgQXInQ==
   dependencies:
     debug "^4.3.4"
-    mlly "^0.5.12"
+    mlly "^0.5.14"
     pathe "^0.2.0"
     vite "^2.9.12 || ^3.0.0-0"
 

@@ -32,12 +32,16 @@
     "@preact/signals": "^1.0.3",
     "@preact/signals-core": "^1.0.1",
     "astro": "^1.2.1",
+    "cheerio": "^1.0.0-rc.12",
+    "dayjs": "^1.11.5",
+    "microcms-js-sdk": "^2.2.1",
     "preact": "^10.6.5"
   },
   "devDependencies": {
     "@astrojs/image": "^0.7.0",
     "@astrojs/prefetch": "^0.0.7",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "@types/node": "^18.7.16",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "astro-compress": "^1.0.7",

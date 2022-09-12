@@ -1,15 +1,4 @@
----
-name: 'preact component'
-root: '.'
-output: '.'
-ignore: []
-questions:
-  name: 'Please enter component name.'
----
-
-# `src/components/{{ inputs.name | pascal }}/index.tsx`
-
-```tsx
+import { useComputed, useSignal } from '@preact/signals'
 import type { FunctionalComponent, JSX } from 'preact'
 
 // import style from './index.module.scss'
@@ -23,23 +12,26 @@ type PresenterProps = ReturnType<typeof Container> & {
 }
 
 const Container = (props: ContainerProps) => {
-  /** Logic here */
+  const count = useSignal(0)
+  const doubled = useComputed(() => count.value * 2)
 
-  const presenterProps = {}
+  const presenterProps = {
+    count,
+    doubled,
+  }
   return { ...props, ...presenterProps }
 }
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
-}: PresenterProps) => <div className={className}></div>
+  count,
+  doubled,
+}: PresenterProps) => (
+  <button onClick={() => count.value++} className={className}>
+    {count} x 2 = {doubled}
+  </button>
+)
 
 export default function Preact(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }
-```
-
-# `src/components/{{ inputs.name | pascal }}/index.module.scss`
-
-```scss
-
-```

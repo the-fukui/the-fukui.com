@@ -33,7 +33,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
 }: PresenterProps) => <div className={className}></div>
 
-export default function Preact(props: ContainerProps) {
+export default function {{ inputs.name | pascal }}(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }
 ```

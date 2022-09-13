@@ -4,6 +4,8 @@ import path from 'path'
 
 import { getPostList } from './getPostList'
 
+export type { PostList } from './getPostList'
+
 const rootDir = path.resolve('./')
 
 /**

@@ -31,7 +31,7 @@ const Container = (props: ContainerProps) => {
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
-}: PresenterProps) => <div className={className}></div>
+}: PresenterProps) => <div className={`${className}`}></div>
 
 export default function {{ inputs.name | pascal }}(props: ContainerProps) {
   return <Presenter {...Container(props)} />

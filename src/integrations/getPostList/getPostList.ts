@@ -9,8 +9,8 @@ import { getAllQiitaPostList } from '../../libs/qiita'
  */
 export const getPostList = async () => {
   const [microCMSPostList, _qiitaPostList] = await Promise.all([
-    getAllBlogList,
-    getAllQiitaPostList,
+    getAllBlogList(),
+    getAllQiitaPostList(),
   ])
 
   //Qiitaの記事の最初の画像サムネイルとして取得する

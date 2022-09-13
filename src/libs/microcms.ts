@@ -35,56 +35,61 @@ const client = new Proxy(_client, handler)
 /**
  * PortfolioList
  */
-export const getPortfolioList = client
-  .getList<MicroCMSContent.Portfolio>({
-    endpoint: 'portfolio',
-    queries: {
-      limit: 999,
-    },
-  })
-  .then((res) => res.contents)
+export const getPortfolioList = () =>
+  client
+    .getList<MicroCMSContent.Portfolio>({
+      endpoint: 'portfolio',
+      queries: {
+        limit: 999,
+      },
+    })
+    .then((res) => res.contents)
 
-export const getProfile = client.getObject<MicroCMSContent.Profile>({
-  endpoint: 'profile',
-})
-
-export const getSkillList = client
-  .getList<MicroCMSContent.Skill>({
-    endpoint: 'skills',
-    queries: {
-      limit: 999,
-    },
-  })
-  .then((res) => res.contents)
-
-export const getBlogList = client
-  .getList<MicroCMSContent.Blog>({
-    endpoint: 'blog',
-    queries: {
-      limit: 5,
-    },
-  })
-  .then((res) => {
-    return res.contents.map((post) => ({
-      ...post,
-      postType: 'normal' as const,
-    }))
+export const getProfile = () =>
+  client.getObject<MicroCMSContent.Profile>({
+    endpoint: 'profile',
   })
 
-export const getAllBlogList = client
-  .getList<MicroCMSContent.Blog>({
-    endpoint: 'blog',
-    queries: {
-      limit: 999,
-      fields: 'id,title,date,thumbnail',
-    },
-  })
-  .then((res) => {
-    return res.contents.map((post) => ({
-      ...post,
-      postType: 'normal' as const,
-    }))
-  })
+export const getSkillList = () =>
+  client
+    .getList<MicroCMSContent.Skill>({
+      endpoint: 'skills',
+      queries: {
+        limit: 999,
+      },
+    })
+    .then((res) => res.contents)
+
+export const getBlogList = () =>
+  client
+    .getList<MicroCMSContent.Blog>({
+      endpoint: 'blog',
+      queries: {
+        limit: 5,
+      },
+    })
+    .then((res) => {
+      return res.contents.map((post) => ({
+        ...post,
+        postType: 'normal' as const,
+      }))
+    })
+
+export const getAllBlogList = () =>
+  client
+    .getList<MicroCMSContent.Blog>({
+      endpoint: 'blog',
+      queries: {
+        limit: 999,
+        fields: 'id,title,date,thumbnail',
+      },
+    })
+    .then((res) => {
+      return res.contents.map((post) => ({
+        ...post,
+        postType: 'normal' as const,
+      }))
+    })
 
 export const getBlog = (ID: string) =>
   client.get<MicroCMSContent.Blog>({
@@ -98,11 +103,10 @@ export const getPortfolio = (ID: string) =>
     contentId: ID,
   })
 
-export const getNavigationList = client.getList<MicroCMSContent.NavigationItem>(
-  {
+export const getNavigationList = () =>
+  client.getList<MicroCMSContent.NavigationItem>({
     endpoint: 'navigation',
     queries: {
       limit: 999,
     },
-  },
-)
+  })

@@ -61,6 +61,7 @@ const client = {
   },
 }
 
-export const getAllQiitaPostList = client.get({
-  path: 'authenticated_user/items',
-})
+export const getAllQiitaPostList = () =>
+  client.get({
+    path: 'authenticated_user/items',
+  })

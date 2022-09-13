@@ -23,3 +23,6 @@ pnpm-debug.log*
 .eslintcache
 .prettiercache
 .stylelintcache
+
+# post data
+src/data/posts.json

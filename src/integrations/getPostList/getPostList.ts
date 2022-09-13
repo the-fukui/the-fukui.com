@@ -5,7 +5,7 @@ import { getAllBlogList } from '../../libs/microcms'
 import { getAllQiitaPostList } from '../../libs/qiita'
 
 /**
- * microCMSとQiitaから記事を取得してマージしてjson書き出し（日付順）
+ * microCMSとQiitaから記事を取得してマージする（日付順）
  */
 export const getPostList = async () => {
   const [microCMSPostList, _qiitaPostList] = await Promise.all([
@@ -51,7 +51,7 @@ export const getPostList = async () => {
 
   // Qiita記事で必要なフィールド抽出と取得したサムネイルを設定
   const qiitaPostList = _qiitaPostList.map((post, i) => ({
-    postType: 'Qiita' as const,
+    postType: 'qiita' as const,
     id: post.id,
     title: post.title,
     likes_count: post.likes_count,

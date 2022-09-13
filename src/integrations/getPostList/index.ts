@@ -6,6 +6,9 @@ import { getPostList } from './getPostList'
 
 const rootDir = path.resolve('./')
 
+/**
+ * build時にgetPostListを実行し、結果をJSONファイルに出力する
+ */
 const createPlugin = (): AstroIntegration => {
   return {
     name: 'getPostList',

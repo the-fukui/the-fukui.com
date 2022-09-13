@@ -21,6 +21,6 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
 }: PresenterProps) => <div className={`${className} ${style.vignette}`}></div>
 
-export default function Preact(props: ContainerProps) {
+export default function Vignette(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }

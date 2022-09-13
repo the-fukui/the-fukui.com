@@ -21,6 +21,7 @@ const createPlugin = (): AstroIntegration => {
           fs.writeFileSync(
             path.join(rootDir, '/src/data/posts.json'),
             JSON.stringify(postList),
+            { flag: 'w' },
           )
         } catch (err) {
           console.error(err)

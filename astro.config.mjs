@@ -32,10 +32,19 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `
-          @use 'src/styles/color' as *;
-          @use 'src/styles/size' as *;
-          @use 'src/styles/font' as *;`,
+          additionalData(source, fp) {
+            //全ファイルで共通のscssファイルをimportする
+            //ただしここでimportしている_付き且つcssで終わるファイルを除く（avoid self-load）
+            if (fp.includes('/_') && fp.endsWith('css')) return source
+
+            return (
+              `
+            @import 'src/styles/_color';
+            @import 'src/styles/_size';
+            @import 'src/styles/_font';
+            ` + source
+            )
+          },
         },
       },
     },

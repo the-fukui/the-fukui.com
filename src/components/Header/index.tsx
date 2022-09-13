@@ -1,8 +1,9 @@
+import Logo from '@/components/Logo'
 import Navigation from '@/components/Navigation'
 
 import type { FunctionalComponent, JSX } from 'preact'
 
-// import style from './index.module.scss'
+import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
@@ -22,8 +23,17 @@ const Container = (props: ContainerProps) => {
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
 }: PresenterProps) => (
-  <header className={`${className}`}>
-    <Navigation />
+  <header className={`${className} ${style.header}`}>
+    <div className={style.logo}>
+      {[...Array(3)].map((_, index) => (
+        <Logo key={index} className={style['logo__' + (index + 1)]} />
+      ))}
+      <h1>
+        <Logo className={style.logo__main} alt="ふくいのふ" />
+      </h1>
+    </div>
+    <h2 className={style.description}>WEB ENGINEER</h2>
+    <Navigation className={style.navigation} />
   </header>
 )
 

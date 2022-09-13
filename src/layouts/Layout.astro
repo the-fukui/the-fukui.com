@@ -24,9 +24,9 @@ const { title } = Astro.props
   </head>
   <body>
     <Vignette className={'vignette'} />
-    <Header />
+    <Header className={'header'} />
     <slot />
-    <style>
+    <style lang="scss">
       .vignette {
         position: absolute;
         top: 0;
@@ -36,9 +36,76 @@ const { title } = Astro.props
         height: 100%;
         pointer-events: none;
       }
-    </style>
-    <style is:global>
 
+      .header {
+        position: relative;
+        z-index: 10;
+        width: 1200px;
+        margin-right: calc((100vw - 1200px) / 2);
+        margin-bottom: calc(-200px + 10vw);
+        margin-left: auto;
+        transform: translateY(-100%) translateY(95px) rotateZ(-15deg);
+        transform-origin: right calc(100% - 45px - 50px);
+
+        @include mq-down(md) {
+          transform: translateY(calc(-75% + 45px + 50px)) rotateZ(-15deg);
+        }
+
+        @media screen and (max-width: 1199px) {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: calc(-400px + 25vw);
+        }
+
+        @include mq-down(md) {
+          margin-bottom: calc(-80px);
+        }
+
+        @include mq-down(sm) {
+          margin-bottom: calc(-50px);
+        }
+      }
+    </style>
+    <style is:global lang="scss">
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @include ff-gill-nova;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        overflow-x: hidden;
+        font-family: Avenir-Roman, Arial, '游ゴシック体', YuGothic,
+          '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
+          sans-serif;
+        font-size: 1.6rem;
+        font-weight: bold;
+        font-feature-settings: 'palt' 1;
+        line-height: $line-height;
+        letter-spacing: 0.5px;
+        overflow-wrap: break-word;
+        text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+
+        @include mq-down(sm) {
+          font-size: get_vw(15);
+        }
+
+        background: {
+          image: url('/img/bg.jpg');
+          color: #cbbea4;
+          repeat: repeat;
+        }
+      }
     </style>
   </body>
 </html>

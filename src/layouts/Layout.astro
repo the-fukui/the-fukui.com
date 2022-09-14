@@ -28,7 +28,7 @@ const { title } = Astro.props
     <slot />
     <style lang="scss">
       .vignette {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         z-index: 999;
@@ -91,7 +91,6 @@ const { title } = Astro.props
         line-height: $line-height;
         letter-spacing: 0.5px;
         overflow-wrap: break-word;
-        text-size-adjust: 100%;
         text-size-adjust: 100%;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;

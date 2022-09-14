@@ -42,7 +42,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
     <img src={thumbnail.url} alt="" className={style.thumbnail} />
     <h1 className={style.title}>{title}</h1>
     <time dateTime={dateTime} className={style.date}>
-      {displayTime}
+      <span className={style.date__text}>{displayTime}</span>
     </time>
   </header>
 )

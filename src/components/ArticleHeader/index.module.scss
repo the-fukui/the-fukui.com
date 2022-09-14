@@ -32,7 +32,6 @@
 }
 
 .thumbnail {
-  // position: relative;
   grid-area: thumbnail;
   width: 100%;
   height: 50vw;
@@ -42,25 +41,27 @@
 
 .date {
   grid-area: date;
+  align-self: end;
   width: 5rem;
   padding-bottom: 3px;
-  font-size: 3rem;
-  color: white;
-
-  // height: 100%;
-  // width: 100%;
-  text-align: right;
-  white-space: nowrap;
-  transform: translateX(-100%) rotateZ(90deg);
-  transform-origin: bottom right;
-  @include ff-gill-nova;
-
-  @include mq-down(sm) {
-    font-size: get_vw(16);
-  }
 
   @include mq-down(sm) {
     width: get_vw(27);
+  }
+
+  &__text {
+    display: inline-block;
+    font-size: 3rem;
+    color: white;
+    text-align: right;
+    white-space: nowrap;
+    transform: translateX(-100%) rotateZ(90deg);
+    transform-origin: bottom right;
+    @include ff-gill-nova;
+
+    @include mq-down(sm) {
+      font-size: get_vw(16);
+    }
   }
 }
 

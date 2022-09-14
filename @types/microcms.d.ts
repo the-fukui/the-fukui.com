@@ -31,8 +31,8 @@ declare namespace MicroCMSContent {
 
   export type Blog = {
     date: string
-    title?: string
-    thumbnail?: Image
+    title: string
+    thumbnail: Image
     content?: string
     rawContent?: string
   }

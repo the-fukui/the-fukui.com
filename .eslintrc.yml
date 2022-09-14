@@ -19,6 +19,8 @@ parserOptions:
   sourceType: 'module'
   ecmaFeatures:
     jsx: true
+ignorePatterns:
+  - '@types/**/*'
 # rules:
 
 overrides:

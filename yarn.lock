@@ -593,17 +593,17 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@preact/signals-core@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.0.1.tgz#7b2c672f62a762576858b8aaa8c89ee8c8d722fd"
-  integrity sha512-1yBu72jd80QWdp8WvNFBg7K+0REv+NqJg1CGIwAl5kJ+qE7I06Lm2+K3z2qVZmABiDjQgjU2vKA9yEjniWv5uA==
+"@preact/signals-core@^1.0.1", "@preact/signals-core@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.1.1.tgz#cf95c0463456babfe7e267c9440f9eb52a943007"
+  integrity sha512-otWUXVDAX2qWMBqBELvYBcEehBnta9zWhFZ+PZ3siL6LCu4Rk0u7q1bUgfTKPJjAbMYyPcIMoX/j34kDqcNlLg==
 
-"@preact/signals@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-1.0.3.tgz#4bd7fc17e8d14c2f2803dc02f680806a57383a0d"
-  integrity sha512-aBUYPBzdw+UD99t3n2v+OKecjaA2SnvImLDKH7jZtgwPE6E4Jr+B+H3P1tYty+bRsIKnHuFcvYUIZJAP1armFw==
+"@preact/signals@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-1.0.4.tgz#79a53d36e44677a8fcd3f18006e435f0675d6cb3"
+  integrity sha512-x3CCzVFQDj/BPg67R7fBegtF9/R9/AHNSiKI457Wd8YjVtFeemIdXRrDXEt3RDoALpFDJUqdlFBv7adlFIdbNA==
   dependencies:
-    "@preact/signals-core" "^1.0.1"
+    "@preact/signals-core" "^1.1.1"
 
 "@proload/core@^0.3.3":
   version "0.3.3"

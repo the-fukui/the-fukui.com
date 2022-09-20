@@ -7,11 +7,7 @@ type ContainerProps = {
   className?: string
   title: string
   date: string
-  thumbnail: {
-    url: string
-    width: number
-    height: number
-  }
+  thumbnail: string
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -39,7 +35,10 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   thumbnail,
 }: PresenterProps) => (
   <header className={`${className} ${style.header}`}>
-    <img src={thumbnail.url} alt="" className={style.thumbnail} />
+    <div
+      className={style.thumbnail}
+      dangerouslySetInnerHTML={{ __html: thumbnail }}
+    />
     <h1 className={style.title}>{title}</h1>
     <time dateTime={dateTime} className={style.date}>
       <span className={style.date__text}>{displayTime}</span>

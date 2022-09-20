@@ -1,10 +1,10 @@
-import { useComputed, useSignal } from '@preact/signals'
 import type { FunctionalComponent, JSX } from 'preact'
 
-// import style from './index.module.scss'
+import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
+  html: string
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -12,26 +12,22 @@ type PresenterProps = ReturnType<typeof Container> & {
 }
 
 const Container = (props: ContainerProps) => {
-  const count = useSignal(0)
-  const doubled = useComputed(() => count.value * 2)
+  /** Logic here */
 
-  const presenterProps = {
-    count,
-    doubled,
-  }
+  const presenterProps = {}
   return { ...props, ...presenterProps }
 }
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
-  count,
-  doubled,
+  html,
 }: PresenterProps) => (
-  <button onClick={() => count.value++} className={className}>
-    {count} x 2 = {doubled}
-  </button>
+  <div
+    className={`${className} ${style.body}`}
+    dangerouslySetInnerHTML={{ __html: html }}
+  />
 )
 
-export default function Preact(props: ContainerProps) {
+export default function ArticleBody(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }

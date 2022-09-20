@@ -41,6 +41,7 @@ export default defineConfig({
 
             return (
               `
+            @use 'sass:color';
             @import 'src/styles/_color';
             @import 'src/styles/_size';
             @import 'src/styles/_font';

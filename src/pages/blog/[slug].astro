@@ -1,4 +1,5 @@
 ---
+import ArticleBody from '@/components/ArticleBody'
 import ArticleHeader from '@/components/ArticleHeader'
 import postList from '@/data/posts.json'
 import type { PostList } from '@/integrations/getPostList'
@@ -56,5 +57,6 @@ const thumbnail = await renderPicture({
       date={post.date}
       thumbnail={thumbnail.style + thumbnail.picture}
     />
+    <ArticleBody html={post.content || post.rawContent || ''} />
   </article>
 </Layout>

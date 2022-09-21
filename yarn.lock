@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.24.0.tgz#aeded097eb325dfdcead9079c2eeb4371289437f"
   integrity sha512-xZ81C/oMfExdF18I1Tyd2BKKzBqO+qYYctSy4iCwH4UWSo/4Y8A8MAzV1hG67uuE7hFRourSl6H5KUbhyChv/A==
 
-"@astrojs/image@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.7.0.tgz#581d90edebead6290f32837c7076222493d60eb3"
-  integrity sha512-0P2Q0NbU1Y8iBDsJWes9qME2PHaiLOz8G7iFDJtWB+a42Ur/Awf9kxrBFX19siotR5kCX+9kTqZmhAp73SYRwQ==
+"@astrojs/image@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.7.1.tgz#0bc105553900cc9596cbf12a8bc2db2c82a9e36d"
+  integrity sha512-T7oNQUwkQ848zZARZZy8TxyTRcgMl0B0+bcHKrXudOr3gpjLFyY+NPR7QTCFq2PnNGA48wUGi4MeX/fu1ASPEw==
   dependencies:
     "@altano/tiny-async-pool" "^1.0.2"
     image-size "^1.0.2"

@@ -1,10 +1,41 @@
 ---
+import ArticleCard from '@/components/ArticleCard'
+import ArticleList from '@/components/ArticleList'
 import PageTitle from '@/components/PageTitle'
+import posts from '@/data/posts.json'
 import Layout from '@/layouts/Layout.astro'
+
+import { renderPicture } from 'astro-imagetools/api'
+
+/**
+ * 記事一覧
+ */
+const articleList = posts.slice(0, 7)
+
+/**
+ * サムネイル取得
+ */
+const articleThumbnails = await Promise.all(
+  articleList.map((post) => {
+    return renderPicture({
+      src: post.thumbnail.url || '/public/img/noimage.jpg',
+      alt: '',
+    }).then((pictureData) => pictureData.style + pictureData.picture)
+  }),
+)
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <PageTitle className={'section'}>Articles</PageTitle>
+    <ArticleList>
+      {
+        articleList.map((post, i) => (
+          <ArticleList.Item>
+            <ArticleCard {...post} thumbnail={articleThumbnails[i] as string} />
+          </ArticleList.Item>
+        ))
+      }
+    </ArticleList>
   </main>
 </Layout>

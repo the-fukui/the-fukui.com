@@ -1,0 +1,51 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  display: inline-block;
+  margin-bottom: 12px;
+  margin-left: 10px;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-left: 0;
+    font-size: 18px;
+    line-height: 1;
+    color: white;
+    background: $green;
+    transition: background 0.2s;
+
+    &:hover {
+      background-color: color.adjust($green, $lightness: -10%);
+    }
+  }
+
+  &.active {
+    .page__link {
+      background-color: color.adjust($green, $lightness: -10%);
+    }
+  }
+}
+
+.gap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding-top: 1em;
+  margin-left: 0;
+  font-size: 13px;
+  color: $green;
+
+  & + .page {
+    margin-left: 0;
+  }
+}

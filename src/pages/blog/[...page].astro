@@ -2,15 +2,26 @@
 import ArticleCard from '@/components/ArticleCard'
 import ArticleList from '@/components/ArticleList'
 import PageTitle from '@/components/PageTitle'
-import posts from '@/data/posts.json'
+import Pagination from '@/components/Pagination'
+import postsData from '@/data/posts.json'
+import type { PostList } from '@/integrations/getPostList'
 import Layout from '@/layouts/Layout.astro'
 
+import type { GetStaticPaths, Page } from 'astro'
 import { renderPicture } from 'astro-imagetools/api'
 
 /**
- * 記事一覧
+ * pagination & 記事一覧取得
  */
-const articleList = posts.slice(0, 7)
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  return paginate(postsData, { pageSize: 5 })
+}
+
+const {
+  data: articleList,
+  currentPage,
+  lastPage,
+} = Astro.props.page as Page<PostList[number]>
 
 /**
  * サムネイル取得
@@ -18,7 +29,7 @@ const articleList = posts.slice(0, 7)
 const articleThumbnails = await Promise.all(
   articleList.map((post) => {
     return renderPicture({
-      src: post.thumbnail.url || '/public/img/noimage.jpg',
+      src: post.thumbnail?.url || '/public/img/noimage.jpg',
       alt: '',
       aspect: 1.7,
     }).then((pictureData) => pictureData.style + pictureData.picture)
@@ -44,5 +55,17 @@ const articleThumbnails = await Promise.all(
         ))
       }
     </ArticleList>
+    <Pagination
+      rootPath="/blog/"
+      current={currentPage}
+      totalCount={lastPage}
+      className={'section pagination'}
+    />
   </main>
 </Layout>
+
+<style lang="scss">
+  .pagination {
+    padding-top: 90px;
+  }
+</style>

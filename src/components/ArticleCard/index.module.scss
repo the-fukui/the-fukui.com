@@ -1,0 +1,105 @@
+.card {
+  display: grid;
+  grid-template-areas:
+    'thumbnail date'
+    'thumbnail title'
+    'thumbnail .';
+  grid-template: {
+    columns: 400px 1fr;
+    rows: 1fr auto;
+  }
+}
+
+.title {
+  grid-area: title;
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  padding: 10px 15px 0 0px;
+  display: block;
+
+  & > h3 {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:after {
+    content: '';
+    width: calc(100% + 90px);
+    height: calc(100% + 10px);
+    background: $black;
+    position: absolute;
+    top: 0px;
+    left: -90px;
+    z-index: 0;
+  }
+}
+
+.date {
+  grid-area: date;
+  align-self: flex-end;
+  @include ff-gill-nova();
+  font-size: 1.9rem;
+}
+
+.thumbnail {
+  grid-area: thumbnail;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transform-origin: center left;
+  transform: perspective(250px) rotateY(5deg);
+  display: block;
+
+  :global(img) {
+    transition: transform 0.3s;
+  }
+
+  &:hover :global(img) {
+    transform: scale(1.2);
+  }
+
+  @include mq-down(md) {
+    margin-bottom: -5px;
+  }
+}
+
+.title:hover {
+  & + .thumbnail {
+    :global(img) {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.card.reverse {
+  grid-template-areas:
+    'date thumbnail'
+    'title thumbnail'
+    '. thumbnail';
+  grid-template-columns: 1fr 400px;
+
+  .date {
+    padding-left: 15px;
+  }
+
+  .title {
+    padding-left: 15px;
+    &:after {
+      left: auto;
+      right: -90px;
+    }
+  }
+
+  .thumbnail {
+    transform: perspective(250px) rotateY(-5deg);
+    transform-origin: center right;
+
+    @include mq-down(md) {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}

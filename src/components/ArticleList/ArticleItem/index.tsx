@@ -1,6 +1,6 @@
 import type { FunctionalComponent, JSX } from 'preact'
 
-// import style from './index.module.scss'
+import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
@@ -20,7 +20,9 @@ const Container = (props: ContainerProps) => {
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
   children,
-}: PresenterProps) => <li className={`${className}`}>{children}</li>
+}: PresenterProps) => (
+  <li className={`${className} ${style.item}`}>{children}</li>
+)
 
 export default function ArticleItem(props: ContainerProps) {
   return <Presenter {...Container(props)} />

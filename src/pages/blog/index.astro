@@ -20,6 +20,7 @@ const articleThumbnails = await Promise.all(
     return renderPicture({
       src: post.thumbnail.url || '/public/img/noimage.jpg',
       alt: '',
+      aspect: 1.7,
     }).then((pictureData) => pictureData.style + pictureData.picture)
   }),
 )
@@ -28,11 +29,17 @@ const articleThumbnails = await Promise.all(
 <Layout title="Welcome to Astro.">
   <main>
     <PageTitle className={'section'}>Articles</PageTitle>
-    <ArticleList>
+    <ArticleList className={'section'}>
       {
         articleList.map((post, i) => (
           <ArticleList.Item>
-            <ArticleCard {...post} thumbnail={articleThumbnails[i] as string} />
+            <ArticleCard
+              {...post}
+              thumbnail={articleThumbnails[i] as string}
+              reverse={
+                i % 2 !== 0 // 偶数番目の記事は画像を右側に表示
+              }
+            />
           </ArticleList.Item>
         ))
       }

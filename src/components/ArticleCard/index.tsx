@@ -9,6 +9,7 @@ type ContainerProps = {
   title: string
   date: string
   thumbnail: string
+  reverse?: boolean
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -35,15 +36,21 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   dateTime,
   displayTime,
   thumbnail,
+  reverse,
 }: PresenterProps) => (
-  <a className={`${className} ${style.card}`} href={`/blog/${id}`}>
-    <h3>{title}</h3>
-    <time dateTime={dateTime}>{displayTime}</time>
-    <div
+  <div className={`${className} ${style.card} ${reverse && style.reverse}`}>
+    <time dateTime={dateTime} className={style.date}>
+      {displayTime}
+    </time>
+    <a href={`/blog/${id}/`} className={style.title}>
+      <h3>{title}</h3>
+    </a>
+    <a
       className={style.thumbnail}
       dangerouslySetInnerHTML={{ __html: thumbnail }}
+      href={`/blog/${id}`}
     />
-  </a>
+  </div>
 )
 
 export default function ArticleCard(props: ContainerProps) {

@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  color: white;
+  background: $black;
+  border-bottom: 5px solid $red;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+
+  @include mq-down(sm) {
+    width: get_vw(150);
+  }
+}
+
+.copyright {
+  margin-top: 5px;
+  white-space: nowrap;
+}

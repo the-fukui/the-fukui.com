@@ -1,12 +1,23 @@
 .body {
   position: relative;
   padding-top: 60px;
-  padding-right: calc(180px + 30px);
+
+  // padding-right: calc(180px + 30px);
   padding-bottom: 120px;
   margin-top: 60px;
   white-space: pre-wrap;
-  background: $white;
   border-top: 5px solid $red;
+
+  &::after {
+    position: absolute;
+    top: -5px; // align top border
+    left: -100vw;
+    z-index: -1;
+    width: 200vw;
+    height: calc(100% + 5px); // align top border
+    content: '';
+    background: $white;
+  }
 
   @include mq-down(md) {
     padding-right: 15px;

@@ -89,7 +89,7 @@ const { title } = Astro.props
         font-weight: bold;
         font-feature-settings: 'palt' 1;
         line-height: $line-height;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.1px;
         overflow-wrap: break-word;
         text-size-adjust: 100%;
         -moz-osx-font-smoothing: grayscale;
@@ -104,6 +104,15 @@ const { title } = Astro.props
           color: #cbbea4;
           repeat: repeat;
         }
+      }
+
+      .section {
+        width: 100%;
+        max-width: $pc-width;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
       }
     </style>
   </body>

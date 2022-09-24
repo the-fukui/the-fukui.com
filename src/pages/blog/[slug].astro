@@ -56,7 +56,11 @@ const thumbnail = await renderPicture({
       title={post.title}
       date={post.date}
       thumbnail={thumbnail.style + thumbnail.picture}
+      className={'section'}
     />
-    <ArticleBody html={post.content || post.rawContent || ''} />
+    <ArticleBody
+      html={post.content || post.rawContent || ''}
+      className={'section'}
+    />
   </article>
 </Layout>

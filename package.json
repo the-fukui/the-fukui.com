@@ -54,7 +54,7 @@
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
     "sass": "^1.54.9",
-    "scaffdog": "^2.2.0",
+    "scaffdog": "^2.3.1",
     "stylelint": "^14.12.1",
     "stylelint-config-astro": "^1.0.4",
     "stylelint-config-html": "^1.1.0",

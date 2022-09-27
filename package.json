@@ -39,7 +39,7 @@
     "@astrojs/prefetch": "^0.0.7",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "@types/node": "^18.7.23",
-    "@typescript-eslint/parser": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.1",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "astro-compress": "^1.0.8",
     "astro-critters": "^1.0.4",

@@ -39,7 +39,9 @@ const articleThumbnails = await Promise.all(
 
 <Layout title="Welcome to Astro.">
   <main>
-    <PageTitle className={'section'}>Articles</PageTitle>
+    <PageTitle className={'section'} secondaryTitle={`Page ${currentPage}`}>
+      Articles</PageTitle
+    >
     <ArticleList className={'section'}>
       {
         articleList.map((post, i) => (

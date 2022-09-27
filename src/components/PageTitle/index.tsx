@@ -4,6 +4,7 @@ import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
+  secondaryTitle?: string
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -19,10 +20,18 @@ const Container = (props: ContainerProps) => {
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
+  secondaryTitle,
   children,
-}: PresenterProps) => (
-  <h2 className={`${className} ${style.title}`}>{children}</h2>
-)
+}: PresenterProps) => {
+  return secondaryTitle ? (
+    <div className={`${style.wrapper} ${className}`}>
+      <h2 className={style.title}>{children}</h2>
+      <span className={style.secondary}>{secondaryTitle}</span>
+    </div>
+  ) : (
+    <h2 className={`${className} ${style.title}`}>{children}</h2>
+  )
+}
 
 export default function PageTitle(props: ContainerProps) {
   return <Presenter {...Container(props)} />

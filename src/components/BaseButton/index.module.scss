@@ -1,0 +1,10 @@
+.button {
+  padding: 16px;
+  color: white;
+  background: $red;
+  transition: background 0.2s;
+
+  &:hover {
+    background: color.adjust($red, $brightness: 4%);
+  }
+}

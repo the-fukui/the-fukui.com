@@ -1,15 +1,14 @@
-import type { FunctionalComponent, JSX } from 'preact'
+import type { ComponentChildren, FunctionalComponent } from 'preact'
 
 import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
+  children?: ComponentChildren
   secondaryTitle?: string
 }
 
-type PresenterProps = ReturnType<typeof Container> & {
-  children?: JSX.Element[]
-}
+type PresenterProps = ReturnType<typeof Container>
 
 const Container = (props: ContainerProps) => {
   /** Logic here */

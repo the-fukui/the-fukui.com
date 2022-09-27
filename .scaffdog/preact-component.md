@@ -10,17 +10,16 @@ questions:
 # `src/components/{{ inputs.name | pascal }}/index.tsx`
 
 ```tsx
-import type { FunctionalComponent, JSX } from 'preact'
+import type { FunctionalComponent, ComponentChildren } from 'preact'
 
 // import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
+  children?: ComponentChildren
 }
 
-type PresenterProps = ReturnType<typeof Container> & {
-  children?: JSX.Element[]
-}
+type PresenterProps = ReturnType<typeof Container>
 
 const Container = (props: ContainerProps) => {
   /** Logic here */

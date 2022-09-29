@@ -20,9 +20,8 @@ const portfolios = await Promise.all(
     return renderPicture({
       src: portfolio.thumbnail.url,
       alt: portfolio.title,
-      aspect: 1,
-      w: 600,
-      layout: 'fill',
+      w: 305 * 2,
+      h: 305 * 2,
     })
       .then((pictureData) => pictureData.style + pictureData.picture)
       .then((thumbnail) => ({

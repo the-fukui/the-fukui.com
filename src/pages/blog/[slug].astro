@@ -32,6 +32,8 @@ const post = await getBlog(postID)
 const thumbnail = await renderPicture({
   src: post.thumbnail.url,
   alt: '',
+  w: 880 * 2,
+  h: (880 * 2) / 1.618,
 })
 
 /**

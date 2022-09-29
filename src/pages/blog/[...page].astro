@@ -31,7 +31,8 @@ const articleThumbnails = await Promise.all(
     return renderPicture({
       src: post.thumbnail?.url || '/public/img/noimage.jpg',
       alt: '',
-      aspect: 1.7,
+      w: 400 * 2,
+      h: (400 * 2) / 1.618,
     }).then((pictureData) => pictureData.style + pictureData.picture)
   }),
 )

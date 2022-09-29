@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "jsx": "react-jsx",
+    "noErrorTruncation": true,
     "jsxImportSource": "preact",
     "exactOptionalPropertyTypes": false, //for react classname/css modules
     "baseUrl": ".",

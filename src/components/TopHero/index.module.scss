@@ -1,0 +1,91 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+
+  @include mq-down(md) {
+    display: block;
+    padding-bottom: 45px;
+  }
+}
+
+.text {
+  padding-left: 60px;
+  font-style: italic;
+  white-space: pre;
+  visibility: hidden;
+  transform-origin: center center;
+
+  @include mq-down(md) {
+    padding: 0 30px 15px;
+  }
+
+  @include mq-down(sm) {
+    padding-bottom: 15px;
+  }
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-top: -10vw;
+}
+
+.pc {
+  position: relative;
+  display: block;
+  width: 100%;
+  transform-origin: center center;
+  animation: fuwafuwa 4s infinite alternate;
+
+  @include mq-down(md) {
+    width: calc(((100vw - #{$pc-width}) / 2 + #{$pc-width}) / 3);
+    margin-top: 7vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include mq-down(md) {
+    display: block;
+    margin-top: 0;
+  }
+
+  @keyframes fuwafuwa {
+    0% {
+      transform: translate(0, 0) rotateZ(-13deg);
+    }
+
+    50% {
+      transform: translate(0, -10px) rotateZ(-15deg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotateZ(-16deg);
+    }
+  }
+}
+
+.stripe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: 3500px;
+  height: 3500px;
+  opacity: 0.04;
+  transform: translateY(-50%) translateX(-50%);
+  transform-origin: center center;
+  animation: expand 2.5s ease 0s;
+
+  @keyframes expand {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%) translateX(-50%) rotateZ(-15deg);
+    }
+
+    100% {
+      opacity: 0.03;
+      transform: translateY(-50%) translateX(-50%) rotateZ(0deg);
+    }
+  }
+}

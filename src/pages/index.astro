@@ -1,7 +1,16 @@
 ---
+import TopHero from '@/components/TopHero'
 import Layout from '@/layouts/Layout.astro'
 ---
 
+<script>
+  import { topHeroTextAnimation } from '@/scripts/topHeroTextAnimation'
+
+  topHeroTextAnimation()
+</script>
+
 <Layout title="Welcome to Astro.">
-  <main></main>
+  <main>
+    <TopHero className={'section'} />
+  </main>
 </Layout>

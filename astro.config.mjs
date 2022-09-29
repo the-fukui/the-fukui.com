@@ -9,6 +9,8 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 import getPostList from './src/integrations/getPostList'
 
+const isDev = import.meta.env.MODE === 'development'
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -16,9 +18,10 @@ export default defineConfig({
     image(),
     astroImageTools,
     getPostList(),
-    prefetch({
-      selector: "a[href^='/']",
-    }),
+    !isDev &&
+      prefetch({
+        selector: "a[href^='/']",
+      }),
     critters({
       pruneSource: true,
     }),

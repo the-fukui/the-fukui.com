@@ -27,7 +27,7 @@ const Container = (props: ContainerProps) => {
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
 }: PresenterProps) => (
-  <div className={`${className} ${style.hero}`}>
+  <section className={`${className} ${style.hero}`}>
     <span className={style.text} id="js-heroText">
       {HERO_TEXT}
     </span>
@@ -35,7 +35,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
       <SvgPc className={style.pc} />
       <SvgStripeCircle className={style.stripe} />
     </div>
-  </div>
+  </section>
 )
 
 export default function TopHero(props: ContainerProps) {

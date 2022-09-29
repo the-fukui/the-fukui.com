@@ -9,13 +9,13 @@ declare namespace MicroCMSContent {
   }
 
   export type Portfolio = {
-    thumbnail?: Image
-    title?: string
-    content?: string
-    url?: string
-    period?: string
-    part?: (PortfolioPart & MicroCMSContentId & MicroCMSDate)[]
-    tech?: (PortfolioTech & MicroCMSContentId & MicroCMSDate)[]
+    thumbnail: Image
+    title: string
+    content: string
+    url: string
+    period: string
+    part: (PortfolioPart & MicroCMSContentId & MicroCMSDate)[]
+    tech: (PortfolioTech & MicroCMSContentId & MicroCMSDate)[]
   }
 
   export type PortfolioPart = {

@@ -1,6 +1,36 @@
 ---
 import TopHero from '@/components/TopHero'
+import TopWorks from '@/components/TopWorks'
 import Layout from '@/layouts/Layout.astro'
+import { getPortfolioList, getProfile, getSkillList } from '@/libs/microcms'
+
+import { renderPicture } from 'astro-imagetools/api'
+
+const [_portfolios] = await Promise.all([
+  getPortfolioList(),
+  getProfile(),
+  getSkillList(),
+])
+
+/**
+ * Portfolioサムネイル取得
+ */
+const portfolios = await Promise.all(
+  _portfolios.map((portfolio, i) => {
+    return renderPicture({
+      src: portfolio.thumbnail.url,
+      alt: portfolio.title,
+      aspect: 1,
+      w: 600,
+      layout: 'fill',
+    })
+      .then((pictureData) => pictureData.style + pictureData.picture)
+      .then((thumbnail) => ({
+        ...(_portfolios[i] as typeof portfolio),
+        thumbnail,
+      }))
+  }),
+)
 ---
 
 <script>
@@ -12,5 +42,6 @@ import Layout from '@/layouts/Layout.astro'
 <Layout title="Welcome to Astro.">
   <main>
     <TopHero className={'section'} />
+    <TopWorks className={'section'} portfolios={portfolios} />
   </main>
 </Layout>

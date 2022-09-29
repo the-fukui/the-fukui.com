@@ -5,6 +5,7 @@
     "jsxImportSource": "preact",
     "exactOptionalPropertyTypes": false, //for react classname/css modules
     "baseUrl": ".",
+    "noErrorTruncation": true,
     "paths": {
       "@/*": ["src/*"],
       "@/public/*": ["./public/*"]

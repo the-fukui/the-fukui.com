@@ -1,6 +1,7 @@
 ---
 import ArticleBody from '@/components/ArticleBody'
 import ArticleHeader from '@/components/ArticleHeader'
+import ArticleNavigation from '@/components/ArticleNavigation'
 import postList from '@/data/posts.json'
 import type { PostList } from '@/integrations/getPostList'
 import Layout from '@/layouts/Layout.astro'
@@ -41,13 +42,13 @@ const thumbnail = await renderPicture({
 /**
  * 前後記事情報取得
  */
-// const [prevPost, nextPost] = (() => {
-//   const posts = postList as PostList
-//   const postIndex = posts.findIndex(
-//     (post) => post.postType === 'normal' && post.id === postID,
-//   )
-//   return [posts[postIndex - 1], posts[postIndex + 1]]
-// })()
+const [prevPost, nextPost] = (() => {
+  const posts = postList as PostList
+  const postIndex = posts.findIndex(
+    (post) => post.postType === 'normal' && post.id === postID,
+  )
+  return [posts[postIndex - 1], posts[postIndex + 1]]
+})()
 ---
 
 <Layout title="Welcome to Astro.">
@@ -63,4 +64,15 @@ const thumbnail = await renderPicture({
       className={'section'}
     />
   </article>
+  <ArticleNavigation
+    className={'section navigation'}
+    nextPost={nextPost}
+    previousPost={prevPost}
+  />
 </Layout>
+
+<style>
+  .navigation {
+    translate: 0 -50%;
+  }
+</style>

@@ -45,6 +45,7 @@ export default defineConfig({
             @import 'src/styles/_color';
             @import 'src/styles/_size';
             @import 'src/styles/_font';
+            @import 'src/styles/_animation';
             ` + source
             )
           },

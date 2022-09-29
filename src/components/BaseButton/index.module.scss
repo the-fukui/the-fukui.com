@@ -5,6 +5,6 @@
   transition: background 0.2s;
 
   &:hover {
-    background: color.adjust($red, $brightness: 4%);
+    background: color.adjust($red, $lightness: 4%);
   }
 }

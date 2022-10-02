@@ -31,6 +31,12 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tsconfigPaths()],
+    resolve: {
+      alias: {
+        react: 'preact/compat',
+        'react-dom': 'preact/compat',
+      },
+    },
     ssr: {
       noExternal: ['destyle.css'],
     },

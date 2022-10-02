@@ -1,3 +1,5 @@
+import Image from '@/components/Image'
+
 import dayjs from 'dayjs'
 import type { FunctionalComponent, JSX } from 'preact'
 
@@ -7,7 +9,11 @@ type ContainerProps = {
   className?: string
   title: string
   date: string
-  thumbnail: string
+  thumbnail: {
+    src: string
+    width: number
+    height: number
+  }
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -35,9 +41,11 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   thumbnail,
 }: PresenterProps) => (
   <header className={`${className} ${style.header}`}>
-    <div
+    <Image
+      src={thumbnail.src}
+      width={880}
+      height={thumbnail.height * (880 / thumbnail.width)}
       className={style.thumbnail}
-      dangerouslySetInnerHTML={{ __html: thumbnail }}
     />
     <h1 className={style.title}>{title}</h1>
     <time dateTime={dateTime} className={style.date}>

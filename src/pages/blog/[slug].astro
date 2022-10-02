@@ -7,8 +7,6 @@ import type { PostList } from '@/integrations/getPostList'
 import Layout from '@/layouts/Layout.astro'
 import { getBlog } from '@/libs/microcms'
 
-import { renderPicture } from 'astro-imagetools/api'
-
 // import dayjs from 'dayjs'
 
 export const getStaticPaths = async () => {
@@ -29,12 +27,7 @@ const post = await getBlog(postID)
 /**
  * サムネイル
  */
-const thumbnail = await renderPicture({
-  src: post.thumbnail.url,
-  alt: '',
-  w: 880 * 2,
-  h: (880 * 2) / 1.618,
-})
+const thumbnail = { ...post.thumbnail, src: post.thumbnail.url }
 
 /**
  * 公開日
@@ -58,8 +51,8 @@ const [prevPost, nextPost] = (() => {
     <ArticleHeader
       title={post.title}
       date={post.date}
-      thumbnail={thumbnail.style + thumbnail.picture}
       className={'section'}
+      thumbnail={thumbnail}
     />
     <ArticleBody
       html={post.content || post.rawContent || ''}

@@ -35,7 +35,7 @@
     "preact": "^10.11.0"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.7.1",
+    "@astrojs/image": "^0.8.0",
     "@astrojs/prefetch": "^0.0.7",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "@types/node": "^18.7.23",

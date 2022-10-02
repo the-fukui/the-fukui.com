@@ -8,7 +8,6 @@ import type { PostList } from '@/integrations/getPostList'
 import Layout from '@/layouts/Layout.astro'
 
 import type { GetStaticPaths, Page } from 'astro'
-import { renderPicture } from 'astro-imagetools/api'
 
 /**
  * pagination & 記事一覧取得
@@ -22,20 +21,6 @@ const {
   currentPage,
   lastPage,
 } = Astro.props.page as Page<PostList[number]>
-
-/**
- * サムネイル取得
- */
-const articleThumbnails = await Promise.all(
-  articleList.map((post) => {
-    return renderPicture({
-      src: post.thumbnail?.url || '/public/img/noimage.jpg',
-      alt: '',
-      w: 400 * 2,
-      h: (400 * 2) / 1.618,
-    }).then((pictureData) => pictureData.style + pictureData.picture)
-  }),
-)
 ---
 
 <Layout title="Welcome to Astro.">
@@ -49,7 +34,6 @@ const articleThumbnails = await Promise.all(
           <ArticleList.Item>
             <ArticleCard
               {...post}
-              thumbnail={articleThumbnails[i] as string}
               reverse={
                 i % 2 !== 0 // 偶数番目の記事は画像を右側に表示
               }

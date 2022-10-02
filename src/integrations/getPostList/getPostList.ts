@@ -20,9 +20,11 @@ export const getPostList = async () => {
       const $ = load(post.rendered_body)
       const firstImageURL = $('img:not(.emoji)').attr('data-canonical-src')
 
-      return {
-        url: firstImageURL,
-      }
+      return firstImageURL
+        ? {
+            url: firstImageURL,
+          }
+        : undefined
       // return ogs({ url: post.url })
       //   .then(({ result }) => {
       //     if (!result.success || !result.ogImage) {

@@ -1,3 +1,5 @@
+import Image from '@/components/Image'
+
 import dayjs from 'dayjs'
 import type { FunctionalComponent, JSX } from 'preact'
 
@@ -8,7 +10,9 @@ type ContainerProps = {
   id: string
   title: string
   date: string
-  thumbnail: string
+  thumbnail?: {
+    url: string
+  }
   reverse?: boolean
 }
 
@@ -45,11 +49,14 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
     <a href={`/blog/${id}/`} className={style.title}>
       <h3>{title}</h3>
     </a>
-    <a
-      className={style.thumbnail}
-      dangerouslySetInnerHTML={{ __html: thumbnail }}
-      href={`/blog/${id}`}
-    />
+    <a className={style.thumbnail} href={`/blog/${id}`}>
+      <Image
+        alt=""
+        src={thumbnail?.url || import.meta.env.NO_IMAGE_URL}
+        width={400}
+        height={400 / 1.618}
+      />
+    </a>
   </div>
 )
 

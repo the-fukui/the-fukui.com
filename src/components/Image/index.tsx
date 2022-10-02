@@ -48,13 +48,18 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   <>
     <Picture>
       {formats.map((format) => (
-        <Source {...commonProps} key={format} imgixParams={{ fm: format }} />
+        <Source
+          {...commonProps}
+          key={format}
+          imgixParams={{ fm: format, fit: 'crop' }}
+        />
       ))}
       <Imgix
         {...commonProps}
         imgixParams={{
           w: commonProps.width,
           h: commonProps.height,
+          fit: 'crop',
           auto: undefined,
         }}
         className={className}

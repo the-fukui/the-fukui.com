@@ -41,7 +41,7 @@
     "@types/node": "^18.7.23",
     "@typescript-eslint/parser": "^5.38.1",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "astro-compress": "^1.0.8",
+    "astro-compress": "^1.0.9",
     "astro-critters": "^1.0.5",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",

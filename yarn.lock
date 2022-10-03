@@ -1128,13 +1128,13 @@ astro-compress@^1.0.8:
     svgo "2.8.0"
     terser "5.15.0"
 
-astro-critters@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/astro-critters/-/astro-critters-1.0.4.tgz#5d96b9af84cf52b0c6cb69991d8f994f9efd4fb6"
-  integrity sha512-5Fihss+v1FH+9cQ/FUFgwbnprYJe55H/EOaUNl2+zCetXxO2+l0h1JtuWQ7898aS05ipqaPwKedKdZVOs/v7hA==
+astro-critters@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/astro-critters/-/astro-critters-1.0.5.tgz#3b6490dbcc059505cbffe336b978b8ef2241c02e"
+  integrity sha512-5Q7GCALVemJPISSXTzBFkxX0um+V/YaO30JyiQNJ3fppE7LflMWZW8DROoScY9PDSLDFxbY+9lNsUBLizqmMXQ==
   dependencies:
     critters "0.0.16"
-    deepmerge-ts "4.2.1"
+    deepmerge-ts "4.2.2"
     fast-glob "3.2.12"
 
 astro-eslint-parser@^0.6.0:
@@ -1991,6 +1991,11 @@ deepmerge-ts@4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/deepmerge-ts/-/deepmerge-ts-4.2.1.tgz#104fe27c91abde4597bad1dcfd00a7a8be22d532"
   integrity sha512-xzJLiUo4z1dD2nggSfaMvHo5qWLoy/JVa9rKuktC6FrQQEBI8Qnj7KwuCYZhqBoGOOpGqs6+3MR2ZhSMcTr4BA==
+
+deepmerge-ts@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/deepmerge-ts/-/deepmerge-ts-4.2.2.tgz#582bf34a37592dc8274b137617b539f871aaf11a"
+  integrity sha512-Ka3Kb21tiWjvQvS9U+1Dx+aqFAHsdTnMdYptLTmC2VAmDFMugWMY1e15aTODstipmCun8iNuqeSfcx6rsUUk0Q==
 
 deepmerge@^4.2.2:
   version "4.2.2"

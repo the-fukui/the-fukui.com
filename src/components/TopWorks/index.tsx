@@ -1,3 +1,5 @@
+import Image from '@/components/Image'
+
 import type { ComponentChildren, FunctionalComponent } from 'preact'
 
 import style from './index.module.scss'
@@ -7,7 +9,10 @@ type ContainerProps = {
   children?: ComponentChildren
   portfolios: {
     id: string
-    thumbnail: string
+    title: string
+    thumbnail: {
+      url: string
+    }
   }[]
 }
 
@@ -34,8 +39,14 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
           <a
             href={`/portfolio/${portfolio.id}/`}
             className={style.portfolio__thumbnail}
-            dangerouslySetInnerHTML={{ __html: portfolio.thumbnail }}
-          ></a>
+          >
+            <Image
+              alt={portfolio.title}
+              src={portfolio.thumbnail.url}
+              width={304}
+              height={304}
+            />
+          </a>
         </li>
       ))}
     </ul>

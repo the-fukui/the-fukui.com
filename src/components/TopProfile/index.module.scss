@@ -1,0 +1,143 @@
+.profile {
+  display: grid;
+  grid-template-areas:
+    'title .'
+    'text avatar'
+    'links .';
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  grid-area: title;
+  padding: 0 5px;
+  font-size: 8rem;
+  color: $black;
+  color: rgb(51 51 51 / 0%);
+  transition: color 0.2s ease-in-out 0.3s;
+  transform: perspective(450px) rotateY(45deg);
+  transform-origin: bottom left;
+  transform-origin: center center;
+  @include ff-gill-nova;
+
+  @include mq-down(lg) {
+    margin-top: get_vw(-10);
+  }
+
+  @include mq-down(sm) {
+    margin-top: get_vw(-10);
+    font-size: get_vw(60);
+  }
+
+  &.intersected {
+    color: rgb(51 51 51 / 100%);
+
+    &::after {
+      top: 5px;
+      height: 7.5rem;
+
+      @include mq-down(sm) {
+        height: get_vw(58);
+      }
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 0;
+    content: '';
+    background: white;
+    transition: height 0.3s ease-in-out, top 0.3s ease-in-out;
+    transform: translateY(50%);
+    backface-visibility: hidden;
+  }
+
+  // color: white;
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+  grid-area: text;
+}
+
+.links {
+  position: relative;
+  z-index: 2;
+  grid-area: links;
+}
+
+%background {
+  position: absolute;
+  top: 50%;
+  right: calc(250px * 0.3);
+  z-index: 1;
+  width: 0;
+  height: calc((500px + 35vw) * 0.6);
+  content: '';
+  border-top: calc(((500px + 35vw) * 0.6 - 130px) / 2) solid transparent;
+  border-bottom: calc(((500px + 35vw) * 0.6 - 130px) / 2) solid transparent;
+  border-left: calc((100vw - #{$pc-width}) / 2 + #{$pc-width} - 250px * 0.3)
+    solid $black;
+  transform: translateY(-50%) translateZ(0);
+
+  @include mq-down(max) {
+    top: 30px;
+    right: -15px;
+    bottom: auto;
+    height: calc((600px + 35vw) * 0.4);
+    border-top-width: calc(((500px + 35vw) * 0.4 - 130px) / 2);
+    border-bottom-width: calc(((500px + 35vw) * 0.4 - 130px) / 2);
+    border-left-width: 100vw;
+  }
+
+  @include mq-down(sm) {
+    top: 0;
+  }
+}
+
+picture:has(.avatar) {
+  position: relative;
+  grid-area: avatar;
+  align-self: center;
+  width: 250px;
+  height: 250px;
+  background: #203669;
+  border: 7px solid white;
+  border-radius: 50%;
+
+  &::after {
+    @extend %background;
+  }
+
+  &::before {
+    @extend %background;
+
+    z-index: -1;
+    height: calc((500px + 35vw) * 0.6 + 14px);
+    border-left-color: white;
+
+    @include mq-down(max) {
+      height: calc((600px + 35vw) * 0.4 + 14px);
+    }
+  }
+}
+
+.avatar {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  // @include mq-down(sm) {
+  //     width: 200px;
+  //     height: 200px;
+  // }
+}

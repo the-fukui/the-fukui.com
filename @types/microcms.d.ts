@@ -38,9 +38,9 @@ declare namespace MicroCMSContent {
   }
 
   export type Profile = {
-    name?: string
-    avatar?: Image
-    content?: string
+    name: string
+    avatar: Image
+    content: string
   }
 
   export type Skill = {

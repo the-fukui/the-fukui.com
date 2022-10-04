@@ -10,7 +10,7 @@ type ContainerProps = {
   title: string
   date: string
   thumbnail: {
-    src: string
+    url: string
     width: number
     height: number
   }
@@ -42,7 +42,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
 }: PresenterProps) => (
   <header className={`${className} ${style.header}`}>
     <Image
-      src={thumbnail.src}
+      src={thumbnail.url}
       width={880}
       height={thumbnail.height * (880 / thumbnail.width)}
       className={style.thumbnail}

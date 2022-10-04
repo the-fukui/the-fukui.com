@@ -25,11 +25,6 @@ const postID = String(Astro.params.slug)
 const post = await getBlog(postID)
 
 /**
- * サムネイル
- */
-const thumbnail = { ...post.thumbnail, src: post.thumbnail.url }
-
-/**
  * 公開日
  */
 // const published = dayjs(post.date).format('MMM D, YYYY')
@@ -52,7 +47,7 @@ const [prevPost, nextPost] = (() => {
       title={post.title}
       date={post.date}
       className={'section'}
-      thumbnail={thumbnail}
+      thumbnail={post.thumbnail}
     />
     <ArticleBody
       html={post.content || post.rawContent || ''}

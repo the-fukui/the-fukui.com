@@ -1,0 +1,28 @@
+---
+import PortfolioHeader from '@/components/PortfolioHeader'
+import Layout from '@/layouts/Layout.astro'
+import { getPortfolio, getPortfolioList } from '@/libs/microcms'
+
+import type { GetStaticPaths } from 'astro'
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const portfolios = await getPortfolioList()
+  return portfolios.map((portfolio) => ({
+    params: {
+      slug: portfolio.id,
+    },
+  }))
+}
+
+/**
+ * Portfolio取得
+ */
+const portfolioID = String(Astro.params.slug)
+const portfolio = await getPortfolio(portfolioID)
+---
+
+<Layout title="Welcome to Astro.">
+  <article>
+    <PortfolioHeader {...portfolio} className={'section'} />
+  </article>
+</Layout>

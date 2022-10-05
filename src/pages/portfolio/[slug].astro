@@ -1,4 +1,5 @@
 ---
+import PortfolioBody from '@/components/PortfolioBody'
 import PortfolioHeader from '@/components/PortfolioHeader'
 import Layout from '@/layouts/Layout.astro'
 import { getPortfolio, getPortfolioList } from '@/libs/microcms'
@@ -24,5 +25,6 @@ const portfolio = await getPortfolio(portfolioID)
 <Layout title="Welcome to Astro.">
   <article>
     <PortfolioHeader {...portfolio} className={'section'} />
+    <PortfolioBody {...portfolio} className={'section'} />
   </article>
 </Layout>

@@ -30,7 +30,11 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   thumbnail,
 }: PresenterProps) => (
   <header className={`${className} ${style.header}`}>
-    <h2 className={style.title}>{title}</h2>
+    <h2
+      className={`${style.title} ${title.length > 10 && style['title--long']}`}
+    >
+      {title}
+    </h2>
     <Image
       className={style.thumbnail}
       src={thumbnail.url}

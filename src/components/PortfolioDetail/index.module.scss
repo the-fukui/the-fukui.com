@@ -1,0 +1,157 @@
+.detail {
+    position: relative;
+    display: grid;
+    grid-template:
+        'tech-heading tech-list' auto
+        'tech-sub-heading tech-list' auto
+        '. .' 60px
+        'part-heading part-list' auto
+        'part-sub-heading part-list' 1fr
+        / auto 1fr;
+    padding: 60px 0;
+    background: $white;
+
+    &::after {
+        position: absolute;
+        right: -15px;
+        bottom: -15px;
+        z-index: -1;
+        width: 200px;
+        height: 200px;
+        content: '';
+        background: $green;
+    }
+}
+
+.heading {
+    position: relative;
+    display: block;
+    font-size: 4rem;
+
+    &--tech {
+        grid-area: tech-heading;
+    }
+
+    &--part {
+        grid-area: part-heading;
+    }
+
+    &::after {
+        position: absolute;
+        bottom: 3px;
+        left: calc(-15px - 15px);
+        width: 0;
+        height: 5px;
+        content: '';
+        background: $black;
+        transition: width 0.4s ease-out;
+    }
+
+    @include mq-down(sm) {
+        display: inline-block;
+    }
+}
+
+.sub-heading {
+    display: block;
+    align-self: flex-start;
+    padding-top: 2px;
+    padding-right: 3px;
+    font-size: 1.2rem;
+    text-align: right;
+
+    &--tech {
+        grid-area: tech-sub-heading;
+    }
+
+    &--part {
+        grid-area: part-sub-heading;
+    }
+
+    @include mq-down(sm) {
+        display: table-cell;
+        font-size: get_vw(16);
+    }
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 25px 30px 0;
+
+    &--tech {
+        grid-area: tech-list;
+    }
+
+    &--part {
+        grid-area: part-list;
+        gap: 8px;
+    }
+}
+
+.item {
+    position: relative;
+
+    &--tech {
+        &__icon {
+            width: auto;
+            max-width: 100px;
+            max-height: 50px;
+        }
+
+        &__name {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            transform: translateX(-50%);
+        }
+
+        &:hover {
+            .tech-item__name {
+                opacity: 1;
+            }
+        }
+    }
+
+    &--part {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        margin: 5px;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 0%;
+            height: 100%;
+            content: '';
+            background: #e5e5e5;
+            transition: width 0.4s ease-out;
+            transform: skewX(-15deg);
+        }
+
+        @include mq-down(sm) {
+            padding: 15px 7.5px;
+        }
+
+        &__icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+
+            @include mq-down(sm) {
+                width: get_vw(20);
+                height: get_vw(20);
+                margin-right: 8px;
+                margin-left: 2px;
+            }
+        }
+    }
+}

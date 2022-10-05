@@ -20,12 +20,12 @@ declare namespace MicroCMSContent {
 
   export type PortfolioPart = {
     name: string
-    icon?: Image
+    icon: Image
   }
 
   export type PortfolioTech = {
     name: string
-    icon?: Image
+    icon: Image
     url?: string
   }
 

@@ -1,4 +1,5 @@
 import Image from '@/components/Image'
+import Logo from '@/components/Logo'
 
 import type { ComponentChildren, FunctionalComponent } from 'preact'
 
@@ -7,6 +8,7 @@ import style from './index.module.scss'
 type ContainerProps = {
   className?: string
   children?: ComponentChildren
+  id: string
   url: string
   thumbnail: {
     url: string
@@ -25,6 +27,7 @@ const Container = (props: ContainerProps) => {
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
+  id,
   title,
   url,
   thumbnail,
@@ -33,7 +36,11 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
     <h2
       className={`${style.title} ${title.length > 10 && style['title--long']}`}
     >
-      {title}
+      {id === 'fukuinofu' ? (
+        <Logo alt={title} dark className={style['title--logo']} />
+      ) : (
+        title
+      )}
     </h2>
     <Image
       className={style.thumbnail}

@@ -1,5 +1,6 @@
 ---
 import PortfolioBody from '@/components/PortfolioBody'
+import PortfolioDetail from '@/components/PortfolioDetail'
 import PortfolioHeader from '@/components/PortfolioHeader'
 import Layout from '@/layouts/Layout.astro'
 import { getPortfolio, getPortfolioList } from '@/libs/microcms'
@@ -26,5 +27,13 @@ const portfolio = await getPortfolio(portfolioID)
   <article>
     <PortfolioHeader {...portfolio} className={'section'} />
     <PortfolioBody {...portfolio} className={'section'} />
+    <PortfolioDetail {...portfolio} className={'section detail'} />
   </article>
 </Layout>
+
+<style lang="scss">
+  .detail {
+    max-width: calc($pc-width - 30px);
+    margin-top: 90px;
+  }
+</style>

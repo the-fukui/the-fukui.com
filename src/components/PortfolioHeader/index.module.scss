@@ -26,8 +26,9 @@
 .title {
   position: relative;
   z-index: 2;
-  display: inline-block;
+  display: inline-flex;
   grid-area: title;
+  align-items: center;
   justify-self: flex-start;
   padding: 8px 32px;
   margin-bottom: -32px;
@@ -39,6 +40,16 @@
 
   &--long {
     font-size: 4rem;
+  }
+
+  &--logo {
+    width: auto;
+    height: 6rem;
+    margin: 16px 0 22px;
+
+    @include mq-down(md) {
+      height: get_vw(30);
+    }
   }
 
   @include mq-down(md) {
@@ -80,9 +91,9 @@ picture:has(.thumbnail) {
   z-index: 2;
   grid-area: url;
   justify-self: flex-end;
-  padding-left: 32px;
   margin-right: -1.5em;
   margin-bottom: 3px;
+  margin-left: 32px;
   font-size: 3rem;
   @include ff-gill-nova;
 

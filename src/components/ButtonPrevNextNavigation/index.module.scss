@@ -1,0 +1,53 @@
+%finger {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100px;
+  height: 50px;
+  content: '';
+  transition: translate 0.2s $transition-function-comical;
+  translate: 0 -50%;
+  background: {
+    image: url('/img/finger.png');
+    size: contain;
+  }
+}
+
+.button {
+  position: relative;
+  min-height: calc(50px + 16px * 2);
+  text-align: center;
+
+  &.prev {
+    padding-left: calc(100px + 16px * 2);
+
+    &::after {
+      @extend %finger;
+
+      rotate: y 180deg;
+      left: 16px;
+    }
+
+    &:hover {
+      &::after {
+        translate: -50% -50%;
+      }
+    }
+  }
+
+  &.next {
+    padding-right: calc(100px + 16px * 2);
+
+    &::after {
+      @extend %finger;
+
+      right: 16px;
+    }
+
+    &:hover {
+      &::after {
+        translate: 50% -50%;
+      }
+    }
+  }
+}

@@ -34,6 +34,6 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   </BaseButton>
 )
 
-export default function ButtonArticleNavigation(props: ContainerProps) {
+export default function ButtonPrevNextNavigation(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }

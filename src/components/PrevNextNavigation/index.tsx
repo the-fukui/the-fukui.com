@@ -1,10 +1,10 @@
-import ButtonArticleNavigation from '@/components/ButtonArticleNavigation'
+import ButtonPrevNextNavigation from '@/components/ButtonPrevNextNavigation'
 
 import type { ComponentChildren, FunctionalComponent } from 'preact'
 
 import style from './index.module.scss'
 
-type PostInfo = {
+type PageInfo = {
   title: string
   id: string
 }
@@ -12,8 +12,9 @@ type PostInfo = {
 type ContainerProps = {
   className?: string
   children?: ComponentChildren
-  previousPost?: PostInfo
-  nextPost?: PostInfo
+  previous?: PageInfo
+  next?: PageInfo
+  path: string
 }
 
 type PresenterProps = ReturnType<typeof Container>
@@ -21,31 +22,42 @@ type PresenterProps = ReturnType<typeof Container>
 const Container = (props: ContainerProps) => {
   /** Logic here */
 
-  const presenterProps = {}
+  const path = props.path.endsWith('/')
+    ? (props.path = props.path.slice(0, -1))
+    : props.path
+
+  const presenterProps = { path }
   return { ...props, ...presenterProps }
 }
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
-  previousPost,
-  nextPost,
+  previous,
+  next,
+  path,
 }: PresenterProps) => (
   <div className={`${className} ${style.navigation}`}>
-    {previousPost && (
-      <a href={`/blog/${previousPost.id}/`} className={style.link}>
-        <ButtonArticleNavigation
+    {previous && (
+      <a
+        href={`${path}/${previous.id}/`}
+        className={`${style.link} ${style['link--prev']}`}
+      >
+        <ButtonPrevNextNavigation
           direction="prev"
-          title={previousPost.title}
+          title={previous.title}
           className={style.button}
         />
       </a>
     )}
 
-    {nextPost && (
-      <a href={`/blog/${nextPost.id}/`} className={style.link}>
-        <ButtonArticleNavigation
+    {next && (
+      <a
+        href={`${path}/${next.id}/`}
+        className={`${style.link} ${style['link--next']}`}
+      >
+        <ButtonPrevNextNavigation
           direction="next"
-          title={nextPost.title}
+          title={next.title}
           className={style.button}
         />
       </a>
@@ -53,6 +65,6 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   </div>
 )
 
-export default function ArticleNavigation(props: ContainerProps) {
+export default function PrevNextNavigation(props: ContainerProps) {
   return <Presenter {...Container(props)} />
 }

@@ -26,7 +26,7 @@
 .title {
   position: relative;
   z-index: 2;
-  display: inline-flex;
+  display: block;
   grid-area: title;
   align-items: center;
   justify-self: flex-start;
@@ -35,8 +35,18 @@
   font-size: 8rem;
   word-break: keep-all;
   background: white;
+
   @include lhCrop(1.7);
   @include lhCropUnder(1.7);
+
+  &:has(&--logo) {
+    &::after,
+    &::before {
+      content: none;
+    }
+
+    line-height: 0;
+  }
 
   &--long {
     font-size: 4rem;

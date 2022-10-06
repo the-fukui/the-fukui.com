@@ -1,7 +1,7 @@
 ---
 import ArticleBody from '@/components/ArticleBody'
 import ArticleHeader from '@/components/ArticleHeader'
-import ArticleNavigation from '@/components/ArticleNavigation'
+import PrevNextNavigation from '@/components/PrevNextNavigation'
 import postList from '@/data/posts.json'
 import type { PostList } from '@/integrations/getPostList'
 import Layout from '@/layouts/Layout.astro'
@@ -54,10 +54,11 @@ const [prevPost, nextPost] = (() => {
       className={'section'}
     />
   </article>
-  <ArticleNavigation
+  <PrevNextNavigation
     className={'section navigation'}
-    nextPost={nextPost}
-    previousPost={prevPost}
+    next={nextPost}
+    previous={prevPost}
+    path="/blog"
   />
 </Layout>
 

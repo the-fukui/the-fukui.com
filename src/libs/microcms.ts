@@ -1,4 +1,5 @@
 import { createClient } from 'microcms-js-sdk'
+import PromiseThrottle from 'promise-throttle'
 import { loadEnv } from 'vite'
 
 // Vite外からも使うので import.meta.env を使わない
@@ -13,19 +14,43 @@ const _client = createClient({
   apiKey: MICROCMS_API_KEY,
 })
 
+const promiseThrottle = new PromiseThrottle({
+  requestsPerSecond: 60, // up to 1 request per second
+  promiseImplementation: Promise, // the Promise library you are using
+})
+
+const cache = new Map()
+
 /**
- * Proxyで共通エラーハンドリング
+ * Proxyで
+ * - 共通エラーハンドリング
+ * - スロットリング(API limit対策)
+ * - レスポンスキャッシュ
  */
 const handler: ProxyHandler<typeof _client> = {
   get: function (target, action: keyof typeof _client) {
-    return (args: any) => {
-      try {
-        console.log('[microCMS] GET', args)
-        return target[action](args)
-      } catch (e) {
-        console.log({ e })
-        throw new Error(JSON.stringify(e))
+    return (args) => {
+      // レスポンスキャッシュがあればそれを返す
+      if (cache.has(JSON.stringify({ action, args }))) {
+        console.log('[microCMS] GET (cached)', args)
+        return cache.get(JSON.stringify({ action, args }))
       }
+
+      // スロットリングでAPI limit対策
+      const throttledRequest = promiseThrottle
+        .add(() => {
+          console.log('[microCMS] GET', args)
+          return target[action](args)
+        })
+        .catch((e) => {
+          console.log({ e, action, args })
+          throw new Error(e)
+        })
+
+      // レスポンスキャッシュ
+      cache.set(JSON.stringify({ action, args }), throttledRequest)
+
+      return throttledRequest
     }
   },
 }

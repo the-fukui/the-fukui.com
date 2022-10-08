@@ -1,0 +1,212 @@
+%bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200vw;
+    height: 120%;
+    content: '';
+    background: #064152;
+    transform-origin: center center;
+    translate: -50% 0;
+}
+
+.skills {
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'list title'
+        'ex ex';
+    padding-top: 180px;
+
+    &::before {
+        @extend %bg;
+
+        z-index: -3;
+        background: #094f64;
+        rotate: -9deg;
+    }
+
+    &::after {
+        @extend %bg;
+
+        top: 50px;
+        z-index: -2;
+        rotate: -4deg;
+    }
+
+    @include mq-down(sm) {
+        padding-top: get_vw(100);
+    }
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    grid-area: title;
+
+    &__text {
+        font-size: 3.5rem;
+        line-height: 1;
+        color: white;
+        transition: transform 0.3s ease-out;
+        @include ff-gill-nova;
+        @include mq-down(md) {
+            font-size: 2rem;
+        }
+        @include mq-down(sm) {
+            font-size: get_vw(20);
+        }
+
+        &--main {
+            transform: rotate(-15deg);
+        }
+    }
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: list;
+    gap: 12px 24px;
+    font-size: 5rem;
+    line-height: 1;
+    color: white;
+
+    // opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
+    // transform: translateY(-30px);
+    @include ff-gill-nova;
+    @include mq-down(md) {
+        padding-right: 5px;
+        font-size: 3rem;
+    }
+    @include mq-down(sm) {
+        font-size: get_vw(30);
+    }
+
+    &__item {
+        // white-space: nowrap;
+    }
+}
+
+.GCP {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 5px;
+    @include mq-down(md) {
+        display: block;
+        padding-top: 15px;
+    }
+
+    &__title {
+        @include ff-gill-inline;
+
+        font-size: 6.8rem;
+        @include mq-down(md) {
+            font-size: 4.5rem;
+        }
+        @include mq-down(sm) {
+            font-size: get_vw(45);
+        }
+    }
+
+    &__list {
+        @extend .list;
+
+        column-gap: 6px;
+        padding-top: 5px;
+        margin-left: 15px;
+        @include mq-down(md) {
+            padding-top: 0;
+            margin-left: 0;
+        }
+    }
+
+    &__item {
+        font-size: 3rem;
+        @include mq-down(md) {
+            font-size: 2.5rem;
+        }
+        @include mq-down(sm) {
+            font-size: get_vw(25);
+        }
+
+        &::after {
+            padding-left: 6px;
+            content: '/';
+        }
+
+        &:last-child::after {
+            content: none;
+        }
+    }
+}
+
+.ex {
+    display: flex;
+    grid-area: ex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-top: 40px;
+    overflow: hidden;
+    color: white;
+
+    &__text {
+        flex: 1 1 0%;
+        margin-right: 15px;
+        font-size: 1.6rem;
+        text-align: right;
+        opacity: 0;
+        transition: transform 0.2s $transition-function-comical;
+        transform: translateY(100%);
+        @include ff-gill-nova;
+    }
+
+    &__item {
+        @include ff-gill-nova;
+
+        font-size: 2.2rem;
+    }
+
+    &__img {
+        height: auto;
+        padding-top: 40px;
+
+        &--guitar {
+            width: 45px;
+            opacity: 0;
+            transition: transform 0.4s $transition-function-comical;
+            transform: translateY(100%);
+        }
+
+        &--violin {
+            width: 45px;
+            margin-top: 20px;
+            margin-left: 15px;
+            opacity: 0;
+            transition: transform 0.4s $transition-function-comical 0.2s;
+            transform: translateY(100%);
+        }
+    }
+
+    &.intersected {
+        .ex__text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ex__img {
+            &--guitar {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            &--violin {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

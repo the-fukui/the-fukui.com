@@ -13,18 +13,18 @@ const LINKS = [
     height: 512,
   },
   {
-    name: 'qiita',
-    href: 'https://qiita.com/the_fukui',
-    icon: '/img/qiita_text.svg',
-    width: 500,
-    height: 208,
-  },
-  {
     name: 'github',
     href: 'https://github.com/the-fukui',
     icon: '/img/github.svg',
     width: 24,
     height: 24,
+  },
+  {
+    name: 'qiita',
+    href: 'https://qiita.com/the_fukui',
+    icon: '/img/qiita_text.svg',
+    width: 500,
+    height: 208,
   },
   {
     name: 'npm',
@@ -65,7 +65,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
     <div className={style.text} dangerouslySetInnerHTML={{ __html: text }} />
     <ul className={style.links}>
       {LINKS.map((item) => (
-        <li className="links__item" key={item.name}>
+        <li className={style.links__item} key={item.name}>
           <a
             href={item.href}
             target="_blank"
@@ -74,7 +74,9 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
           >
             <img
               src={item.icon}
-              className={style[`links__${item.name}`]}
+              className={`${style.links__icon} ${
+                style[`links__icon--${item.name}`]
+              }`}
               alt={item.name}
               width={item.width}
               height={item.height}

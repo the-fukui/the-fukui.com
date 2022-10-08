@@ -1,11 +1,12 @@
 ---
 import TopHero from '@/components/TopHero'
 import TopProfile from '@/components/TopProfile'
+import TopSkills from '@/components/TopSkills'
 import TopWorks from '@/components/TopWorks'
 import Layout from '@/layouts/Layout.astro'
 import { getPortfolioList, getProfile, getSkillList } from '@/libs/microcms'
 
-const [portfolios, profile] = await Promise.all([
+const [portfolios, profile, skills] = await Promise.all([
   getPortfolioList(),
   getProfile(),
   getSkillList(),
@@ -22,6 +23,7 @@ const [portfolios, profile] = await Promise.all([
   <main>
     <TopHero className={'section'} />
     <TopWorks className={'section'} portfolios={portfolios} />
-    <TopProfile {...profile} text={profile.content} />
+    <TopProfile className={'section'} {...profile} text={profile.content} />
+    <TopSkills className={'section'} skills={skills} />
   </main>
 </Layout>

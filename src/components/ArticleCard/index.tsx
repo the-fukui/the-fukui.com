@@ -5,6 +5,11 @@ import type { FunctionalComponent, JSX } from 'preact'
 
 import style from './index.module.scss'
 
+const Mode = {
+  reverse: 'reverse',
+  'mini-reverse': 'mini-reverse',
+} as const
+
 type ContainerProps = {
   className?: string
   id: string
@@ -13,7 +18,7 @@ type ContainerProps = {
   thumbnail?: {
     url: string
   }
-  reverse?: boolean
+  mode?: keyof typeof Mode
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -40,9 +45,9 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   dateTime,
   displayTime,
   thumbnail,
-  reverse,
+  mode,
 }: PresenterProps) => (
-  <div className={`${className} ${style.card} ${reverse && style.reverse}`}>
+  <div className={`${className} ${style.card} ${mode && style[Mode[mode]]}`}>
     <time dateTime={dateTime} className={style.date}>
       {displayTime}
     </time>
@@ -53,8 +58,8 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
       <Image
         alt=""
         src={thumbnail?.url || import.meta.env.NO_IMAGE_URL}
-        width={400}
-        height={400 / 1.618}
+        width={mode === 'mini-reverse' ? 200 : 400}
+        height={mode === 'mini-reverse' ? 200 / 1.618 : 400 / 1.618}
       />
     </a>
   </div>

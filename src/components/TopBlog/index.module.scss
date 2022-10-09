@@ -1,0 +1,53 @@
+.blog {
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'title list'
+        '. more';
+    padding: 120px 0;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: -1;
+        width: 200vw;
+        height: 100%;
+        content: '';
+        background: $red;
+        transform: translate(-50%, 0);
+        transform-origin: center center;
+    }
+
+    @include mq-down(sm) {
+        padding: get_vw(60) 0;
+    }
+}
+
+.title {
+    grid-area: title;
+    width: 8rem;
+    height: 3.5em;
+    margin-top: -5px;
+    font-size: 8rem;
+    line-height: 1;
+    color: white;
+    writing-mode: vertical-rl;
+    @include ff-gill-nova;
+}
+
+.list {
+    grid-area: list;
+}
+
+.item {
+    padding-bottom: 30px;
+    @include mq-down(md) {
+        padding-bottom: 50px;
+    }
+}
+
+.more {
+    grid-area: more;
+    justify-self: flex-end;
+}

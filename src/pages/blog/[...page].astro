@@ -34,8 +34,8 @@ const {
           <ArticleList.Item>
             <ArticleCard
               {...post}
-              reverse={
-                i % 2 !== 0 // 偶数番目の記事は画像を右側に表示
+              mode={
+                i % 2 !== 0 ? 'reverse' : undefined // 偶数番目の記事は画像を右側に表示
               }
             />
           </ArticleList.Item>

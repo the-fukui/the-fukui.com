@@ -1,8 +1,11 @@
 ---
+import TopBlog from '@/components/TopBlog'
 import TopHero from '@/components/TopHero'
 import TopProfile from '@/components/TopProfile'
 import TopSkills from '@/components/TopSkills'
 import TopWorks from '@/components/TopWorks'
+import postsData from '@/data/posts.json'
+import type { PostList } from '@/integrations/getPostList'
 import Layout from '@/layouts/Layout.astro'
 import { getPortfolioList, getProfile, getSkillList } from '@/libs/microcms'
 
@@ -11,6 +14,8 @@ const [portfolios, profile, skills] = await Promise.all([
   getProfile(),
   getSkillList(),
 ])
+
+const latestPosts = (postsData as PostList).slice(0, 5)
 ---
 
 <script>
@@ -25,5 +30,6 @@ const [portfolios, profile, skills] = await Promise.all([
     <TopWorks className={'section'} portfolios={portfolios} />
     <TopProfile className={'section'} {...profile} text={profile.content} />
     <TopSkills className={'section'} skills={skills} />
+    <TopBlog posts={latestPosts} className={'section'} />
   </main>
 </Layout>

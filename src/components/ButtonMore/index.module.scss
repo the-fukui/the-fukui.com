@@ -1,0 +1,36 @@
+%finger {
+  display: block;
+  width: 140px;
+  height: 70px;
+  margin-left: 8px;
+  content: '';
+  transition: transform 0.2s $transition-function-comical;
+  background: {
+    image: url('/img/finger.png');
+    size: contain;
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  line-height: 1;
+  color: white;
+  @include ff-gill-inline;
+  @include mq-down(sm) {
+    font-size: get_vw(40);
+  }
+
+  &::after {
+    @extend %finger;
+  }
+
+  &:hover {
+    &::after {
+      transform: rotateZ(-6deg);
+    }
+  }
+}

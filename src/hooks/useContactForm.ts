@@ -34,7 +34,13 @@ export const useContactForm = () => {
     const honeypotTransformed = { ...data, honeypot: data.phone } // phoneをhoneypotに変換
     delete honeypotTransformed.phone // phoneを削除
 
-    const body = JSON.stringify(honeypotTransformed)
+    // 改行をbrタグに変換
+    const messageTransformed = {
+      ...honeypotTransformed,
+      message: honeypotTransformed.message.replace(/\r?\n/g, '<br />'),
+    }
+
+    const body = JSON.stringify(messageTransformed)
     const headers = { 'Content-Type': 'application/json' }
     return fetch(PUBLIC_STATIC_FORMS_API_ENDPOINT, {
       method: 'POST',

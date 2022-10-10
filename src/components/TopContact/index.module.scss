@@ -1,0 +1,178 @@
+.title {
+  position: relative;
+  margin: 120px 0;
+  font-size: 6rem;
+  color: white;
+  text-align: center;
+  transition: letter-spacing 0.3s ease-out, margin 0.3s ease-out;
+
+  @include ff-gill-nova;
+  @include mq-down(md) {
+    font-size: 4rem;
+  }
+  @include mq-down(sm) {
+    margin: get_vw(60) -1em get_vw(60) 0;
+    font-size: get_vw(25);
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 200vw;
+    height: 100%;
+    content: '';
+    background: $black;
+    transform: translateX(-50%);
+  }
+
+  &.intersected {
+    margin-right: -1em;
+    letter-spacing: 1em;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-areas:
+    'description description'
+    'date date'
+    'name-label name-input'
+    'email-label email-input'
+    'hr hr'
+    'message-label message-label'
+    'message-input message-input';
+  grid-template-columns: auto 1fr;
+  row-gap: 30px;
+  padding: 40px 60px 60px;
+  border: 2px solid $black;
+
+  @include mq-down(sm) {
+    row-gap: get_vw(15);
+    padding: get_vw(40) get_vw(15) get_vw(60);
+  }
+}
+
+.description {
+  grid-area: description;
+  justify-self: center;
+}
+
+.date {
+  display: flex;
+  grid-area: date;
+  justify-self: flex-end;
+
+  &__input {
+    @extend input;
+  }
+
+  &__label {
+    @extend label;
+  }
+}
+
+label {
+  @include ff-gill-nova;
+
+  justify-self: flex-start;
+  margin-right: 10px;
+  font-size: 2rem;
+  white-space: nowrap;
+
+  &.required {
+    &::after {
+      padding-left: 3px;
+      color: $red;
+      content: '*';
+    }
+  }
+}
+
+input {
+  width: 100%;
+  padding: 0 10px;
+  letter-spacing: 1px;
+  border-bottom: dotted 2px $black;
+  outline: 0;
+
+  &:focus {
+    border-bottom: dashed 2px $black;
+  }
+
+  &:invalid:focus {
+    border-bottom: dashed 2px $red;
+  }
+}
+
+hr {
+  grid-area: hr;
+  width: calc(100% + 60px * 2);
+  margin-top: 5px;
+  margin-left: -60px;
+  border: none;
+  border-top: 2px solid $black;
+}
+
+label[for='name'] {
+  grid-area: name-label;
+}
+
+input[name='name'] {
+  grid-area: name-input;
+}
+
+label[for='email'] {
+  grid-area: email-label;
+}
+
+input[name='email'] {
+  grid-area: email-input;
+}
+
+label[for='message'] {
+  position: relative;
+  grid-area: message-label;
+
+  // gap打ち消し
+  margin-bottom: -30px;
+  line-height: 1;
+  @include mq-down(sm) {
+    margin-bottom: -get_vw(15);
+  }
+}
+
+textarea[name='message'] {
+  grid-area: message-input;
+  height: 200px; // 1行40pxなので5行
+  padding: 0 10px;
+  line-height: 2.5em;
+  letter-spacing: 1px;
+  resize: none;
+  outline: none;
+  background: {
+    size: 5px 2.5em;
+    image: url("data:image/svg+xml,%3Csvg width='5' height='2.5em' viewBox='0 0 5 2.5em' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2.5' height='1.5' y='2.4em' fill='%23333333'/%3E%3C/svg%3E");
+  }
+
+  &:focus {
+    background: {
+      size: 5px 2.5em;
+      image: url("data:image/svg+xml,%3Csvg width='5' height='2.5em' viewBox='0 0 5 2.5em' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='3.5' height='1.5' y='2.4em' fill='%23000000'/%3E%3C/svg%3E");
+    }
+  }
+
+  &:invalid:focus {
+    background: {
+      size: 5px 2.5em;
+      image: url("data:image/svg+xml,%3Csvg width='5' height='2.5em' viewBox='0 0 5 2.5em' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='3.5' height='1.5' y='2.4em' fill='%23b23f3f'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+// honeypot
+input[name='phone'] {
+  display: none;
+}

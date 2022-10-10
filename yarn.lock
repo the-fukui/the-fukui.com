@@ -1115,10 +1115,10 @@ astral-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-astro-compress@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-1.0.9.tgz#97941ee89ce26e96c31f50d7d0901fab2dad9d2c"
-  integrity sha512-3UBqf8LFXxedzXEJRpscwLxRHFH/oXurVr2TTk5BoecFeqG01Rc0rEG8UygUyAIBgQwEHb9il0I4BIq7uTTiDg==
+astro-compress@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-1.0.11.tgz#8548a50aea03251a5cdff1b0597381bfd74253ae"
+  integrity sha512-0ikkXyFAE1pZE9Wls9kk7QhEdGRyqh7IFWfR+q9aLKPeHJfh/7EO8oDnD68E5PPKL/RbxBjwJEzhhICK9CYj2Q==
   dependencies:
     csso "5.0.5"
     deepmerge-ts "4.2.2"
@@ -1126,7 +1126,7 @@ astro-compress@^1.0.9:
     html-minifier-terser "7.0.0"
     sharp "0.31.1"
     svgo "2.8.0"
-    terser "5.15.0"
+    terser "5.15.1"
 
 astro-critters@^1.0.5:
   version "1.0.5"
@@ -6817,10 +6817,10 @@ term-size@^2.2.1:
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-2.2.1.tgz#2a6a54840432c2fb6320fea0f415531e90189f54"
   integrity sha512-wK0Ri4fOGjv/XPy8SBHZChl8CM7uMc5VML7SqiQ0zG7+J5Vr+RMQDoHa2CNT6KHUnTGIXH34UDMkPzAUyapBZg==
 
-terser@5.15.0, terser@^5.14.2:
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.15.0.tgz#e16967894eeba6e1091509ec83f0c60e179f2425"
-  integrity sha512-L1BJiXVmheAQQy+as0oF3Pwtlo4s3Wi1X2zNZ2NxOB4wx9bdS9Vk67XQENLFdLYGCK/Z2di53mTj/hBafR+dTA==
+terser@5.15.1, terser@^5.14.2:
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.15.1.tgz#8561af6e0fd6d839669c73b92bdd5777d870ed6c"
+  integrity sha512-K1faMUvpm/FBxjBXud0LWVAGxmvoPbZbfTCYbSgaaYQaIXI3/TdI7a7ZGA73Zrou6Q8Zmz3oeUTsp/dj+ag2Xw==
   dependencies:
     "@jridgewell/source-map" "^0.3.2"
     acorn "^8.5.0"

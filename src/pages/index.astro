@@ -1,5 +1,6 @@
 ---
 import TopBlog from '@/components/TopBlog'
+import TopContact from '@/components/TopContact'
 import TopHero from '@/components/TopHero'
 import TopProfile from '@/components/TopProfile'
 import TopSkills from '@/components/TopSkills'
@@ -31,5 +32,6 @@ const latestPosts = (postsData as PostList).slice(0, 5)
     <TopProfile className={'section'} {...profile} text={profile.content} />
     <TopSkills className={'section'} skills={skills} />
     <TopBlog posts={latestPosts} className={'section'} />
+    <TopContact className={'section'} client:visible />
   </main>
 </Layout>

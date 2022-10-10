@@ -42,6 +42,7 @@
     "promise-throttle": "^1.1.2",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
+    "react-hook-form": "^7.37.0",
     "react-imgix": "^9.5.2"
   },
   "devDependencies": {

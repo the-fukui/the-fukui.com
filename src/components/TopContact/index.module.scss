@@ -1,3 +1,7 @@
+.contact {
+  display: grid;
+}
+
 .title {
   position: relative;
   margin: 120px 0;
@@ -175,4 +179,44 @@ textarea[name='message'] {
 // honeypot
 input[name='phone'] {
   display: none;
+}
+
+.submit {
+  position: relative;
+  z-index: auto;
+  justify-self: center;
+  padding: 5px 15px;
+  margin-top: 30px;
+  font-family: $ff-bl;
+  font-size: 2rem;
+  font-weight: bold;
+  color: $black;
+  border: 2px solid $black;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 0%;
+    height: 100%;
+    content: '';
+    background: $black;
+    transition: width 0.2s;
+  }
+
+  &:hover {
+    color: white;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &:active {
+    color: $black;
+    background: white;
+    border-color: white;
+  }
 }

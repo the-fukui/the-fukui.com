@@ -96,7 +96,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
       <input type="phone" {...inputAttributes.honeyPot} />
     </form>
     {/* submit */}
-    <button type="submit" form="contact-form">
+    <button type="submit" form="contact-form" className={style.submit}>
       送信
     </button>
   </div>

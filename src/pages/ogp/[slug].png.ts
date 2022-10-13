@@ -27,7 +27,7 @@ const loadGoogleFont = async ({
   font: string
 }) => {
   const API = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(
-    text,
+    text + '.',
   )}`
 
   const css = await (

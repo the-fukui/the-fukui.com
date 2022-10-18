@@ -1,16 +1,16 @@
 /**
  * 指定の要素がスクロールされたかどうかを判定する
- * 指定要素のclassに、交差時にはintersectedを、完全にスクロールきった場合にはpassedbyを付与する
+ * 指定要素のclassに、交差時にはintersectedを、完全にスクロールしきった場合にはpassedbyを付与する
  */
 export const watchIsScrolled = () => {
   console.log(document.querySelectorAll('[data-watch-is-scrolled]'))
   // 所定のカスタムデータを持つ要素を取得、オプションを取得
   const targets = Array.from(
-    document.querySelectorAll('[data-watch-is-scrolled]')
+    document.querySelectorAll('[data-watch-is-scrolled]'),
   ).map((element) => {
     const optionAttribute = element.getAttribute('data-watch-is-scrolled')
 
-    const optionObject = (() => {
+    const options: IntersectionObserverInit | undefined = (() => {
       try {
         return optionAttribute ? JSON.parse(optionAttribute) : undefined
       } catch (e) {
@@ -19,28 +19,12 @@ export const watchIsScrolled = () => {
       }
     })()
 
-    const options = {
-      root:
-        optionObject?.root instanceof HTMLElement
-          ? optionObject.root
-          : undefined,
-      rootMargin:
-        typeof optionObject?.rootMargin === 'string'
-          ? optionObject.rootMargin
-          : undefined,
-      threshold:
-        typeof optionObject?.threshold === 'number' ||
-        optionObject?.threshold instanceof Array
-          ? optionObject.threshold
-          : undefined,
-    }
-
     return { element, options }
   })
 
   const createIO = ({
     root = null,
-    rootMargin = '0px',
+    rootMargin = '-100px',
     threshold = 0,
   }: IntersectionObserverInit = {}) =>
     new IntersectionObserver(
@@ -54,7 +38,7 @@ export const watchIsScrolled = () => {
           }
         }
       },
-      { root, rootMargin, threshold }
+      { root, rootMargin, threshold },
     )
 
   const defaultIO = createIO()

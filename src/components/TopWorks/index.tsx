@@ -33,7 +33,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
     <h2 className={style.title}>
       WORKS<span className={style.title__secondary}>制作したサイトなど</span>
     </h2>
-    <ul className={style.portfolios}>
+    <ul className={style.portfolios} data-watch-is-scrolled>
       {portfolios.map((portfolio) => (
         <li key={portfolio.id} className={style.portfolio}>
           <a

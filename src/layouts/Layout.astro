@@ -14,112 +14,116 @@ export interface Props {
 const { title } = Astro.props
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Vignette className={'vignette'} />
-    <Header className={'header'} />
-    <slot />
-    <Footer className={'footer'} />
-    <style lang="scss">
-      .vignette {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 999;
+<script>
+  import { overlays } from '@/scripts/overlays'
+  import { watchIsScrolled } from '@/scripts/watchIsScrolled'
+
+  watchIsScrolled()
+  overlays()
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+
+<body>
+  <Vignette className={'vignette'} />
+  <Header className={'header'} />
+  <slot />
+  <Footer className={'footer'} />
+  <style lang="scss">
+    .vignette {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .header {
+      position: relative;
+      z-index: 10;
+      width: 1200px;
+      margin-right: calc((100vw - 1200px) / 2);
+      margin-bottom: calc(-200px + 10vw);
+      margin-left: auto;
+      transform: translateY(-100%) translateY(95px) rotateZ(-15deg);
+      transform-origin: right calc(100% - 45px - 50px);
+
+      @include mq-down(md) {
+        transform: translateY(calc(-75% + 45px + 50px)) rotateZ(-15deg);
+      }
+
+      @media screen and (max-width: 1199px) {
         width: 100%;
-        height: 100%;
-        pointer-events: none;
+        margin-right: 0;
+        margin-bottom: calc(-400px + 25vw);
       }
 
-      .header {
-        position: relative;
-        z-index: 10;
-        width: 1200px;
-        margin-right: calc((100vw - 1200px) / 2);
-        margin-bottom: calc(-200px + 10vw);
-        margin-left: auto;
-        transform: translateY(-100%) translateY(95px) rotateZ(-15deg);
-        transform-origin: right calc(100% - 45px - 50px);
-
-        @include mq-down(md) {
-          transform: translateY(calc(-75% + 45px + 50px)) rotateZ(-15deg);
-        }
-
-        @media screen and (max-width: 1199px) {
-          width: 100%;
-          margin-right: 0;
-          margin-bottom: calc(-400px + 25vw);
-        }
-
-        @include mq-down(md) {
-          margin-bottom: calc(-80px);
-        }
-
-        @include mq-down(sm) {
-          margin-bottom: calc(-50px);
-        }
+      @include mq-down(md) {
+        margin-bottom: calc(-80px);
       }
 
-      .footer {
-        margin-top: 64px;
+      @include mq-down(sm) {
+        margin-bottom: calc(-50px);
       }
-    </style>
-    <style is:global lang="scss">
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        @include ff-gill-nova;
-      }
+    }
 
-      html {
-        font-size: 62.5%;
-      }
+    .footer {
+      margin-top: 64px;
+    }
+  </style>
+  <style is:global lang="scss">
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include ff-gill-nova;
+    }
 
-      body {
-        overflow-x: hidden;
-        font-family: Avenir-Roman, Arial, '游ゴシック体', YuGothic,
-          '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
-          sans-serif;
-        font-size: 1.8rem;
-        font-weight: bold;
-        font-feature-settings: 'palt' 1;
-        line-height: $line-height;
-        letter-spacing: 0.2px;
-        overflow-wrap: break-word;
-        text-size-adjust: 100%;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
+    html {
+      font-size: 62.5%;
+    }
 
-        @include mq-down(sm) {
-          font-size: get_vw(15);
-        }
+    body {
+      overflow-x: hidden;
+      font-family: Avenir-Roman, Arial, '游ゴシック体', YuGothic,
+        '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic',
+        sans-serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      font-feature-settings: 'palt' 1;
+      line-height: $line-height;
+      letter-spacing: 0.2px;
+      overflow-wrap: break-word;
+      text-size-adjust: 100%;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
 
-        background: {
-          image: url('/img/bg.jpg');
-          color: #cbbea4;
-          repeat: repeat;
-        }
+      @include mq-down(sm) {
+        font-size: get_vw(15);
       }
 
-      .section {
-        width: 100%;
-        max-width: $pc-width;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
+      background: {
+        image: url('/img/bg.jpg');
+        color: #cbbea4;
+        repeat: repeat;
       }
-    </style>
-  </body>
-</html>
+    }
+
+    .section {
+      width: 100%;
+      max-width: $pc-width;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
+</body>

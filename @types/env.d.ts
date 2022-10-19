@@ -9,6 +9,8 @@ interface ImportMetaEnv {
   readonly NO_IMAGE_URL: string
 
   readonly PUBLIC_STATIC_FORMS_API_ENDPOINT: string
+  readonly PUBLIC_SITE_TITLE: string
+  readonly PUBLIC_SITE_DESCRIPTION: string
 }
 
 interface ImportMeta {

@@ -73,7 +73,9 @@ const createSVG = async ({ title }: { title: string }) =>
  *SVGをPNGに変換する
  */
 const convertSVGToPNG = (svg: string) =>
-  sharp(Buffer.from(svg, 'utf-8'), { density: 72 * 2 }).toBuffer()
+  sharp(Buffer.from(svg, 'utf-8'))
+    .png({ compressionLevel: 0, palette: true })
+    .toBuffer()
 
 export const get: APIRoute = async ({ params }) => {
   const slug = params.slug as string

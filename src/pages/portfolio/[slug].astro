@@ -34,7 +34,7 @@ const [prevPage, nextPage] = await getPortfolioList().then((portfolios) => {
 })
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={`制作事例: ${portfolio.title}`}>
   <article>
     <PortfolioHeader {...portfolio} className={'section'} />
     <PortfolioBody {...portfolio} className={'section'} />

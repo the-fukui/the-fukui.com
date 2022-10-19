@@ -41,7 +41,7 @@ const [prevPost, nextPost] = (() => {
 })()
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={post.title}>
   <article>
     <ArticleHeader
       title={post.title}

@@ -23,7 +23,7 @@ const {
 } = Astro.props.page as Page<PostList[number]>
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={`ブログ記事一覧 ${currentPage}ページ目`}>
   <main>
     <PageTitle className={'section'} secondaryTitle={`Page ${currentPage}`}>
       Articles</PageTitle

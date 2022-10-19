@@ -19,7 +19,7 @@ export const get = () =>
     items: (postsData as PostList).map((post) => ({
       link:
         post.postType === 'normal'
-          ? import.meta.env.SITE + '/blog/' + post.id + '/'
+          ? import.meta.env.SITE + 'blog/' + post.id + '/'
           : post.url,
       title: post.title,
       pubDate: dayjs(post.date).toDate(),

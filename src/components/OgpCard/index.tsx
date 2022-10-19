@@ -111,7 +111,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
       height={217}
       style={{
         width: '25vw',
-        height: 25 * (217 / 1200) + 'vw',
+        height: 217 * (25 / 1200) + 'vw',
         position: 'absolute',
         top: '5vw',
         right: '1vw',

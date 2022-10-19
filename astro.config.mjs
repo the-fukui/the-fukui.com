@@ -1,6 +1,7 @@
 import image from '@astrojs/image'
 import preact from '@astrojs/preact'
 import prefetch from '@astrojs/prefetch'
+import sitemap from '@astrojs/sitemap'
 import compress from 'astro-compress'
 import critters from 'astro-critters'
 import { astroImageTools } from 'astro-imagetools'
@@ -29,6 +30,7 @@ export default defineConfig({
     compress({
       img: false,
     }),
+    sitemap(),
   ],
   vite: {
     plugins: [tsconfigPaths()],
@@ -42,7 +44,6 @@ export default defineConfig({
             //全ファイルで共通のscssファイルをimportする
             //ただしここでimportしている_付き且つcssで終わるファイルを除く（avoid self-load）
             if (fp.includes('/_') && fp.endsWith('css')) return source
-
             return (
               `
             @use 'sass:color';

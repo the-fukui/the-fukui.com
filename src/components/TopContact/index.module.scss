@@ -32,13 +32,14 @@
     transform: translateX(-50%);
   }
 
-  &.intersected {
+  &:global(.intersected) {
     margin-right: -1em;
     letter-spacing: 1em;
   }
 }
 
 .form {
+  position: relative;
   display: grid;
   grid-template-areas:
     'description description'
@@ -56,6 +57,57 @@
   @include mq-down(sm) {
     row-gap: get_vw(15);
     padding: get_vw(40) get_vw(15) get_vw(60);
+  }
+}
+
+.mail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  width: 200px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.17, 0.92, 0.14, 0.96),
+    transform 0.4s cubic-bezier(0.17, 0.92, 0.14, 0.96);
+  transform: translateY(-50%) translateX(15%) rotate(15deg) scale(1.4);
+
+  &:global(.intersected) {
+    opacity: 1;
+    transform: translateY(-50%) translateX(15%) rotate(15deg) scale(1);
+  }
+}
+
+.sending,
+.success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgb(white 0.5);
+}
+
+.sent {
+  width: 50%;
+  height: auto;
+  rotate: -8deg;
+  animation: 0.3s ease-out 0s 1 scale-down;
+
+  @keyframes scale-down {
+    0% {
+      scale: 1.5;
+      opacity: 0;
+    }
+
+    100% {
+      scale: 1;
+      opacity: 1;
+    }
   }
 }
 
@@ -206,7 +258,7 @@ input[name='phone'] {
     transition: width 0.2s;
   }
 
-  &:hover {
+  &:hover:not(&:disabled) {
     color: white;
 
     &::after {
@@ -214,9 +266,21 @@ input[name='phone'] {
     }
   }
 
-  &:active {
+  &:active:not(&:disabled) {
     color: $black;
     background: white;
     border-color: white;
   }
+
+  &:disabled {
+    color: gray;
+    cursor: not-allowed;
+    border-color: gray;
+  }
+}
+
+.error {
+  padding-top: 30px;
+  color: $red;
+  text-align: center;
 }

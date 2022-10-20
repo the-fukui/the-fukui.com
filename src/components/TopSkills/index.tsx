@@ -47,7 +47,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   mergedSkill,
   GCPSkill,
 }: PresenterProps) => (
-  <div className={`${className} ${style.skills}`}>
+  <div className={`${className} ${style.skills}`} data-watch-is-scrolled>
     <div className={style.title}>
       <h3 className={`${style.title__text} ${style['title__text--main']}`}>
         SKILL
@@ -85,7 +85,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
         </ul>
       </li>
     </ul>
-    <div className={`${style.ex} ${style.intersected}`}>
+    <div className={`${style.ex}`} data-watch-is-scrolled>
       <span className={style.ex__text}>
         ...and playing <span className={style.ex__item}>guitar</span> and
         <span className={style.ex__item}>violin</span>! 😎

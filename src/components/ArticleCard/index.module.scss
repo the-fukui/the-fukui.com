@@ -17,6 +17,9 @@
   padding: 10px 15px 0 0;
   font-size: 2rem;
   color: white;
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.2s;
+  transform: translateX(50px);
 
   & > h3 {
     position: relative;
@@ -32,6 +35,13 @@
     height: calc(100% + 10px);
     content: '';
     background: $black;
+  }
+}
+
+.card:global(.intersected) {
+  .title {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -90,6 +100,7 @@
 
   .title {
     padding-left: 15px;
+    transform: translateX(-50px);
 
     &::after {
       right: -90px;
@@ -105,6 +116,13 @@
       margin-right: 0;
       margin-left: auto;
     }
+  }
+}
+
+.card.reverse:global(.intersected) {
+  .title {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

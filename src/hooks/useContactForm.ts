@@ -1,3 +1,4 @@
+import { useSignal } from '@preact/signals'
 import { useForm } from 'react-hook-form'
 
 type FormData = {
@@ -8,10 +9,15 @@ type FormData = {
   phone?: string // for honeypot
 }
 
+type Status = 'idle' | 'sending' | 'success' | 'error'
+
 const { PUBLIC_STATIC_FORMS_API_ENDPOINT, PUBLIC_STATIC_FORMS_TOKEN } =
   import.meta.env
 
 export const useContactForm = () => {
+  //フォームの状態
+  const status = useSignal<Status>('idle')
+
   const {
     register,
     handleSubmit,
@@ -31,6 +37,10 @@ export const useContactForm = () => {
    * Static FormsにPOSTする
    */
   const onSubmit = handleSubmit((data) => {
+    // 確認ダイアログ
+    if (!window.confirm('メッセージを送信します。よろしいですか？')) return
+
+    status.value = 'sending'
     const honeypotTransformed = { ...data, honeypot: data.phone } // phoneをhoneypotに変換
     delete honeypotTransformed.phone // phoneを削除
 
@@ -42,16 +52,24 @@ export const useContactForm = () => {
 
     const body = JSON.stringify(messageTransformed)
     const headers = { 'Content-Type': 'application/json' }
-    return fetch(PUBLIC_STATIC_FORMS_API_ENDPOINT, {
+
+    fetch(PUBLIC_STATIC_FORMS_API_ENDPOINT, {
       method: 'POST',
       body,
       headers,
     })
+      .then(() => {
+        status.value = 'success'
+      })
+      .catch(() => {
+        status.value = 'error'
+      })
   })
 
   return {
     inputAttributes,
     errors,
     onSubmit,
+    status,
   }
 }

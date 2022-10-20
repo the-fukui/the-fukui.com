@@ -61,7 +61,12 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   avatar,
 }: PresenterProps) => (
   <div className={`${className} ${style.profile}`}>
-    <h2 className={`${style.title} ${style.intersected}`}>PROFILE</h2>
+    <h2
+      className={`${style.title} ${style.intersected}`}
+      data-watch-is-scrolled
+    >
+      PROFILE
+    </h2>
     <div className={style.text} dangerouslySetInnerHTML={{ __html: text }} />
     <ul className={style.links}>
       {LINKS.map((item) => (

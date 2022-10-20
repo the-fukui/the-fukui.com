@@ -16,7 +16,7 @@
   padding: 0 16px 10px 8px;
   font-size: 12rem;
   line-height: 1;
-  color: $black;
+  color: rgba($black, 0);
   transition: color 0.2s ease-in-out 0.3s;
   transform: perspective(450px) rotateY(30deg);
   transform-origin: left center;
@@ -29,18 +29,6 @@
   @include mq-down(sm) {
     margin-top: get_vw(-10);
     font-size: get_vw(60);
-  }
-
-  &.intersected {
-    color: rgb(51 51 51 / 100%);
-
-    &::after {
-      height: 100%;
-
-      @include mq-down(sm) {
-        height: get_vw(58);
-      }
-    }
   }
 
   &::after {
@@ -57,7 +45,17 @@
     backface-visibility: hidden;
   }
 
-  // color: white;
+  &:global(.intersected) {
+    color: rgba($black, 1);
+
+    &::after {
+      height: 100%;
+
+      @include mq-down(sm) {
+        height: get_vw(58);
+      }
+    }
+  }
 }
 
 .text {
@@ -96,7 +94,8 @@
   content: '';
   border-top: calc(((500px + 35vw) * 0.6 - 130px) / 2) solid transparent;
   border-bottom: calc(((500px + 35vw) * 0.6 - 130px) / 2) solid transparent;
-  border-left: calc((100vw - #{$pc-width}) / 2 + #{$pc-width} - 250px * 0.3) solid $black;
+  border-left: calc((100vw - #{$pc-width}) / 2 + #{$pc-width} - 250px * 0.3)
+    solid $black;
   transform: translateY(-50%) translateZ(0);
 
   @include mq-down(max) {

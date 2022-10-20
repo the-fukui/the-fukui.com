@@ -5,9 +5,10 @@ import type { FunctionalComponent, JSX } from 'preact'
 
 import style from './index.module.scss'
 
+// TODO: reverse状態をデフォルトにしてもよいかも
 const Mode = {
   reverse: 'reverse',
-  'mini-reverse': 'mini-reverse',
+  'mini-reverse': 'mini-reverse', // TOPのBlogセクション用
 } as const
 
 type ContainerProps = {
@@ -47,7 +48,10 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
   thumbnail,
   mode,
 }: PresenterProps) => (
-  <div className={`${className} ${style.card} ${mode && style[Mode[mode]]}`}>
+  <div
+    className={`${className} ${style.card} ${mode && style[Mode[mode]]}`}
+    data-watch-is-scrolled
+  >
     <time dateTime={dateTime} className={style.date}>
       {displayTime}
     </time>

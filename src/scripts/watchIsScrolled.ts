@@ -24,7 +24,7 @@ export const watchIsScrolled = () => {
 
   const createIO = ({
     root = null,
-    rootMargin = '-100px',
+    rootMargin = '-150px',
     threshold = 0,
   }: IntersectionObserverInit = {}) =>
     new IntersectionObserver(

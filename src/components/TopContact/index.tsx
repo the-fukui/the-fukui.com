@@ -95,7 +95,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
         alt=""
         className={style.mail}
         width="496"
-        height="496"
+        height="316"
         data-watch-is-scrolled
       />
       <span className={style.description}>

@@ -5,6 +5,14 @@
     'text avatar'
     'links .';
   grid-template-columns: auto 250px;
+
+  @include mq-down(md) {
+    grid-template-areas:
+      'title'
+      'text'
+      'links'
+      'avatar';
+  }
 }
 
 .title {

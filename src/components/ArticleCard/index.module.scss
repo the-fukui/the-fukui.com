@@ -8,6 +8,14 @@
     columns: 400px 1fr;
     rows: 1fr auto;
   }
+
+  @include mq-down(md) {
+    grid-template-areas:
+      'thumbnail'
+      'date'
+      'title';
+    grid-template-columns: auto;
+  }
 }
 
 .title {
@@ -73,6 +81,7 @@
   }
 
   @include mq-down(md) {
+    width: auto;
     margin-bottom: -5px;
   }
 }
@@ -93,6 +102,14 @@
     'title thumbnail'
     '. thumbnail';
   grid-template-columns: 1fr 400px;
+
+  @include mq-down(md) {
+    grid-template-areas:
+      'thumbnail'
+      'date'
+      'title';
+    grid-template-columns: auto !important;
+  }
 
   .date {
     padding-left: 15px;

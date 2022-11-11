@@ -9,6 +9,11 @@
     image: url('/img/finger.png');
     size: contain;
   }
+
+  @include mq-down(sm) {
+    width: min(get_vw(140), 140px);
+    height: min(get_vw(70), 70px);
+  }
 }
 
 .button {

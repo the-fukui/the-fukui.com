@@ -33,7 +33,7 @@ const LINKS = [
     width: 780,
     height: 250,
   },
-]
+] as const
 
 type ContainerProps = {
   className?: string

@@ -2,7 +2,7 @@ import type { FunctionalComponent } from 'preact'
 import Imgix, { Picture, Source } from 'react-imgix'
 import type { SharedImgixAndSourceProps } from 'react-imgix'
 
-// import style from './index.module.scss'
+import style from './index.module.scss'
 
 type ContainerProps = {
   className?: string
@@ -62,7 +62,7 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
           fit: 'crop',
           auto: undefined,
         }}
-        className={className}
+        className={`${className} ${style.image}`}
         htmlAttributes={{ alt }}
       />
     </Picture>

@@ -96,11 +96,11 @@ const { title, description, ogpImage } = Astro.props
     }
 
     @include mq-down(md) {
-      margin-bottom: calc(-80px);
+      margin-bottom: calc(-120px);
     }
 
     @include mq-down(sm) {
-      margin-bottom: calc(-50px);
+      margin-bottom: get_vw(-50);
     }
   }
 

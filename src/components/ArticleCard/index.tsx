@@ -1,4 +1,5 @@
 import Image from '@/components/Image'
+import { isExternalLink } from '@/utils'
 
 import dayjs from 'dayjs'
 import type { FunctionalComponent, JSX } from 'preact'
@@ -20,6 +21,7 @@ type ContainerProps = {
     url: string
   }
   mode?: keyof typeof Mode
+  postType: 'qiita' | 'normal'
 }
 
 type PresenterProps = ReturnType<typeof Container> & {
@@ -27,26 +29,33 @@ type PresenterProps = ReturnType<typeof Container> & {
 }
 
 const Container = (props: ContainerProps) => {
-  const { date } = props
+  const { date, postType, id } = props
+
+  const postUrlByPostTypes = {
+    qiita: import.meta.env.PUBLIC_QIITA_POST_PATH,
+    normal: '/blog',
+  } as const
 
   const dateTime = dayjs(date).toISOString()
   const displayTime = dayjs(date).format('MMM D, YYYY')
+  const postUrl = postUrlByPostTypes[postType] + '/' + id + '/'
 
   const presenterProps = {
     dateTime,
     displayTime,
+    postUrl,
   }
   return { ...props, ...presenterProps }
 }
 
 const Presenter: FunctionalComponent<PresenterProps> = ({
   className,
-  id,
   title,
   dateTime,
   displayTime,
   thumbnail,
   mode,
+  postUrl,
 }: PresenterProps) => (
   <div
     className={`${className} ${style.card} ${mode && style[Mode[mode]]}`}
@@ -55,13 +64,25 @@ const Presenter: FunctionalComponent<PresenterProps> = ({
     <time dateTime={dateTime} className={style.date}>
       {displayTime}
     </time>
-    <a href={`/blog/${id}/`} className={style.title}>
+    <a
+      href={postUrl}
+      className={style.title}
+      {...(isExternalLink(postUrl)
+        ? { target: '_blank', rel: 'noreferrer' }
+        : {})}
+    >
       <h3>{title}</h3>
     </a>
-    <a className={style.thumbnail} href={`/blog/${id}`}>
+    <a
+      className={style.thumbnail}
+      href={postUrl}
+      {...(isExternalLink(postUrl)
+        ? { target: '_blank', rel: 'noreferrer' }
+        : {})}
+    >
       <Image
         alt=""
-        src={thumbnail?.url || import.meta.env.NO_IMAGE_URL}
+        src={thumbnail?.url || import.meta.env.PUBLIC_NO_IMAGE_URL}
         width={mode === 'mini-reverse' ? 200 : 400}
         height={mode === 'mini-reverse' ? 200 / 1.618 : 400 / 1.618}
       />

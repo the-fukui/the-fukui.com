@@ -14,12 +14,8 @@
     content: '';
     background-color: $black;
 
-    @include mq-down(md) {
-      height: 40px;
-    }
-
     @include mq-down(sm) {
-      height: get_vw(40);
+      height: 100%;
     }
   }
 }
@@ -70,14 +66,11 @@
 
 .description {
   grid-area: description;
+  align-self: center;
   padding: 0 15px 3px;
   font-size: 3rem;
   line-height: 3rem;
   @include ff-gill-inline;
-
-  @include mq-down(md) {
-    font-size: 2.5rem;
-  }
 
   @include mq-down(sm) {
     padding: 0 get_vw(15);
@@ -88,4 +81,8 @@
 .navigation {
   grid-area: nav;
   margin-top: 16px;
+
+  @include mq-down(sm) {
+    display: none;
+  }
 }

@@ -4,10 +4,11 @@ interface ImportMetaEnv {
   readonly MICROCMS_API_KEY: string
   readonly QIITA_API_ENDPOINT: string
   readonly QIITA_API_KEY: string
+
+  readonly PUBLIC_QIITA_POST_PATH: string
   readonly PUBLIC_STATIC_FORMS_TOKEN: string
   readonly BITLY_API_KEY: string
-  readonly NO_IMAGE_URL: string
-
+  readonly PUBLIC_NO_IMAGE_URL: string
   readonly PUBLIC_STATIC_FORMS_API_ENDPOINT: string
   readonly PUBLIC_SITE_TITLE: string
   readonly PUBLIC_SITE_DESCRIPTION: string

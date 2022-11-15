@@ -109,12 +109,12 @@
 
   @include mq-down(max) {
     top: 30px;
-    right: -15px;
+    right: -30px;
     bottom: auto;
     height: calc((600px + 35vw) * 0.4);
     border-top-width: calc(((500px + 35vw) * 0.4 - 130px) / 2);
     border-bottom-width: calc(((500px + 35vw) * 0.4 - 130px) / 2);
-    border-left-width: 100vw;
+    border-left-width: calc(100vw + 15px);
   }
 
   @include mq-down(sm) {
@@ -131,6 +131,10 @@ picture:has(.avatar) {
   background: #203669;
   border: 7px solid white;
   border-radius: 50%;
+
+  @include mq-down(md) {
+    justify-self: flex-end;
+  }
 
   &::after {
     @extend %background;

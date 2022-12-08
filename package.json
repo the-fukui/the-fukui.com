@@ -64,7 +64,7 @@
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^28.0.0",
     "stylelint-config-standard-scss": "^5.0.0",
-    "vite-node": "^0.22.1",
+    "vite-node": "^0.25.6",
     "vite-tsconfig-paths": "^3.5.0",
     "vue": "^3.2.39",
     "vue-tsc": "^0.40.13"

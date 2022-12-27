@@ -40,7 +40,7 @@
     "@typescript-eslint/parser": "^5.36.2",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.1",
-    "astro": "^1.1.7",
+    "astro": "^1.8.0",
     "astro-compress": "^1.0.7",
     "astro-critters": "^1.0.3",
     "cheerio": "^1.0.0-rc.12",
